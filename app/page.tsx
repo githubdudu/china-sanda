@@ -6,24 +6,16 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
+          src="/logo.jpeg"
+          alt="China Sanda Club logo"
           width={180}
           height={38}
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">
+          Welcome to <span className="text-foreground">China Sanda Club</span>
+          世界一流的散打搏击俱乐部
+        </h1>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
