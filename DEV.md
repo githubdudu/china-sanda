@@ -27,16 +27,14 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 ### Phase 1: Quick Deploy (Init & Immediate Deployment)
 **Goal**: Get a live site deployed to Vercel immediately for testing and continuous deployment
 
-- [ ] Initialize Next.js project with App Router
-- [ ] Setup Tailwind CSS configuration
-- [ ] Create basic project folder structure
-- [ ] Create basic layout wrapper (Header, Footer, Navigation placeholder)
-- [ ] Create placeholder home page
+- [ ] Initialize Next.js project
+  - [ ] Setup Tailwind CSS configuration
+  - [ ] Create basic project folder structure
+  - [ ] Create basic layout wrapper (Header, Footer, Navigation placeholder)
+  - [ ] Create placeholder home page
 - [ ] Initialize Git repository and push to GitHub
 - [ ] Connect repository to Vercel
 - [ ] Deploy to Vercel (get live URL)
-- [ ] Configure custom domain (if ready)
-- [ ] Setup environment variables in Vercel
 
 ### Phase 2: Foundation & Setup
 **Goal**: Establish solid project infrastructure and structure
@@ -121,120 +119,6 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 - [ ] Setup draft preview mode
 - [ ] Migrate existing content to Sanity
 - [ ] Test all data fetching
-
----
-
-## Detailed Todo List
-
-### Phase 1: Quick Deploy (Priority 1 - Get Live URL First)
-- [ ] Initialize Next.js project with App Router
-- [ ] Setup Tailwind CSS configuration
-- [ ] Create basic folder structure (app, components, data, lib, public)
-- [ ] Create basic layout.tsx with placeholder Header/Footer/Navigation
-- [ ] Create placeholder home page (`app/page.tsx`)
-- [ ] Initialize Git repository locally
-- [ ] Push to GitHub repository
-- [ ] Connect GitHub repo to Vercel
-- [ ] Deploy to Vercel (obtain live URL)
-- [ ] Test live deployment works
-- [ ] Configure custom domain in Vercel (if ready)
-- [ ] Setup environment variables in Vercel dashboard
-
-### Phase 2: Foundation & Setup
-- [ ] Configure ESLint and Prettier
-- [ ] Create proper folder structure (organize components, data, lib, public)
-- [ ] Build functional Header/Navigation component
-- [ ] Build functional Footer component
-- [ ] Setup basic layout styling with Tailwind
-
-### Phase 3: Core Pages & Components Development
-**Pages**:
-- [ ] Build Home page (`app/page.tsx`) with hero section
-- [ ] Build Coaches page (`app/coaches/page.tsx`)
-- [ ] Build Classes page (`app/classes/page.tsx`)
-- [ ] Build Pricing page (`app/pricing/page.tsx`)
-- [ ] Build Gallery page (`app/gallery/page.tsx`)
-- [ ] Build Contact page (`app/contact/page.tsx`)
-
-**Components**:
-- [ ] CoachCard component - Display individual coach info
-- [ ] ClassSchedule component - Display class schedule grid
-- [ ] PricingTable component - Display pricing tiers
-- [ ] PricingCard component - Individual price cards
-- [ ] GalleryGrid component - Display photo gallery
-- [ ] GalleryImage component - Individual gallery items
-- [ ] ContactForm component - Contact form with validation
-- [ ] Hero section component - Landing page hero
-
-### Phase 4: Content & Static Data Population
-- [ ] Create `lib/data/coaches.ts` with coach information (TypeScript constants)
-- [ ] Create `lib/data/classes.ts` with class schedules and data
-- [ ] Create `lib/data/pricing.ts` with pricing plans
-- [ ] Create `lib/data/gallery.ts` with gallery items metadata
-- [ ] Connect Coaches page to coaches data
-- [ ] Connect Classes page to classes data
-- [ ] Connect Pricing page to pricing data
-- [ ] Connect Gallery page to gallery data
-
-### Phase 5: Features & Optimization
-**SEO Optimization**:
-- [ ] Configure metadata for all pages (title, description, og tags)
-- [ ] Add open graph images for social sharing
-- [ ] Implement JSON-LD structured data (Organization, Article, BreadcrumbList)
-- [ ] Create sitemap.xml
-- [ ] Create robots.txt
-- [ ] Setup next-seo package (optional but recommended)
-
-**Forms & Interactivity**:
-- [ ] Implement contact form with client-side validation
-- [ ] Create API route for email sending (`app/api/contact/route.ts`)
-- [ ] Setup email service (Nodemailer, SendGrid, or Vercel Functions)
-- [ ] Add form success/error states and messages
-- [ ] Add loading states to form submission
-- [ ] Implement responsive mobile navigation
-
-**Performance**:
-- [ ] Optimize images with next/image component
-- [ ] Implement lazy loading for images
-- [ ] Setup Web Vitals monitoring
-- [ ] Run Lighthouse audits and optimize
-- [ ] Optimize bundle size
-
-### Phase 6: CMS Integration (Sanity.io)
-**Sanity Setup**:
-- [ ] Create Sanity project
-- [ ] Design and implement content schemas
-- [ ] Setup Sanity CLI locally
-- [ ] Configure Sanity client in Next.js
-- [ ] Setup environment variables for Sanity API keys
-- [ ] Configure CORS for Sanity API
-
-**Content Schemas**:
-- [ ] Create Coach schema
-- [ ] Create Class schema
-- [ ] Create Pricing schema
-- [ ] Create Gallery schema
-- [ ] Create Settings schema (optional - for global config)
-
-**CMS Integration**:
-- [ ] Replace coaches data with Sanity queries
-- [ ] Replace classes data with Sanity queries
-- [ ] Replace pricing data with Sanity queries
-- [ ] Replace gallery data with Sanity queries
-- [ ] Implement incremental static regeneration (ISR)
-- [ ] Setup Sanity draft preview mode
-- [ ] Migrate all existing static content to Sanity
-- [ ] Test all data fetching from Sanity
-- [ ] Update deployment with Sanity webhooks for auto-revalidation
-
-### Testing & Final Tasks
-- [ ] Complete testing and QA
-- [ ] Final performance optimization
-- [ ] Verify SEO implementation
-- [ ] Domain configuration finalization
-- [ ] Setup monitoring and error tracking
-- [ ] Create deployment documentation
-- [ ] Final launch checklist
 
 ---
 
