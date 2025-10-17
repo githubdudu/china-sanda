@@ -13,8 +13,10 @@ export default function Home() {
           priority
         />
         <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">
-          Welcome to <span className="text-foreground">China Sanda Club</span>
-          世界一流的散打搏击俱乐部
+          <div>
+            Welcome to <span className="text-foreground">China Sanda Club</span>
+          </div>
+          <div>世界一流的散打搏击俱乐部</div>
         </h1>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
