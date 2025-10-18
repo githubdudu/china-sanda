@@ -20,6 +20,7 @@ const eslintConfig = [
     quotes: "double",
     semi: true,
     jsx: true,
+    arrowParens: true,
   }),
   {
     ignores: [
@@ -29,6 +30,12 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    rules: {
+      "@stylistic/multiline-ternary": ["error", "always-multiline", { ignoreJSX: true }],
+    },
   },
 ];
 

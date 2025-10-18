@@ -18,7 +18,7 @@ const navLinks: NavLink[] = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const Header = (): JSX.Element => {
+export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = (): void => {
@@ -26,8 +26,10 @@ export const Header = (): JSX.Element => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background border-b
-      border-foreground/10 shadow-sm">
+    <header
+      className="sticky top-0 z-50 w-full bg-background border-b
+      border-foreground/10 shadow-sm"
+    >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
