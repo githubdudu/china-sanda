@@ -59,8 +59,7 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 className="px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base
-                  font-medium text-foreground hover:text-background
-                  hover:bg-primary/80 rounded-md transition-colors"
+                  nav-link"
               >
                 {link.label}
               </Link>
@@ -68,11 +67,9 @@ const Header = () => {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="px-6 py-2 bg-primary text-background font-medium
-                rounded-full hover:bg-primary-dark transition-colors shadow-md
-                hover:shadow-lg"
+              className="px-6 py-2 btn-primary"
             >
-              Book
+              Book Trial
             </Link>
           </div>
 
@@ -128,9 +125,7 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-center text-base font-medium text-foreground
-                    hover:text-background hover:bg-primary/80 rounded-md
-                    transition-colors"
+                  className="px-4 py-2 text-center text-base nav-link"
                   onClick={toggleMobileMenu}
                 >
                   {link.label}
@@ -144,9 +139,7 @@ const Header = () => {
               </div>
               <Link
                 href="/contact"
-                className="mx-4 mt-2 px-6 py-3 bg-primary text-white
-                  font-medium text-center rounded-full hover:bg-primary-dark
-                  transition-colors shadow-md"
+                className="mx-4 mt-2 px-6 py-3 btn-primary"
                 onClick={toggleMobileMenu}
               >
                 Book Trial
