@@ -25,11 +25,17 @@
   --info: #3b82f6;
 }
 
+/* Dark mode via manual toggle (.dark class) or system preference */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --secondary: #fbbf24;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light) {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --primary: #991b1b;
     --secondary: #fbbf24;
   }
 }

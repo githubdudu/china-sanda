@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import { ThemeToggle } from "./ThemeToggle";
+
 interface NavLink {
   href: string;
   label: string;
@@ -59,6 +61,7 @@ export const Header = () => {
                 {link.label}
               </Link>
             ))}
+            <ThemeToggle />
             <Link
               href="/contact"
               className="ml-4 px-6 py-2 bg-primary text-white font-medium
@@ -129,6 +132,12 @@ export const Header = () => {
                   {link.label}
                 </Link>
               ))}
+              <div className="flex items-center justify-between px-4 py-2">
+                <span className="text-sm font-medium text-foreground">
+                  Theme
+                </span>
+                <ThemeToggle />
+              </div>
               <Link
                 href="/contact"
                 className="mx-4 mt-2 px-6 py-3 bg-primary text-white
