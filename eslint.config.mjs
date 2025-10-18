@@ -2,6 +2,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import stylistic from "@stylistic/eslint-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,6 +14,13 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("eslint:recommended", "next/core-web-vitals", "next/typescript"),
+  stylistic.configs.customize({
+    // the following options are the default values
+    indent: 2,
+    quotes: "double",
+    semi: true,
+    jsx: true,
+  }),
   {
     ignores: [
       "node_modules/**",
