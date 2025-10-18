@@ -8,7 +8,7 @@ export default function Home() {
           src="/logo.jpeg"
           alt="China Sanda Club logo"
           width={180}
-          height={38}
+          height={180}
           priority
         />
         <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">

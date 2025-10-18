@@ -36,8 +36,17 @@ const Header = () => {
       <nav className="container mx-auto px-2">
         <div className="flex items-center justify-between sm:h-16 md:h-25">
           {/* Logo */}
-          <div className="h-10 sm:h-16 md:h-25 w-10 sm:w-16 md:w-20 relative">
-            <Logo />
+          <div className="h-10 sm:h-16 md:h-20 w-10 sm:w-16 md:w-20 relative">
+            <Image
+              src="/logo.jpeg"
+              alt="China Sanda Club logo"
+              fill
+              // sizes align with the parent div's width and height
+              // add sizes to increase performance
+              sizes="2.5rem, (min-width: 640px) 4rem, (min-width: 768px) 5rem"
+              className="object-fill"
+              priority
+            />
           </div>
 
           {/* Title */}
@@ -154,13 +163,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const Logo = () => (
-  <Image
-    src="/logo.jpeg"
-    alt="China Sanda Club logo"
-    layout="fill"
-    objectFit="contain"
-    priority
-  />
-);
