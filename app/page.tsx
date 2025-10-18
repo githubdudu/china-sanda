@@ -15,7 +15,7 @@ export default function Home() {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">
           <div>
             Welcome to
-            <span className="text-foreground">China Sanda Club</span>
+            <span className="text-foreground"> China Sanda Club</span>
           </div>
           <div>世界一流的散打搏击俱乐部</div>
         </h1>

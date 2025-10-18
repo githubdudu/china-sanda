@@ -9,20 +9,23 @@ This is a Next.js 15.5 website for China Sanda Club (世界一流的散打搏击
 ## Development Commands
 
 ### Primary Development Workflow
-- `pnpm dev` - Start development server with Turbopack
-- `pnpm build` - Production build with Turbopack
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint checks
-- `pnpm lint:fix` - Auto-fix ESLint issues
-- `pnpm lint:strict` - Strict linting with zero warnings allowed
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Production build with Turbopack
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint checks
+- `npm run lint:fix` - Auto-fix ESLint issues
 
 ### Package Management
-This project uses **pnpm** as the package manager.
+This project uses **npm** as the package manager.
 
 ## Code Style & Linting
 
 ### ESLint Configuration (eslint.config.mjs)
-This project has strict linting rules. Key requirements:
+This project uses a comprehensive ESLint setup with the following configurations:
+- **eslint:recommended** - Core ESLint recommended rules
+- **@stylistic/eslint-plugin** - Code style and formatting rules
+- **next/core-web-vitals** - Next.js best practices
+- **next/typescript** - TypeScript-specific Next.js rules
 
 **TypeScript:**
 - Type checking is handled by the TypeScript compiler (via `tsconfig.json` strict mode)
@@ -49,11 +52,14 @@ This project has strict linting rules. Key requirements:
 - Max line length: 100 characters
 - Max nesting depth: 4
 - No `console.log()` (only `console.warn()` and `console.error()` allowed)
+
+**Stylistic Rules** (via @stylistic/eslint-plugin):
 - Double quotes required for strings
 - 2-space indentation
 - Semicolons required
+- JSX support enabled
 
-**Important:** When creating or editing files, expect many ESLint violations initially. Run `pnpm lint:fix` frequently during development.
+**Important:** When creating or editing files, expect many ESLint violations initially. Run `npm run lint:fix` frequently during development.
 
 ## Architecture
 
@@ -147,14 +153,14 @@ All JSX must meet strict a11y requirements:
 
 ### Development Workflow Tips
 1. Make changes incrementally
-2. Run `pnpm lint` frequently to catch style violations early
-3. Use `pnpm lint:fix` to auto-fix formatting issues
-4. Run `pnpm build` to catch TypeScript type errors
+2. Run `npm run lint` frequently to catch style violations early
+3. Use `npm run lint:fix` to auto-fix formatting issues
+4. Run `npm run build` to catch TypeScript type errors
 5. Test builds before committing major changes
 
 ## Git & Deployment
 
 - **Main Branch:** master
 - **Hosting:** Vercel
-- **Build Command:** `pnpm build`
+- **Build Command:** `npm run build`
 - **Development:** Continuous deployment from master branch
