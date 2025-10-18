@@ -31,28 +31,6 @@ This project uses a comprehensive ESLint setup with the following configurations
 - Type checking is handled by the TypeScript compiler (via `tsconfig.json` strict mode)
 - ESLint focuses on code style and best practices, not type safety
 
-**Import Organization:**
-- Imports MUST be ordered: react → next → external → internal → parent → sibling
-- Alphabetized within groups
-- Newlines between import groups required
-- Default exports are discouraged (warned against)
-- Prefer top-level type imports
-
-**React & Component Standards:**
-- Function components MUST use arrow functions: `const Component = (): JSX.Element => { ... }`
-- No array index as key
-- No `any` in prop types
-- All accessibility rules enforced (jsx-a11y)
-
-**Code Quality Constraints:**
-- Max cyclomatic complexity: 10
-- Max file length: 500 lines (excluding blanks/comments)
-- Max function length: 100 lines
-- Max parameters: 4
-- Max line length: 100 characters
-- Max nesting depth: 4
-- No `console.log()` (only `console.warn()` and `console.error()` allowed)
-
 **Stylistic Rules** (via @stylistic/eslint-plugin):
 - Double quotes required for strings
 - 2-space indentation
