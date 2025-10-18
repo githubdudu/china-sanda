@@ -5,7 +5,6 @@ export default function Home() {
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
-          className="dark:invert"
           src="/logo.jpeg"
           alt="China Sanda Club logo"
           width={180}
@@ -14,10 +13,29 @@ export default function Home() {
         />
         <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">
           <div>
-            Welcome to
-            <span className="text-foreground"> China Sanda Club</span>
+            Welcome to&nbsp;
+            <span className="text-foreground underline underline-offset-4 decoration-primary">
+              China Sanda Club
+            </span>
           </div>
-          <div>世界一流的散打搏击俱乐部</div>
+          <div>
+            <span className="underline underline-offset-4 decoration-primary">
+              The World-Class
+            </span>
+            &nbsp;Sanda Club
+          </div>
+        </h1>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">
+          <div>
+            欢迎来到&nbsp;
+            <span className="text-foreground underline underline-offset-4 decoration-primary">
+              中国散打
+            </span>
+          </div>
+          <div>
+            <span className="underline underline-offset-4 decoration-primary">世界一流的</span>
+            &nbsp;散打搏击俱乐部
+          </div>
         </h1>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
