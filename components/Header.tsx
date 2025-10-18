@@ -43,7 +43,7 @@ const Header = () => {
           {/* Title */}
           <Link
             href="/"
-            className="flex md:flex-5 md:justify-self-start items-center space-x-2 hover:opacity-60
+            className="flex md:flex-5 justify-center lg:justify-self-start items-center space-x-2 hover:opacity-60
             transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
           >
             <div className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary">
@@ -53,7 +53,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <div className="hidden lg:flex items-center space-x-1 lg:space-x-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -65,19 +65,13 @@ const Header = () => {
               </Link>
             ))}
             <ThemeToggle />
-            <Link
-              href="/contact"
-              className="px-6 py-2 btn-primary"
-            >
-              Book Trial
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 rounded-md text-foreground
+            className="lg:hidden p-2 rounded-md text-foreground
               hover:bg-foreground/5 focus:outline-none focus:ring-2
               focus:ring-primary"
             aria-label="Toggle mobile menu"
@@ -115,11 +109,18 @@ const Header = () => {
               </svg>
             )}
           </button>
+
+          <Link
+            href="/contact"
+            className="px-6 py-2 ml-2 btn-primary hidden md:inline-block"
+          >
+            Book Trial
+          </Link>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-foreground/10">
+          <div className="lg:hidden py-4 border-t border-foreground/10">
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => (
                 <Link
@@ -139,7 +140,7 @@ const Header = () => {
               </div>
               <Link
                 href="/contact"
-                className="mx-4 mt-2 px-6 py-3 btn-primary"
+                className="mx-4 px-6 py-2 btn-primary"
                 onClick={toggleMobileMenu}
               >
                 Book Trial
