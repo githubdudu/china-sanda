@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -20,7 +21,7 @@ const navLinks: NavLink[] = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const Header = () => {
+const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = (): void => {
@@ -32,20 +33,23 @@ export const Header = () => {
       className="sticky top-0 z-50 w-full bg-background border-b
       border-foreground/10 shadow-sm"
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <nav className="container mx-auto px-2">
+        <div className="flex items-center justify-between sm:h-16 md:h-25">
           {/* Logo */}
+          <div className="h-10 sm:h-16 md:h-25 w-10 sm:w-16 md:w-20 relative">
+            <Logo />
+          </div>
+
+          {/* Title */}
           <Link
             href="/"
-            className="flex items-center space-x-2 hover:opacity-80
-              transition-opacity"
+            className="flex md:flex-5 md:justify-self-start items-center space-x-2 hover:opacity-60
+            transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
           >
-            <span className="text-xl md:text-2xl font-bold text-primary">
-              China Sanda Club
-            </span>
-            <span className="hidden sm:inline text-sm text-secondary">
-              散打俱乐部
-            </span>
+            <div className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary">
+              <span>中国散打</span>
+              <span>China Sanda Club</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -54,7 +58,7 @@ export const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 lg:px-4 py-2 text-sm lg:text-base
+                className="px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base
                   font-medium text-foreground hover:text-primary
                   hover:bg-primary/5 rounded-md transition-colors"
               >
@@ -64,11 +68,11 @@ export const Header = () => {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2 bg-primary text-white font-medium
+              className="px-6 py-2 bg-primary text-white font-medium
                 rounded-full hover:bg-primary-dark transition-colors shadow-md
                 hover:shadow-lg"
             >
-              Book Trial
+              Book
             </Link>
           </div>
 
@@ -154,3 +158,15 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
+
+const Logo = () => (
+  <Image
+    src="/logo.jpeg"
+    alt="China Sanda Club logo"
+    layout="fill"
+    objectFit="contain"
+    priority
+  />
+);

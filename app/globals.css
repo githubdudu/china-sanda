@@ -5,7 +5,8 @@
    ======================================== */
 :root {
   /* Base Colors */
-  --background: #ffffff;
+  --background: #fff;
+  --background-secondary: #eee;
   --foreground: #1a1a1a;
 
   /* Brand - Traditional Chinese Red */
@@ -28,13 +29,17 @@
 /* Dark mode via manual toggle (.dark class) or system preference */
 .dark {
   --background: #0a0a0a;
+  --background-secondary: #1a1a1a;
   --foreground: #ededed;
+  --primary: #df3b3b;
   --secondary: #fbbf24;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
     --background: #0a0a0a;
+    --background-secondary: #1a1a1a;
+    --primary: #df3b3b;
     --foreground: #ededed;
     --secondary: #fbbf24;
   }
@@ -46,6 +51,7 @@
 @theme inline {
   /* Colors */
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-primary-light: var(--primary-light);
   --color-primary: var(--primary);
