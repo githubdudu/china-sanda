@@ -59,8 +59,8 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 className="px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base
-                  font-medium text-foreground hover:text-primary
-                  hover:bg-primary/5 rounded-md transition-colors"
+                  font-medium text-foreground hover:text-background
+                  hover:bg-primary/80 rounded-md transition-colors"
               >
                 {link.label}
               </Link>
@@ -68,7 +68,7 @@ const Header = () => {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="px-6 py-2 bg-primary text-white font-medium
+              className="px-6 py-2 bg-primary text-background font-medium
                 rounded-full hover:bg-primary-dark transition-colors shadow-md
                 hover:shadow-lg"
             >
@@ -123,13 +123,13 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-foreground/10">
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-base font-medium text-foreground
-                    hover:text-primary hover:bg-primary/5 rounded-md
+                  className="px-4 py-2 text-center text-base font-medium text-foreground
+                    hover:text-background hover:bg-primary/80 rounded-md
                     transition-colors"
                   onClick={toggleMobileMenu}
                 >
