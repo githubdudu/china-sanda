@@ -62,27 +62,32 @@ chinasanda/
 │   ├── layout.tsx         # ✅ Root layout with fonts, ThemeProvider, Header, Footer
 │   ├── page.tsx           # ✅ Home page with Hero component
 │   ├── globals.css        # ✅ Tailwind config + component layer styles
-│   ├── coaches/           # Planned: Coaches page
-│   ├── classes/           # Planned: Classes/schedule page
-│   ├── pricing/           # Planned: Pricing plans
-│   ├── gallery/           # Planned: Photo gallery
-│   └── contact/           # Planned: Contact form
+│   ├── coaches/
+│   │   └── page.tsx       # ✅ Coaches page with placeholder UI
+│   ├── classes/
+│   │   └── page.tsx       # ✅ Classes/schedule page with placeholder UI
+│   ├── pricing/
+│   │   └── page.tsx       # ✅ Pricing plans page with placeholder UI
+│   ├── gallery/
+│   │   └── page.tsx       # ✅ Photo gallery page with placeholder UI
+│   └── contact/
+│       └── page.tsx       # ✅ Contact page (server component with metadata)
 ├── components/            # Reusable React components
 │   ├── Header.tsx        # ✅ Responsive header with nav, mobile menu & active state
 │   ├── Hero.tsx          # ✅ Hero section with background image & bilingual headings
 │   ├── Footer.tsx        # ✅ Site footer with About, Quick Links, Contact info
 │   ├── ThemeProvider.tsx # ✅ next-themes wrapper component
 │   ├── ThemeToggle.tsx   # ✅ Dark/light theme toggle button
-│   ├── CoachCard.tsx     # Planned: Coach profile card
-│   ├── ClassSchedule.tsx # Planned: Class schedule display
-│   ├── PricingTable.tsx  # Planned: Pricing plans table
-│   ├── GalleryGrid.tsx   # Planned: Gallery grid
-│   └── ContactForm.tsx   # Planned: Contact form
-├── data/                  # Planned: Static data files (pre-CMS)
-│   ├── coaches.ts        # Planned: Coach data
-│   ├── classes.ts        # Planned: Class/schedule data
-│   ├── pricing.ts        # Planned: Pricing plans
-│   └── gallery.ts        # Planned: Gallery metadata
+│   ├── ContactForm.tsx   # ✅ Contact form client component with state management
+│   ├── CoachCard.tsx     # Planned: Separate coach profile card component
+│   ├── ClassSchedule.tsx # Planned: Separate class schedule component
+│   ├── PricingTable.tsx  # Planned: Separate pricing plans component
+│   └── GalleryGrid.tsx   # Planned: Separate gallery grid component
+├── data/                  # ✅ Static data files (pre-CMS)
+│   ├── coaches.ts        # ✅ 3 sample coaches with TypeScript interfaces
+│   ├── classes.ts        # ✅ 4 sample classes with schedules
+│   ├── pricing.ts        # ✅ 4 pricing plans with features
+│   └── gallery.ts        # ✅ 6 gallery items with metadata
 ├── lib/                   # Planned: Utility functions
 └── public/               # Static assets
     ├── logo.jpeg         # ✅ Club logo image
@@ -126,25 +131,40 @@ import { ThemeToggle } from "./ThemeToggle";
 
 ### Development Phases (from DEV.md)
 
-**Current Status:** Phase 2 (Foundation & Setup) - In Progress
+**Current Status:** Phase 3 (Core Pages & Components) - In Progress
 
-**Completed:**
-- Phase 1: Quick Deploy - Initial deployment complete
-- ESLint configuration with @stylistic/eslint-plugin
-- Header component with responsive navigation
-- Dark/light theme system with next-themes
-- Active navigation state with conditional underline styling
-- Hero component with bilingual headings and background image
-- Footer component with site navigation and contact information
+**Completed Phases:**
+- ✅ **Phase 1:** Quick Deploy - Initial deployment complete
+- ✅ **Phase 2:** Foundation & Setup
+  - ESLint configuration with @stylistic/eslint-plugin
+  - Header component with responsive navigation
+  - Dark/light theme system with next-themes
+  - Active navigation state with conditional underline styling
+  - Hero component with bilingual headings and background image
+  - Footer component with site navigation and contact information
 
 **In Progress:**
-- Additional core components (ContactForm, CoachCard, ClassSchedule, etc.)
+- **Phase 3:** Core Pages & Components
+  - ✅ All 5 main pages created (coaches, classes, pricing, gallery, contact)
+  - ✅ All pages have placeholder UI with bilingual content
+  - ✅ ContactForm client component extracted
+  - ⏳ CoachCard component (TODO)
+  - ⏳ ClassSchedule component (TODO)
+  - ⏳ PricingTable component (TODO)
+  - ⏳ GalleryGrid component (TODO)
+
+**Completed as Part of Phase 3:**
+- **Phase 4 work done early:** Content & Static Data
+  - Complete data layer with TypeScript interfaces
+  - data/coaches.ts - 3 sample coaches
+  - data/classes.ts - 4 sample classes with schedules
+  - data/pricing.ts - 4 pricing plans
+  - data/gallery.ts - 6 gallery items
+  - All pages connected to static data
 
 **Upcoming Phases:**
-1. **Phase 3:** Core Pages & Components (build main structure)
-2. **Phase 4:** Content & Static Data (populate with static data files)
-3. **Phase 5:** Features & Optimization (SEO, forms, performance)
-4. **Phase 6:** Sanity.io CMS Integration (dynamic content)
+1. **Phase 5:** Features & Optimization (SEO, forms, performance)
+2. **Phase 6:** Sanity.io CMS Integration (dynamic content)
 
 ### Data Architecture Philosophy
 - Start with **static TypeScript data files** in `data/` directory
@@ -258,3 +278,71 @@ All JSX must meet strict a11y requirements:
 - **Hosting:** Vercel
 - **Build Command:** `npm run build`
 - **Development:** Continuous deployment from master branch
+
+---
+
+## Recent Changes Log
+
+### 2025-10-19: Placeholder Pages & Data Layer Implementation
+
+**Summary:** Created complete placeholder structure for all main pages with bilingual content and TypeScript data layer. Refactored contact page to follow Next.js best practices.
+
+**Pages Added:**
+- `app/coaches/page.tsx` - Coach profiles with experience and specialties
+- `app/classes/page.tsx` - Class schedules with skill levels and timing
+- `app/pricing/page.tsx` - Membership plans with feature comparison
+- `app/gallery/page.tsx` - Photo gallery organized by category
+- `app/contact/page.tsx` - Contact form with business information (server component)
+
+**Components Added:**
+- `components/ContactForm.tsx` - Client component for form state management
+
+**Data Layer Created:**
+- `data/coaches.ts` - TypeScript interfaces + 3 sample coaches with bilingual profiles
+- `data/classes.ts` - TypeScript interfaces + 4 sample classes (beginner, advanced, youth, women's)
+- `data/pricing.ts` - TypeScript interfaces + 4 pricing plans (basic, premium, annual, private)
+- `data/gallery.ts` - TypeScript interfaces + 6 gallery items across 5 categories
+
+**Key Features:**
+- All pages have proper Next.js metadata exports for SEO
+- Bilingual content (Chinese + English) throughout
+- Server/client component separation (contact page refactored)
+- Data structures designed to match planned Sanity.io schemas
+- Placeholder UI that will be replaced with dedicated components
+
+**Architecture Decisions:**
+- Contact page: Separated into server component (page.tsx) + client component (ContactForm.tsx)
+- All data files use TypeScript interfaces matching future Sanity schemas
+- Pages render static data directly (will be replaced with component imports later)
+
+**Next Steps:**
+- Create separate UI components (CoachCard, ClassSchedule, PricingTable, GalleryGrid)
+- Add real images to public/ directory
+- Implement form submission handler
+- Add JSON-LD structured data for SEO
+
+### 2025-10-19: Bilingual Navigation Support
+
+**Summary:** Enhanced Header component with bilingual (English + Chinese) navigation labels and refined active link styling.
+
+**Header Component Updates (`components/Header.tsx`):**
+- Added `chineseLabel?` field to `NavLink` interface for bilingual support
+- Updated all navigation links with Chinese translations:
+  - Home → 首页
+  - Classes → 课程安排
+  - Coaches → 教练团队
+  - Pricing → 学费价格
+  - Gallery → 精彩回顾
+  - Contact → 联系方式
+- Desktop navigation: Displays labels in flex column (English on top, Chinese below)
+- Mobile navigation: Displays labels side-by-side with gap-2 spacing
+
+**Styling Updates (`app/globals.css`):**
+- `.nav-link-active`: Changed from underline decoration to `border-b-4 border-primary` for clearer visual indicator
+- `.btn-secondary`: Updated from `border-1` to `ring-1` for consistent ring-based styling
+
+**Key Benefits:**
+- Improved accessibility for Chinese-speaking users
+- Consistent bilingual experience across desktop and mobile
+- Cleaner active state visual design
+- Better alignment with the site's bilingual content strategy
