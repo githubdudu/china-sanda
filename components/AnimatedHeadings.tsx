@@ -62,7 +62,7 @@ const Heading1 = ({
   s2Stress,
 }: Heading1Props) => {
   return (
-    <h1 className="text-4xl sm:text-5xl font-extrabold text-center sm:text-left leading-tight">
+    <h1 className="text-4xl sm:text-5xl font-extrabold text-[#ededed] text-center sm:text-left leading-tight">
       <div className="mb-2">
         {s1Normal}
         &nbsp;

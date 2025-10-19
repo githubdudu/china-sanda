@@ -34,7 +34,7 @@ const Hero = () => {
           </Link>
           <Link
             href="/classes"
-            className="px-8 py-4 text-lg btn-secondary w-full sm:w-auto"
+            className="btn-secondary text-[#ededed] ring-[#ededed]/50 hover:bg-[#ededed]/5 px-8 py-4 text-lg  w-full sm:w-auto"
           >
             View Classes
           </Link>

@@ -26,9 +26,9 @@
   --info: #3b82f6;
 
   /* Hero Overlay - Light Mode */
-  --hero-overlay-from: rgb(255 255 255 / 0.1);
-  --hero-overlay-via: rgb(255 255 255 / 0.5);
-  --hero-overlay-to: rgb(255 255 255 / 0.2);
+  --hero-overlay-from: rgb(0 0 0 / 0.4);
+  --hero-overlay-via: rgb(0 0 0 / 0.6);
+  --hero-overlay-to: rgb(0 0 0 / 0.4);
 }
 
 /* Dark mode via manual toggle (.dark class) or system preference */
