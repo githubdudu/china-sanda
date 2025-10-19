@@ -12,15 +12,16 @@ import { ThemeToggle } from "./ThemeToggle";
 interface NavLink {
   href: string;
   label: string;
+  chineseLabel?: string;
 }
 
 const navLinks: NavLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/classes", label: "Classes" },
-  { href: "/coaches", label: "Coaches" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", chineseLabel: "首页" },
+  { href: "/classes", label: "Classes", chineseLabel: "课程安排" },
+  { href: "/coaches", label: "Coaches", chineseLabel: "教练团队" },
+  { href: "/pricing", label: "Pricing", chineseLabel: "学费价格" },
+  { href: "/gallery", label: "Gallery", chineseLabel: "精彩回顾" },
+  { href: "/contact", label: "Contact", chineseLabel: "联系方式" },
 ];
 
 const Header = () => {
@@ -77,9 +78,12 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link ${isActiveLink(link.href) ? "nav-link-active" : ""}`}
+                className={`flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link ${
+                  isActiveLink(link.href) ? "nav-link-active" : ""
+                }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span>{link.chineseLabel}</span>
               </Link>
             ))}
             <ThemeToggle />
@@ -142,10 +146,13 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 text-center text-base nav-link ${isActiveLink(link.href) ? "nav-link-active" : ""}`}
+                  className={`flex justify-center gap-2 px-4 py-2 text-center text-base nav-link ${
+                    isActiveLink(link.href) ? "nav-link-active" : ""
+                  }`}
                   onClick={toggleMobileMenu}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <span>{link.chineseLabel}</span>
                 </Link>
               ))}
               <div className="flex items-center justify-between px-4 py-2">
