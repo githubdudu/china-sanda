@@ -81,6 +81,10 @@
   .btn-secondary {
     @apply rounded-sm text-foreground border-1 border-foreground/50 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-primary;
   }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70;
+  }
 }
 
 /* ========================================
