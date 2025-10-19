@@ -17,7 +17,7 @@ export const ThemeToggle = () => {
     return (
       <button
         type="button"
-        className="p-2 rounded-md text-foreground hover:bg-foreground/5
+        className="p-2 rounded-sm text-foreground hover:bg-foreground/5
           transition-colors"
         aria-label="Toggle theme"
       >
@@ -32,8 +32,7 @@ export const ThemeToggle = () => {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="p-2 rounded-md text-foreground hover:bg-foreground/5
-        focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+      className="p-2 btn-secondary transition-colors"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       title="Toggle theme"
     >

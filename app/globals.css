@@ -5,7 +5,8 @@
    ======================================== */
 :root {
   /* Base Colors */
-  --background: #ffffff;
+  --background: #fff;
+  --background-secondary: #eee;
   --foreground: #1a1a1a;
 
   /* Brand - Traditional Chinese Red */
@@ -23,20 +24,41 @@
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
+
+  /* Hero Overlay - Light Mode */
+  --hero-overlay-from: rgb(255 255 255 / 0.1);
+  --hero-overlay-via: rgb(255 255 255 / 0.5);
+  --hero-overlay-to: rgb(255 255 255 / 0.2);
 }
 
 /* Dark mode via manual toggle (.dark class) or system preference */
 .dark {
   --background: #0a0a0a;
+  --background-secondary: #1a1a1a;
   --foreground: #ededed;
+  --primary: #df3b3b;
   --secondary: #fbbf24;
+
+  /* Hero Overlay - Dark Mode */
+  --hero-overlay-from: rgb(0 0 0 / 0.7);
+  --hero-overlay-via: rgb(0 0 0 / 0.5);
+  --hero-overlay-to: rgb(0 0 0 / 0.7);
 }
 
+/* CSS-only dark mode fallback for system preference (works before JS hydration)
+   Prevents flash of wrong theme on initial load. After hydration, next-themes takes over via .dark class */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
     --background: #0a0a0a;
+    --background-secondary: #1a1a1a;
+    --primary: #df3b3b;
     --foreground: #ededed;
     --secondary: #fbbf24;
+
+    /* Hero Overlay - Dark Mode (system preference) */
+    --hero-overlay-from: rgb(0 0 0 / 0.7);
+    --hero-overlay-via: rgb(0 0 0 / 0.5);
+    --hero-overlay-to: rgb(0 0 0 / 0.7);
   }
 }
 
@@ -46,6 +68,7 @@
 @theme inline {
   /* Colors */
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-primary-light: var(--primary-light);
   --color-primary: var(--primary);
@@ -57,10 +80,31 @@
   --color-warning: var(--warning);
   --color-error: var(--error);
   --color-info: var(--info);
+  --color-hero-overlay-from: var(--hero-overlay-from);
+  --color-hero-overlay-via: var(--hero-overlay-via);
+  --color-hero-overlay-to: var(--hero-overlay-to);
 
   /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+@layer components {
+  .nav-link {
+    @apply font-medium text-foreground hover:text-background hover:bg-primary/80 rounded-sm transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-background font-medium text-center rounded-sm hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply rounded-sm text-foreground border-1 border-foreground/50 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-hero-overlay-from via-hero-overlay-via to-hero-overlay-to;
+  }
 }
 
 /* ========================================

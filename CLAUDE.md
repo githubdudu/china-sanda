@@ -36,6 +36,11 @@ This project uses a comprehensive ESLint setup with the following configurations
 - 2-space indentation
 - Semicolons required
 - JSX support enabled
+- Arrow parentheses required
+
+**Custom Rules** (eslint.config.mjs:36-39):
+- `@stylistic/multiline-ternary`: "always-multiline" with `ignoreJSX: true` exception
+  - Allows JSX ternaries on single line for better readability
 
 **Important:** When creating or editing files, expect many ESLint violations initially. Run `npm run lint:fix` frequently during development.
 
@@ -48,20 +53,24 @@ This project uses a comprehensive ESLint setup with the following configurations
 - **TypeScript:** Strict mode enabled
 - **Build Tool:** Turbopack (via `--turbopack` flag)
 - **Font Loading:** next/font with Geist Sans & Geist Mono
+- **Theme Management:** next-themes v0.4.6 (dark/light mode with system preference support)
 
-### Project Structure (Planned per DEV.md)
+### Project Structure
 ```
 chinasanda/
 ├── app/                    # Next.js App Router pages
-│   ├── layout.tsx         # Root layout with fonts
-│   ├── page.tsx           # Home page
+│   ├── layout.tsx         # ✅ Root layout with fonts, ThemeProvider, Header
+│   ├── page.tsx           # ✅ Home page
+│   ├── globals.css        # ✅ Tailwind config + component layer styles
 │   ├── coaches/           # Planned: Coaches page
 │   ├── classes/           # Planned: Classes/schedule page
 │   ├── pricing/           # Planned: Pricing plans
 │   ├── gallery/           # Planned: Photo gallery
 │   └── contact/           # Planned: Contact form
-├── components/            # Planned: Reusable React components
-│   ├── Header.tsx        # Planned: Site header/nav
+├── components/            # Reusable React components
+│   ├── Header.tsx        # ✅ Responsive header with nav & mobile menu
+│   ├── ThemeProvider.tsx # ✅ next-themes wrapper component
+│   ├── ThemeToggle.tsx   # ✅ Dark/light theme toggle button
 │   ├── Footer.tsx        # Planned: Site footer
 │   ├── CoachCard.tsx     # Planned: Coach profile card
 │   ├── ClassSchedule.tsx # Planned: Class schedule display
@@ -74,7 +83,8 @@ chinasanda/
 │   ├── pricing.ts        # Planned: Pricing plans
 │   └── gallery.ts        # Planned: Gallery metadata
 ├── lib/                   # Planned: Utility functions
-└── public/               # Static assets (images, etc.)
+└── public/               # Static assets
+    └── logo.jpeg         # ✅ Club logo image
 ```
 
 ### TypeScript Configuration
@@ -83,22 +93,95 @@ chinasanda/
 - Strict mode enabled
 - Module resolution: bundler
 
+### Theme System (next-themes)
+
+The project implements a comprehensive dark/light theme system:
+
+**Components:**
+- `ThemeProvider.tsx` - Wraps the app in `<ThemeProvider>` (in app/layout.tsx:34-37)
+- `ThemeToggle.tsx` - Toggle button component for switching themes
+- Uses `next-themes` library for seamless theme management
+
+**Configuration:**
+- Attribute: `class` (applies `.dark` class to `<html>` element)
+- Default theme: `dark`
+- System preference support: Enabled
+- Hydration safe: Prevents flash of unstyled content
+
+**CSS Variables (app/globals.css):**
+- Light mode: Defined in `:root` selector
+- Dark mode: Defined in `.dark` class and `@media (prefers-color-scheme: dark)`
+- Custom properties: `--background`, `--foreground`, `--primary`, `--secondary`, etc.
+- Tailwind integration: Custom properties mapped to Tailwind colors via `@theme inline`
+
+**Usage in Components:**
+```tsx
+import { ThemeToggle } from "./ThemeToggle";
+
+// Use the toggle button
+<ThemeToggle />
+```
+
 ### Development Phases (from DEV.md)
 
-**Current Status:** Phase 1 (Quick Deploy) - Initial deployment complete
+**Current Status:** Phase 2 (Foundation & Setup) - In Progress
+
+**Completed:**
+- Phase 1: Quick Deploy - Initial deployment complete
+- ESLint configuration with @stylistic/eslint-plugin
+- Header component with responsive navigation
+- Dark/light theme system with next-themes
+
+**In Progress:**
+- Additional core components (Footer, ContactForm, etc.)
 
 **Upcoming Phases:**
-1. **Phase 2:** Foundation & Setup (ESLint complete, components needed)
-2. **Phase 3:** Core Pages & Components (build main structure)
-3. **Phase 4:** Content & Static Data (populate with static data files)
-4. **Phase 5:** Features & Optimization (SEO, forms, performance)
-5. **Phase 6:** Sanity.io CMS Integration (dynamic content)
+1. **Phase 3:** Core Pages & Components (build main structure)
+2. **Phase 4:** Content & Static Data (populate with static data files)
+3. **Phase 5:** Features & Optimization (SEO, forms, performance)
+4. **Phase 6:** Sanity.io CMS Integration (dynamic content)
 
 ### Data Architecture Philosophy
 - Start with **static TypeScript data files** in `data/` directory
 - Structure data to match planned Sanity schemas for easy migration
 - Components should accept data via props (works with both static and CMS data)
 - Keep data structures consistent throughout migration phases
+
+### Tailwind CSS Customization
+
+**Custom CSS Variables** (defined in app/globals.css:1-46):
+- Traditional Chinese Red: `--primary` (#dc2626 light, #df3b3b dark)
+- Gold Accent: `--secondary` (#f59e0b light, #fbbf24 dark)
+- Background/Foreground colors with dark mode support
+- Semantic colors: success, warning, error, info
+
+**Component Layer Classes** (@layer components in app/globals.css:72-84):
+
+Three reusable component classes have been created:
+
+1. **`.nav-link`** - Navigation link styling
+   - Medium font weight
+   - Foreground text color
+   - Hover: background changes to primary/80, text to background color
+   - Rounded corners with smooth transitions
+
+2. **`.btn-primary`** - Primary button styling
+   - Primary background with dark hover state
+   - Background-colored text
+   - Medium font weight, centered text
+   - Shadow effects (md → lg on hover)
+
+3. **`.btn-secondary`** - Secondary button styling
+   - Transparent with foreground/50 border
+   - Hover: subtle background (foreground/5)
+   - Focus ring with primary color
+
+**Usage:**
+```tsx
+<Link className="px-4 py-2 nav-link">Home</Link>
+<button className="px-6 py-2 btn-primary">Submit</button>
+<button className="p-2 btn-secondary">Cancel</button>
+```
 
 ### Future CMS Integration (Sanity.io)
 When implementing Sanity integration:
@@ -116,6 +199,20 @@ Use Incremental Static Regeneration (ISR) for CMS-backed pages.
 - Follow strict import ordering rules
 - Avoid default exports (use named exports where possible; Next.js pages excepted)
 - TypeScript type annotations enforced by compiler (tsconfig.json strict mode)
+
+**Client Components:**
+When creating interactive components that use React hooks or browser APIs:
+- Add `"use client";` directive at the top of the file
+- Required for: `useState`, `useEffect`, `useTheme` (next-themes), event handlers
+- Examples: Header.tsx (uses `useState`), ThemeToggle.tsx (uses `useTheme`, `useEffect`)
+- Not required for: Server components (default in Next.js App Router)
+
+**Import Ordering:**
+1. React imports (`"use client"` if needed, then `import`)
+2. Third-party library imports
+3. Next.js specific imports (next/link, next/image, etc.)
+4. Local component imports
+5. Type imports (if separated)
 
 ### Working with Next.js App Router
 - Page files (`page.tsx`) require default exports (Next.js requirement)

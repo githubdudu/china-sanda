@@ -37,7 +37,9 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 **Goal**: Establish solid project infrastructure and structure
 
 - [x] Setup ESLint and Prettier
-- [ ] Create Header/Navigation component (functional)
+- [x] Create Header/Navigation component (functional)
+- [x] Setup theme toggle (light/dark mode)
+- [ ] Create Hero component (UI)
 - [ ] Create Footer component (functional)
 
 ### Phase 3: Core Pages & Components
