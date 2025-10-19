@@ -41,9 +41,9 @@ const Header = () => {
               src="/logo.jpeg"
               alt="China Sanda Club logo"
               fill
-              // sizes align with the parent div's width and height
               // add sizes to increase performance
-              sizes="2.5rem, (min-width: 640px) 4rem, (min-width: 768px) 5rem"
+              // The size is image resolution.
+              sizes="90px, (min-width: 640px) 120px, (min-width: 768px) 180px"
               className="object-fill"
               priority
             />
@@ -67,8 +67,7 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base
-                  nav-link"
+                className="px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link"
               >
                 {link.label}
               </Link>
@@ -80,9 +79,7 @@ const Header = () => {
           <button
             type="button"
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-md text-foreground
-              hover:bg-foreground/5 focus:outline-none focus:ring-2
-              focus:ring-primary"
+            className="lg:hidden p-2 btn-secondary"
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
           >

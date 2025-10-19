@@ -77,6 +77,10 @@
   .btn-primary {
     @apply bg-primary text-background font-medium text-center rounded-sm hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
   }
+
+  .btn-secondary {
+    @apply rounded-sm text-foreground border-1 border-foreground/50 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-primary;
+  }
 }
 
 /* ========================================
