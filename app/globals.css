@@ -94,6 +94,10 @@
     @apply font-medium text-foreground hover:text-background hover:bg-primary/80 rounded-sm transition-colors;
   }
 
+  .nav-link-active {
+    @apply underline decoration-2 underline-offset-4 text-primary;
+  }
+
   .btn-primary {
     @apply bg-primary text-background font-medium text-center rounded-sm hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
   }

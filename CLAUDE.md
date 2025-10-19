@@ -59,8 +59,8 @@ This project uses a comprehensive ESLint setup with the following configurations
 ```
 chinasanda/
 ├── app/                    # Next.js App Router pages
-│   ├── layout.tsx         # ✅ Root layout with fonts, ThemeProvider, Header
-│   ├── page.tsx           # ✅ Home page
+│   ├── layout.tsx         # ✅ Root layout with fonts, ThemeProvider, Header, Footer
+│   ├── page.tsx           # ✅ Home page with Hero component
 │   ├── globals.css        # ✅ Tailwind config + component layer styles
 │   ├── coaches/           # Planned: Coaches page
 │   ├── classes/           # Planned: Classes/schedule page
@@ -68,10 +68,11 @@ chinasanda/
 │   ├── gallery/           # Planned: Photo gallery
 │   └── contact/           # Planned: Contact form
 ├── components/            # Reusable React components
-│   ├── Header.tsx        # ✅ Responsive header with nav & mobile menu
+│   ├── Header.tsx        # ✅ Responsive header with nav, mobile menu & active state
+│   ├── Hero.tsx          # ✅ Hero section with background image & bilingual headings
+│   ├── Footer.tsx        # ✅ Site footer with About, Quick Links, Contact info
 │   ├── ThemeProvider.tsx # ✅ next-themes wrapper component
 │   ├── ThemeToggle.tsx   # ✅ Dark/light theme toggle button
-│   ├── Footer.tsx        # Planned: Site footer
 │   ├── CoachCard.tsx     # Planned: Coach profile card
 │   ├── ClassSchedule.tsx # Planned: Class schedule display
 │   ├── PricingTable.tsx  # Planned: Pricing plans table
@@ -84,7 +85,8 @@ chinasanda/
 │   └── gallery.ts        # Planned: Gallery metadata
 ├── lib/                   # Planned: Utility functions
 └── public/               # Static assets
-    └── logo.jpeg         # ✅ Club logo image
+    ├── logo.jpeg         # ✅ Club logo image
+    └── hero-bg.png       # ✅ Hero section background image
 ```
 
 ### TypeScript Configuration
@@ -131,9 +133,12 @@ import { ThemeToggle } from "./ThemeToggle";
 - ESLint configuration with @stylistic/eslint-plugin
 - Header component with responsive navigation
 - Dark/light theme system with next-themes
+- Active navigation state with conditional underline styling
+- Hero component with bilingual headings and background image
+- Footer component with site navigation and contact information
 
 **In Progress:**
-- Additional core components (Footer, ContactForm, etc.)
+- Additional core components (ContactForm, CoachCard, ClassSchedule, etc.)
 
 **Upcoming Phases:**
 1. **Phase 3:** Core Pages & Components (build main structure)
@@ -155,9 +160,9 @@ import { ThemeToggle } from "./ThemeToggle";
 - Background/Foreground colors with dark mode support
 - Semantic colors: success, warning, error, info
 
-**Component Layer Classes** (@layer components in app/globals.css:72-84):
+**Component Layer Classes** (@layer components in app/globals.css:92-111):
 
-Three reusable component classes have been created:
+Five reusable component classes have been created:
 
 1. **`.nav-link`** - Navigation link styling
    - Medium font weight
@@ -165,22 +170,36 @@ Three reusable component classes have been created:
    - Hover: background changes to primary/80, text to background color
    - Rounded corners with smooth transitions
 
-2. **`.btn-primary`** - Primary button styling
+2. **`.nav-link-active`** - Active navigation link indicator
+   - Underline decoration (2px thickness)
+   - Underline offset of 4 units for better spacing
+   - Primary color (Chinese red) for visual emphasis
+   - Applied conditionally via `usePathname` hook in Header.tsx
+
+3. **`.btn-primary`** - Primary button styling
    - Primary background with dark hover state
    - Background-colored text
    - Medium font weight, centered text
    - Shadow effects (md → lg on hover)
 
-3. **`.btn-secondary`** - Secondary button styling
+4. **`.btn-secondary`** - Secondary button styling
    - Transparent with foreground/50 border
    - Hover: subtle background (foreground/5)
    - Focus ring with primary color
 
+5. **`.hero-overlay`** - Hero section background overlay
+   - Gradient overlay for text readability over background images
+   - Light mode: subtle white gradient (from transparent to semi-transparent)
+   - Dark mode: darker black gradient for better contrast
+   - Compatible with both manual toggle and system preference
+
 **Usage:**
 ```tsx
 <Link className="px-4 py-2 nav-link">Home</Link>
+<Link className={`px-4 py-2 nav-link ${isActive ? "nav-link-active" : ""}`}>Active Page</Link>
 <button className="px-6 py-2 btn-primary">Submit</button>
 <button className="p-2 btn-secondary">Cancel</button>
+<div className="hero-overlay" />
 ```
 
 ### Future CMS Integration (Sanity.io)

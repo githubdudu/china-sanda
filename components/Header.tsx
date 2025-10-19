@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -23,9 +25,17 @@ const navLinks: NavLink[] = [
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const isActiveLink = (href: string): boolean => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
   };
 
   return (
@@ -67,7 +77,7 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link"
+                className={`px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link ${isActiveLink(link.href) ? "nav-link-active" : ""}`}
               >
                 {link.label}
               </Link>
@@ -132,7 +142,7 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-center text-base nav-link"
+                  className={`px-4 py-2 text-center text-base nav-link ${isActiveLink(link.href) ? "nav-link-active" : ""}`}
                   onClick={toggleMobileMenu}
                 >
                   {link.label}
