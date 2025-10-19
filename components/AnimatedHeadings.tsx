@@ -17,7 +17,7 @@ const AnimatedHeadings = () => {
     <div className="relative min-h-[200px] sm:min-h-[180px]">
       {/* English Heading */}
       <div
-        className={`absolute inset-0 transition-opacity duration-[2s] ease-out ${
+        className={`relative inset-0 transition-opacity duration-[2s] ease-out ${
           showEnglish ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -31,7 +31,7 @@ const AnimatedHeadings = () => {
 
       {/* Chinese Heading */}
       <div
-        className={`absolute inset-0 transition-opacity duration-[2s] ease-out ${
+        className={`absolute top-0 inset-0 transition-opacity duration-[2s] ease-out ${
           !showEnglish ? "opacity-100" : "opacity-0"
         }`}
       >
