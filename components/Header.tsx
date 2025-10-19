@@ -118,7 +118,7 @@ const Header = () => {
 
           <Link
             href="/contact"
-            className="px-6 py-2 ml-2 btn-primary hidden md:inline-block"
+            className="px-6 py-2 ml-4 btn-primary hidden md:inline-block"
           >
             Book Trial
           </Link>

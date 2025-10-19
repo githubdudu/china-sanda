@@ -24,6 +24,11 @@
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
+
+  /* Hero Overlay - Light Mode */
+  --hero-overlay-from: rgb(255 255 255 / 0.6);
+  --hero-overlay-via: rgb(255 255 255 / 0.4);
+  --hero-overlay-to: rgb(255 255 255 / 0.6);
 }
 
 /* Dark mode via manual toggle (.dark class) or system preference */
@@ -33,8 +38,15 @@
   --foreground: #ededed;
   --primary: #df3b3b;
   --secondary: #fbbf24;
+
+  /* Hero Overlay - Dark Mode */
+  --hero-overlay-from: rgb(0 0 0 / 0.7);
+  --hero-overlay-via: rgb(0 0 0 / 0.5);
+  --hero-overlay-to: rgb(0 0 0 / 0.7);
 }
 
+/* CSS-only dark mode fallback for system preference (works before JS hydration)
+   Prevents flash of wrong theme on initial load. After hydration, next-themes takes over via .dark class */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
     --background: #0a0a0a;
@@ -42,6 +54,11 @@
     --primary: #df3b3b;
     --foreground: #ededed;
     --secondary: #fbbf24;
+
+    /* Hero Overlay - Dark Mode (system preference) */
+    --hero-overlay-from: rgb(0 0 0 / 0.7);
+    --hero-overlay-via: rgb(0 0 0 / 0.5);
+    --hero-overlay-to: rgb(0 0 0 / 0.7);
   }
 }
 
@@ -63,6 +80,9 @@
   --color-warning: var(--warning);
   --color-error: var(--error);
   --color-info: var(--info);
+  --color-hero-overlay-from: var(--hero-overlay-from);
+  --color-hero-overlay-via: var(--hero-overlay-via);
+  --color-hero-overlay-to: var(--hero-overlay-to);
 
   /* Fonts */
   --font-sans: var(--font-geist-sans);
@@ -83,7 +103,7 @@
   }
 
   .hero-overlay {
-    @apply absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70;
+    @apply absolute inset-0 bg-gradient-to-b from-hero-overlay-from via-hero-overlay-via to-hero-overlay-to;
   }
 }
 
