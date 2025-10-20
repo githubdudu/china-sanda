@@ -30,7 +30,7 @@ const Hero = () => {
             href="/contact"
             className="px-8 py-4 text-lg btn-primary w-full sm:w-auto"
           >
-            Book Free Trial
+            Book Trial
           </Link>
           <Link
             href="/classes"
