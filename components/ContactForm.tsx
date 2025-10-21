@@ -87,7 +87,7 @@ export const ContactForm = () => {
           <option value="advanced">Advanced Training / 高级训练</option>
           <option value="youth">Youth Programs / 青少年课程</option>
           <option value="private">Private Training / 私教</option>
-          <option value="trial">Free Trial Class / 免费试课</option>
+          <option value="trial">Trial Class / 试听课</option>
         </select>
       </div>
 
