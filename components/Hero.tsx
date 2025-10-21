@@ -30,13 +30,17 @@ const Hero = () => {
             href="/contact"
             className="px-8 py-4 text-lg btn-primary w-full sm:w-auto"
           >
-            Book Trial
+            <span>Book Trial</span>
+            &nbsp;|&nbsp;
+            <span>预约试听课</span>
           </Link>
           <Link
             href="/classes"
             className="btn-secondary text-[#ededed] ring-[#ededed]/50 hover:bg-[#ededed]/5 px-8 py-4 text-lg  w-full sm:w-auto"
           >
-            View Classes
+            <span>View Classes</span>
+            &nbsp;|&nbsp;
+            <span>查看课程</span>
           </Link>
         </div>
       </div>
