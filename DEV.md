@@ -99,9 +99,9 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 **Goal**: Integrate Sanity.io for dynamic content management
 
 **Sanity Setup**:
-- [ ] Create Sanity project
+- [x] Create Sanity project
 - [ ] Design and implement content schemas
-- [ ] Setup Sanity client configuration in Next.js
+- [x] Setup Sanity client configuration in Next.js
 - [ ] Setup environment variables for Sanity API
 
 **Content Schema Design**:
@@ -112,10 +112,30 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 
 **Integration**:
 - [ ] Replace static data with Sanity queries
-- [ ] Implement incremental static regeneration (ISR)
+- [ ] Implement on-demand revalidation (ISR)
 - [ ] Setup draft preview mode
 - [ ] Migrate existing content to Sanity
 - [ ] Test all data fetching
+
+**On-Demand Revalidation Strategy**:
+- [ ] Add `export const revalidate = false` to all pages (static generation at build time)
+- [ ] Create `/api/revalidate` endpoint for webhook-triggered rebuilds
+- [ ] Setup `REVALIDATE_SECRET_TOKEN` environment variable
+- [ ] Configure Sanity webhook to trigger revalidation on content publish
+- [ ] Test webhook integration
+
+**How On-Demand Revalidation Works**:
+1. Pages are built statically once at deploy time (fast performance)
+2. When content is published in Sanity, it triggers a webhook
+3. Webhook calls `/api/revalidate` endpoint with secret token
+4. Next.js regenerates only the affected pages
+5. Updated pages are served immediately
+
+**Benefits over Time-Based ISR**:
+- No unnecessary rebuilds (only when content actually changes)
+- Instant updates when you publish in Sanity
+- Better performance (no periodic checks)
+- Cost-efficient (fewer builds)
 
 ---
 
