@@ -1,8 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Sentence, type HomePage } from "@/sanity/sanity.types";
 
-const AnimatedHeadings = () => {
+type HeadingWordProps = {
+  children: string;
+  isStressed: boolean;
+};
+
+type HeadingSentenceProps = {
+  words: HeadingWordProps[];
+};
+
+const AnimatedHeadings = ({
+  pageTitle,
+}: {
+  pageTitle: HomePage["pageTitle"];
+}) => {
   const [showEnglish, setShowEnglish] = useState(true);
 
   useEffect(() => {
@@ -13,20 +27,45 @@ const AnimatedHeadings = () => {
     return () => clearInterval(interval);
   }, []);
 
+  if (!pageTitle || !Array.isArray(pageTitle) || pageTitle.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="relative min-h-[200px] sm:min-h-[180px]">
+    <h1 className="min-h-[200px] sm:min-h-[180px] text-4xl sm:text-5xl font-extrabold text-[#ededed] text-center sm:text-left leading-tight">
+      {pageTitle.map((titleItem) => (
+        titleItem.title && titleItem.titleCN && (
+          <AnimatedHeading
+            key={titleItem._key}
+            sentence={titleItem.title}
+            sentenceCN={titleItem.titleCN}
+            showEnglish={showEnglish}
+          />
+        )))}
+    </h1>
+  );
+};
+
+export default AnimatedHeadings;
+
+const AnimatedHeading = ({
+  sentence,
+  sentenceCN,
+  showEnglish,
+}: {
+  sentence: Sentence;
+  sentenceCN: Sentence;
+  showEnglish: boolean;
+}) => {
+  return (
+    <div className="relative mb-2">
       {/* English Heading */}
       <div
         className={`relative inset-0 transition-opacity duration-[2s] ease-out ${
           showEnglish ? "opacity-100" : "opacity-0"
         }`}
       >
-        <Heading1
-          s1Normal="Welcome to"
-          s1Stress="China Sanda Club"
-          s2Normal="The World-Class"
-          s2Stress="Sanda Club"
-        />
+        <HeadingSentence words={prepareWords(sentence)} />
       </div>
 
       {/* Chinese Heading */}
@@ -35,48 +74,72 @@ const AnimatedHeadings = () => {
           !showEnglish ? "opacity-100" : "opacity-0"
         }`}
       >
-        <Heading1
-          s1Normal="欢迎来到"
-          s1Stress="中国散打"
-          s2Normal="世界一流的"
-          s2Stress="散打搏击俱乐部"
-        />
+        <HeadingSentence words={prepareWords(sentenceCN)} />
       </div>
     </div>
   );
 };
 
-export default AnimatedHeadings;
-
-interface Heading1Props {
-  s1Normal: string;
-  s1Stress: string;
-  s2Normal: string;
-  s2Stress: string;
-}
-
-const Heading1 = ({
-  s1Normal,
-  s1Stress,
-  s2Normal,
-  s2Stress,
-}: Heading1Props) => {
+const HeadingSentence = ({ words }: HeadingSentenceProps) => {
   return (
-    <h1 className="text-4xl sm:text-5xl font-extrabold text-[#ededed] text-center sm:text-left leading-tight">
-      <div className="mb-2">
-        {s1Normal}
-        &nbsp;
-        <span className="underline underline-offset-4 decoration-primary">
-          {s1Stress}
-        </span>
-      </div>
-      <div>
-        <span className="underline underline-offset-4 decoration-primary">
-          {s2Normal}
-        </span>
-        &nbsp;
-        {s2Stress}
-      </div>
-    </h1>
+    <>
+      {words.map((word, index) => (
+        <HeadingWord key={index} isStressed={word.isStressed}>
+          {word.children}
+        </HeadingWord>
+      ))}
+    </>
   );
 };
+
+const HeadingWord = ({ children, isStressed }: HeadingWordProps) => {
+  return (
+    <>
+      {isStressed ? (
+        <span className="underline underline-offset-4 decoration-primary">
+          {children}
+        </span>
+      ) : (
+        <span>{children}</span>
+      )}
+    </>
+  );
+};
+
+// prepare the words
+function prepareWords(sentence: Sentence): HeadingWordProps[] {
+  if (!sentence.sentence) return [];
+  if (!sentence.stressWord) {
+    return [{ children: sentence.sentence, isStressed: false }];
+  }
+
+  const index = sentence.sentence.indexOf(sentence.stressWord);
+  if (index === -1) {
+    return [{ children: sentence.sentence, isStressed: false }];
+  }
+
+  const wordsArray: HeadingWordProps[] = [];
+  // Add non-stressed part before the stressed word
+  if (index != 0) {
+    wordsArray.push({
+      children: sentence.sentence.slice(0, index),
+      isStressed: false,
+    });
+  }
+  // Add the stressed word
+  wordsArray.push({
+    children: sentence.stressWord,
+    isStressed: true,
+  });
+  // Add non-stressed part after the stressed word
+  if (index + sentence.stressWord.length < sentence.sentence.length) {
+    wordsArray.push({
+      children: sentence.sentence.slice(
+        index + sentence.stressWord.length,
+      ),
+      isStressed: false,
+    });
+  }
+
+  return wordsArray;
+}
