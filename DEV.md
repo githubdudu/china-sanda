@@ -99,9 +99,9 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 **Goal**: Integrate Sanity.io for dynamic content management
 
 **Sanity Setup**:
-- [ ] Create Sanity project
+- [x] Create Sanity project
 - [ ] Design and implement content schemas
-- [ ] Setup Sanity client configuration in Next.js
+- [x] Setup Sanity client configuration in Next.js
 - [ ] Setup environment variables for Sanity API
 
 **Content Schema Design**:
@@ -112,10 +112,30 @@ Building a modern, SEO-optimized website for a Sanda Club using Next.js and Verc
 
 **Integration**:
 - [ ] Replace static data with Sanity queries
-- [ ] Implement incremental static regeneration (ISR)
+- [ ] Implement on-demand revalidation (ISR)
 - [ ] Setup draft preview mode
 - [ ] Migrate existing content to Sanity
 - [ ] Test all data fetching
+
+**On-Demand Revalidation Strategy**:
+- [x] Add `export const revalidate = false` to all pages (static generation at build time)
+- [x] Create `/api/revalidate` endpoint for webhook-triggered rebuilds
+- [x] Setup `REVALIDATE_SECRET_TOKEN` environment variable
+- [ ] Configure Sanity webhook to trigger revalidation on content publish
+- [ ] Test webhook integration
+
+**How On-Demand Revalidation Works**:
+1. Pages are built statically once at deploy time (fast performance)
+2. When content is published in Sanity, it triggers a webhook
+3. Webhook calls `/api/revalidate` endpoint with secret token
+4. Next.js regenerates only the affected pages
+5. Updated pages are served immediately
+
+**Benefits over Time-Based ISR**:
+- No unnecessary rebuilds (only when content actually changes)
+- Instant updates when you publish in Sanity
+- Better performance (no periodic checks)
+- Cost-efficient (fewer builds)
 
 ---
 
@@ -244,5 +264,79 @@ chinasanda/
 
 ---
 
-**Last Updated**: 2025-10-17
-**Project Status**: Planning Phase
+**Last Updated**: 2025-10-24
+**Project Status**: Phase 6 - CMS Integration (In Progress)
+
+---
+
+## Sanity Webhook Setup Instructions
+
+### Prerequisites
+1. On-demand revalidation code is deployed to production (Vercel)
+2. `REVALIDATE_SECRET_TOKEN` is set in Vercel environment variables
+
+### Setting Up the Webhook in Sanity Studio
+
+1. **Navigate to Sanity Project Settings**:
+   - Go to https://www.sanity.io/manage
+   - Select your project: `vyilkoxb`
+   - Go to "API" → "Webhooks"
+
+2. **Create New Webhook**:
+   - Click "Create webhook"
+   - **Name**: `Next.js Revalidation`
+   - **Description**: `Triggers on-demand revalidation in Next.js when content is published`
+
+3. **Configure Webhook**:
+   - **URL**: `https://your-domain.vercel.app/api/revalidate?secret=YOUR_SECRET_TOKEN`
+     - Replace `your-domain.vercel.app` with your actual Vercel domain
+     - Replace `YOUR_SECRET_TOKEN` with the value from `REVALIDATE_SECRET_TOKEN`
+   - **Dataset**: `production`
+   - **Trigger on**: Select "Create", "Update", "Delete"
+   - **Filter**: (Optional) Add filters for specific document types
+   - **HTTP method**: `POST`
+   - **API version**: `v2021-03-25`
+
+4. **Configure Request Body** (JSON):
+   ```json
+   {
+     "paths": ["/", "/coaches", "/classes", "/pricing", "/gallery"]
+   }
+   ```
+   Note: You can customize the paths array based on which pages need revalidation for specific content types.
+
+5. **Advanced Configuration** (Optional):
+   - **Headers**: Can add custom headers if needed
+   - **Projection**: Can customize what data is sent in the webhook payload
+
+6. **Save and Test**:
+   - Click "Save"
+   - Use the "Trigger" button to send a test webhook
+   - Check Vercel logs to confirm successful revalidation
+
+### Example Webhook Payload
+
+To manually test the revalidation endpoint:
+
+```bash
+curl -X POST https://your-domain.vercel.app/api/revalidate?secret=YOUR_SECRET_TOKEN \
+  -H "Content-Type: application/json" \
+  -d '{"paths": ["/", "/coaches", "/classes", "/pricing", "/gallery"]}'
+```
+
+### Vercel Environment Variables
+
+Make sure to set these in Vercel Project Settings → Environment Variables:
+
+- `SANITY_PROJECT_ID`: `vyilkoxb`
+- `SANITY_DATASET`: `production`
+- `SANITY_API_VERSION`: `2021-03-25`
+- `SANITY_API_TOKEN`: (your Sanity API token)
+- `REVALIDATE_SECRET_TOKEN`: (your secret token for webhook authentication)
+
+### Troubleshooting
+
+- **401 Error**: Check that the secret token matches between Sanity webhook and Vercel environment variable
+- **500 Error**: Check Vercel function logs for errors
+- **No Revalidation**: Verify that pages have `export const revalidate = false`
+- **Webhook Not Triggering**: Check webhook filters and trigger conditions in Sanity

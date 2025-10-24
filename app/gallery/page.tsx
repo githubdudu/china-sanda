@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: "View our training facilities, competition highlights, and student achievements. 浏览我们的训练设施、比赛精彩瞬间和学员成就。",
 };
 
+// Enable static generation with on-demand revalidation
+export const revalidate = false;
+
 const GalleryPage = () => {
   const categories = {
     training: { label: "Training", labelChinese: "训练" },

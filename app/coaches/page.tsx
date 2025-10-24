@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: "Meet our world-class Sanda coaches with decades of experience training champions. 认识我们世界一流的散打教练团队。",
 };
 
+// Enable static generation with on-demand revalidation
+export const revalidate = false;
+
 const CoachesPage = () => {
   return (
     <div className="min-h-screen py-16 px-4">
