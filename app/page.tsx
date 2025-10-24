@@ -1,20 +1,20 @@
 import Hero from "@/components/Hero";
 
-import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
+import { type HomePage } from "@/sanity/sanity.types";
 
-const CONTENT_QUERY = `*[_type == "homePage"]`;
+const CONTENT_QUERY = `*[_type == "homePage"][0]`;
 
 // Enable static generation with on-demand revalidation
 export const revalidate = false;
 
 export default async function Home() {
-  const content = await client.fetch<SanityDocument[]>(CONTENT_QUERY);
+  const heroData = await client.fetch<HomePage>(CONTENT_QUERY);
 
   return (
     <div className="font-sans">
       <main className="flex flex-col gap-8">
-        <Hero />
+        <Hero heroData={heroData} />
       </main>
     </div>
   );
