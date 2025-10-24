@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedHeadings from "./AnimatedHeadings";
-import { heroData as defaultHeroData } from "@/data/hero";
 
 import { type HomePage } from "@/sanity/sanity.types";
 
@@ -10,7 +9,7 @@ import { type HomePage } from "@/sanity/sanity.types";
  * @param heroData use defaultHeroData if not provided
  * @returns JSX.Element
  */
-const Hero = ({ heroData = defaultHeroData }: { heroData: HomePage }) => {
+const Hero = ({ heroData }: { heroData: HomePage }) => {
   return (
     <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-6.25rem)] flex items-center justify-center">
       {/* Background Image */}
