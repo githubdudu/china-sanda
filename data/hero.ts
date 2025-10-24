@@ -30,7 +30,7 @@ export const heroData: HomePage = {
       },
       titleCN: {
         _type: "sentence",
-        sentence: "欢迎来到中国散打",
+        sentence: "欢迎来到 中国散打",
         stressWord: "中国散打",
       },
     },
@@ -44,7 +44,7 @@ export const heroData: HomePage = {
       },
       titleCN: {
         _type: "sentence",
-        sentence: "世界一流的散打搏击俱乐部",
+        sentence: "世界一流的 散打搏击俱乐部",
         stressWord: "世界一流的",
       },
     },
