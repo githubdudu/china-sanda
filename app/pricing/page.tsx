@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: "Choose the perfect membership plan for your training goals. Flexible options for everyone from beginners to competitive fighters. 选择最适合您的会员方案。",
 };
 
+// Enable static generation with on-demand revalidation
+export const revalidate = false;
+
 const PricingPage = () => {
   return (
     <div className="min-h-screen py-16 px-4">

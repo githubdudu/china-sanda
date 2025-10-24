@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description: "Explore our comprehensive class schedule including beginner Sanda, advanced training, youth programs, and more. 浏览我们全面的课程安排。",
 };
 
+// Enable static generation with on-demand revalidation
+export const revalidate = false;
+
 const ClassesPage = () => {
   const levelColors = {
     beginner: "bg-green-500/10 text-green-600 dark:text-green-400",
