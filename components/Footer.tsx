@@ -38,6 +38,8 @@ export const Footer = ({
                     className="text-sm text-foreground/80 hover:text-primary transition-colors"
                   >
                     {link.name}
+                    &nbsp;
+                    {link.nameCN}
                   </Link>
                 </li>
               ))}
