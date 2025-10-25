@@ -6,9 +6,10 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 import "./globals.css";
-import { NavBar } from "@/sanity/sanity.types";
+import { NavBar, Address } from "@/sanity/sanity.types";
 import { client } from "@/sanity/client";
 import { defaultNavBarData } from "@/data/navItems";
+import { defaultAddressData } from "@/data/address";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
 };
 
 const NAVBAR_QUERY = `*[_type == "navBar"][0]`;
+const ADDRESS_QUERY = `*[_type == "address"][0]`;
 
 export default async function RootLayout({
   children,
@@ -43,6 +45,19 @@ export default async function RootLayout({
     navBarData = defaultNavBarData;
     console.error("Error fetching nav bar data from Sanity.io", error);
   }
+
+  let addressData: Address | null = null;
+  try {
+    addressData = await client.fetch<Address>(ADDRESS_QUERY);
+    console.log("Fetched address data:", addressData);
+    if (!addressData) {
+      throw new Error("No address data found");
+    }
+  }
+  catch (error) {
+    addressData = defaultAddressData;
+    console.error("Error fetching address data from Sanity.io", error);
+  }
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -51,7 +66,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <Header navBarData={navBarData} />
           {children}
-          <Footer navItems={navBarData?.navItems} />
+          <Footer navItems={navBarData?.navItems} address={addressData} />
         </ThemeProvider>
       </body>
     </html>
