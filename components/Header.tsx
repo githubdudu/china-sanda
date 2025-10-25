@@ -7,26 +7,17 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
+import { NavBar } from "@/sanity/sanity.types";
+
 import { ThemeToggle } from "./ThemeToggle";
 
-interface NavLink {
-  href: string;
-  label: string;
-  chineseLabel?: string;
-}
-
-const navLinks: NavLink[] = [
-  { href: "/", label: "Home", chineseLabel: "首页" },
-  { href: "/classes", label: "Classes", chineseLabel: "课程安排" },
-  { href: "/coaches", label: "Coaches", chineseLabel: "教练团队" },
-  { href: "/pricing", label: "Pricing", chineseLabel: "学费价格" },
-  { href: "/gallery", label: "Gallery", chineseLabel: "精彩回顾" },
-  { href: "/contact", label: "Contact", chineseLabel: "联系方式" },
-];
-
-const Header = () => {
+const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const navItems = navBarData?.navItems || [];
+  const siteName = navBarData?.siteName || "中国散打";
+  const siteName2 = navBarData?.siteName2 || "China Sanda Club";
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -67,23 +58,23 @@ const Header = () => {
             transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
           >
             <div className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary">
-              <span>中国散打</span>
-              <span>China Sanda Club</span>
+              <span>{siteName}</span>
+              <span>{siteName2}</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1 lg:space-x-2">
-            {navLinks.map((link) => (
+            {navItems.map((link) => (
               <Link
-                key={link.href}
-                href={link.href}
+                key={link.url}
+                href={link.url || "/"}
                 className={`flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link ${
-                  isActiveLink(link.href) ? "nav-link-active" : ""
+                  isActiveLink(link.url || "/") ? "nav-link-active" : ""
                 }`}
               >
-                <span>{link.label}</span>
-                <span>{link.chineseLabel}</span>
+                <span>{link.name}</span>
+                <span>{link.nameCN}</span>
               </Link>
             ))}
             <ThemeToggle />
@@ -142,17 +133,17 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-foreground/10">
             <div className="flex flex-col space-y-1">
-              {navLinks.map((link) => (
+              {navItems.map((link) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={link.url}
+                  href={link.url || "/"}
                   className={`flex justify-center gap-2 px-4 py-2 text-center text-base nav-link ${
-                    isActiveLink(link.href) ? "nav-link-active" : ""
+                    isActiveLink(link.url || "/") ? "nav-link-active" : ""
                   }`}
                   onClick={toggleMobileMenu}
                 >
-                  <span>{link.label}</span>
-                  <span>{link.chineseLabel}</span>
+                  <span>{link.name}</span>
+                  <span>{link.nameCN}</span>
                 </Link>
               ))}
               <div className="flex items-center justify-between px-4 py-2">

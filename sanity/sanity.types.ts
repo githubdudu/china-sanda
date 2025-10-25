@@ -13,6 +13,54 @@
  */
 
 // Source: schema.json
+export type Address = {
+  _id: string
+  _type: 'address'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  streetNumber?: string
+  streetName?: string
+  suburb?: string
+  city?: string
+  postcode?: string
+  country?: string
+  addressCN?: string
+  cityCN?: string
+  countryCN?: string
+  phone?: string
+  email?: string
+}
+
+export type NavBar = {
+  _id: string
+  _type: 'navBar'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  logo?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  siteName?: string
+  siteName2?: string
+  navItems?: Array<
+    {
+      _key: string
+    } & ButtonContent
+  >
+}
+
 export type HomePage = {
   _id: string
   _type: 'homePage'
@@ -167,6 +215,8 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | Address
+  | NavBar
   | HomePage
   | ButtonContent
   | TitleSentence
