@@ -47,7 +47,7 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
         <h3
           class="text-lg font-bold text-foreground"
         >
-          Contact Us
+          Contact Us 联系我们
         </h3>
         <ul
           class="space-y-2 text-sm text-foreground/80"
@@ -59,32 +59,41 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
               Address:
             </span>
             <br />
-            123 Martial Arts Way
+             
             <br />
-            City, Province 100000
+            , 
+             
+            <br />
           </li>
           <li>
             <span
               class="font-medium text-foreground"
             >
-              Phone:
+              地址:
             </span>
             <br />
-            +86 123 4567 8900
+            , 
+            <br />
           </li>
           <li>
             <span
               class="font-medium text-foreground"
             >
-              Email:
+              Phone 联系电话:
+            </span>
+            <br />
+          </li>
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Email 邮箱:
             </span>
             <br />
             <a
               class="hover:text-primary transition-colors"
-              href="mailto:info@chinasandaclub.com"
-            >
-              info@chinasandaclub.com
-            </a>
+              href="mailto:undefined"
+            />
           </li>
         </ul>
       </div>
@@ -154,6 +163,8 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/"
             >
               Home
+               
+              首页
             </a>
           </li>
           <li>
@@ -162,6 +173,38 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/classes"
             >
               Classes
+               
+              课程安排
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-foreground/80 hover:text-primary transition-colors"
+              href="/coaches"
+            >
+              Coaches
+               
+              教练团队
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-foreground/80 hover:text-primary transition-colors"
+              href="/pricing"
+            >
+              Pricing
+               
+              学费价格
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-foreground/80 hover:text-primary transition-colors"
+              href="/gallery"
+            >
+              Gallery
+               
+              精彩回顾
             </a>
           </li>
           <li>
@@ -170,6 +213,8 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/contact"
             >
               Contact
+               
+              联系方式
             </a>
           </li>
         </ul>
@@ -180,7 +225,7 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
         <h3
           class="text-lg font-bold text-foreground"
         >
-          Contact Us
+          Contact Us 联系我们
         </h3>
         <ul
           class="space-y-2 text-sm text-foreground/80"
@@ -192,31 +237,52 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               Address:
             </span>
             <br />
-            123 Martial Arts Way
+            18
+             
+            Norwich Street
             <br />
-            City, Province 100000
+            Eden Terrace
+            , 
+            Auckland
+             
+            1021
+            <br />
+            New Zealand
           </li>
           <li>
             <span
               class="font-medium text-foreground"
             >
-              Phone:
+              地址:
             </span>
             <br />
-            +86 123 4567 8900
+            新西兰
+            , 
+            奥克兰
+            <br />
+            诺里奇街18号
           </li>
           <li>
             <span
               class="font-medium text-foreground"
             >
-              Email:
+              Phone 联系电话:
+            </span>
+            <br />
+            0279662222
+          </li>
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Email 邮箱:
             </span>
             <br />
             <a
               class="hover:text-primary transition-colors"
-              href="mailto:info@chinasandaclub.com"
+              href="mailto:chinasandaclub@gmail.com"
             >
-              info@chinasandaclub.com
+              chinasandaclub@gmail.com
             </a>
           </li>
         </ul>
