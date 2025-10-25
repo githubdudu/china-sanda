@@ -1,0 +1,242 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer Component > renders with default props and matches snapshot 1`] = `
+<footer
+  class="w-full bg-background-secondary border-t border-foreground/10"
+>
+  <div
+    class="container mx-auto px-4 py-8 md:py-12"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-8"
+    >
+      <div
+        class="space-y-3"
+      >
+        <h3
+          class="text-lg font-bold text-primary"
+        >
+          中国散打 China Sanda Club
+        </h3>
+        <p
+          class="text-sm text-foreground/80 leading-relaxed"
+        >
+          World-class Sanda martial arts training club offering expert coaching, flexible schedules, and programs for all skill levels.
+        </p>
+        <p
+          class="text-sm text-foreground/80 leading-relaxed"
+        >
+          世界一流的散打搏击俱乐部
+        </p>
+      </div>
+      <div
+        class="space-y-3"
+      >
+        <h3
+          class="text-lg font-bold text-foreground"
+        >
+          Quick Links
+        </h3>
+        <ul
+          class="space-y-2"
+        />
+      </div>
+      <div
+        class="space-y-3"
+      >
+        <h3
+          class="text-lg font-bold text-foreground"
+        >
+          Contact Us
+        </h3>
+        <ul
+          class="space-y-2 text-sm text-foreground/80"
+        >
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Address:
+            </span>
+            <br />
+            123 Martial Arts Way
+            <br />
+            City, Province 100000
+          </li>
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Phone:
+            </span>
+            <br />
+            +86 123 4567 8900
+          </li>
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Email:
+            </span>
+            <br />
+            <a
+              class="hover:text-primary transition-colors"
+              href="mailto:info@chinasandaclub.com"
+            >
+              info@chinasandaclub.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="border-t border-foreground/10 bg-background"
+  >
+    <div
+      class="container mx-auto px-4 py-4"
+    >
+      <p
+        class="text-center text-sm text-foreground/60"
+      >
+        © 
+        2025
+         China Sanda Club. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`Footer Component > renders with navigation items and matches snapshot 1`] = `
+<footer
+  class="w-full bg-background-secondary border-t border-foreground/10"
+>
+  <div
+    class="container mx-auto px-4 py-8 md:py-12"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-8"
+    >
+      <div
+        class="space-y-3"
+      >
+        <h3
+          class="text-lg font-bold text-primary"
+        >
+          中国散打 China Sanda Club
+        </h3>
+        <p
+          class="text-sm text-foreground/80 leading-relaxed"
+        >
+          World-class Sanda martial arts training club offering expert coaching, flexible schedules, and programs for all skill levels.
+        </p>
+        <p
+          class="text-sm text-foreground/80 leading-relaxed"
+        >
+          世界一流的散打搏击俱乐部
+        </p>
+      </div>
+      <div
+        class="space-y-3"
+      >
+        <h3
+          class="text-lg font-bold text-foreground"
+        >
+          Quick Links
+        </h3>
+        <ul
+          class="space-y-2"
+        >
+          <li>
+            <a
+              class="text-sm text-foreground/80 hover:text-primary transition-colors"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-foreground/80 hover:text-primary transition-colors"
+              href="/classes"
+            >
+              Classes
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-foreground/80 hover:text-primary transition-colors"
+              href="/contact"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="space-y-3"
+      >
+        <h3
+          class="text-lg font-bold text-foreground"
+        >
+          Contact Us
+        </h3>
+        <ul
+          class="space-y-2 text-sm text-foreground/80"
+        >
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Address:
+            </span>
+            <br />
+            123 Martial Arts Way
+            <br />
+            City, Province 100000
+          </li>
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Phone:
+            </span>
+            <br />
+            +86 123 4567 8900
+          </li>
+          <li>
+            <span
+              class="font-medium text-foreground"
+            >
+              Email:
+            </span>
+            <br />
+            <a
+              class="hover:text-primary transition-colors"
+              href="mailto:info@chinasandaclub.com"
+            >
+              info@chinasandaclub.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="border-t border-foreground/10 bg-background"
+  >
+    <div
+      class="container mx-auto px-4 py-4"
+    >
+      <p
+        class="text-center text-sm text-foreground/60"
+      >
+        © 
+        2025
+         China Sanda Club. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+`;

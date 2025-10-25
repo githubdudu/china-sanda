@@ -1,0 +1,220 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header Component > renders with navigation data and matches snapshot 1`] = `
+<header
+  class="sticky top-0 z-50 w-full bg-background border-b
+      border-foreground/10 shadow-sm"
+>
+  <nav
+    class="container mx-auto px-2"
+  >
+    <div
+      class="flex items-center justify-between sm:h-16 md:h-25"
+    >
+      <div
+        class="h-10 sm:h-16 md:h-20 w-10 sm:w-16 md:w-20 relative"
+      >
+        <img
+          alt="China Sanda Club logo"
+          src="/logo.jpeg"
+        />
+      </div>
+      <a
+        class="flex md:flex-5 justify-center lg:justify-self-start items-center space-x-2 hover:opacity-60
+            transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
+        href="/"
+      >
+        <div
+          class="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary"
+        >
+          <span>
+            中国散打
+          </span>
+          <span>
+            China Sanda Club
+          </span>
+        </div>
+      </a>
+      <div
+        class="hidden lg:flex items-center space-x-1 lg:space-x-2"
+      >
+        <a
+          class="flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link nav-link-active"
+          href="/"
+        >
+          <span>
+            Home
+          </span>
+          <span>
+            首页
+          </span>
+        </a>
+        <a
+          class="flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link "
+          href="/classes"
+        >
+          <span>
+            Classes
+          </span>
+          <span>
+            课程
+          </span>
+        </a>
+        <a
+          class="flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link "
+          href="/contact"
+        >
+          <span>
+            Contact
+          </span>
+          <span>
+            联系
+          </span>
+        </a>
+        <button
+          aria-label="Switch to light mode"
+          class="p-2 btn-secondary transition-colors"
+          title="Toggle theme"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003
+              9.003 0 008.354-5.646z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+      <button
+        aria-expanded="false"
+        aria-label="Toggle mobile menu"
+        class="lg:hidden p-2 btn-secondary"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M4 6h16M4 12h16M4 18h16"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+      </button>
+      <a
+        class="px-6 py-2 ml-4 btn-primary hidden md:inline-block"
+        href="/contact"
+      >
+        Book Trial
+      </a>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`Header Component > renders with null navigation data and matches snapshot 1`] = `
+<header
+  class="sticky top-0 z-50 w-full bg-background border-b
+      border-foreground/10 shadow-sm"
+>
+  <nav
+    class="container mx-auto px-2"
+  >
+    <div
+      class="flex items-center justify-between sm:h-16 md:h-25"
+    >
+      <div
+        class="h-10 sm:h-16 md:h-20 w-10 sm:w-16 md:w-20 relative"
+      >
+        <img
+          alt="China Sanda Club logo"
+          src="/logo.jpeg"
+        />
+      </div>
+      <a
+        class="flex md:flex-5 justify-center lg:justify-self-start items-center space-x-2 hover:opacity-60
+            transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
+        href="/"
+      >
+        <div
+          class="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary"
+        >
+          <span>
+            中国散打
+          </span>
+          <span>
+            China Sanda Club
+          </span>
+        </div>
+      </a>
+      <div
+        class="hidden lg:flex items-center space-x-1 lg:space-x-2"
+      >
+        <button
+          aria-label="Switch to light mode"
+          class="p-2 btn-secondary transition-colors"
+          title="Toggle theme"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003
+              9.003 0 008.354-5.646z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+      <button
+        aria-expanded="false"
+        aria-label="Toggle mobile menu"
+        class="lg:hidden p-2 btn-secondary"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M4 6h16M4 12h16M4 18h16"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+      </button>
+      <a
+        class="px-6 py-2 ml-4 btn-primary hidden md:inline-block"
+        href="/contact"
+      >
+        Book Trial
+      </a>
+    </div>
+  </nav>
+</header>
+`;

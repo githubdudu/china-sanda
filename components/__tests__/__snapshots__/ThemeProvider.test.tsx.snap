@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ThemeProvider Component > renders children with theme provider and matches snapshot 1`] = `
+<div>
+  Test Content
+</div>
+`;
+
+exports[`ThemeProvider Component > renders multiple children and matches snapshot 1`] = `
+<div
+  data-testid="wrapper"
+>
+  <header>
+    Header
+  </header>
+  <main>
+    Main Content
+  </main>
+  <footer>
+    Footer
+  </footer>
+</div>
+`;

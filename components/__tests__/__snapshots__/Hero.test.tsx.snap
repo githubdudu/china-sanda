@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Hero Component > renders with full hero data and matches snapshot 1`] = `
+<section
+  class="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-6.25rem)] flex items-center justify-center"
+>
+  <div
+    class="absolute inset-0 z-0"
+  >
+    <img
+      alt="China Sanda Club training facility"
+      src="/hero-bg.png"
+    />
+    <div
+      class="hero-overlay"
+    />
+  </div>
+  <div
+    class="relative flex flex-col gap-8 z-10 container mx-auto px-4 sm:px-8 text-center"
+  >
+    <div
+      data-testid="animated-headings"
+    >
+      <div>
+        World-Class Sanda Training
+      </div>
+    </div>
+    <div
+      class="flex gap-4 items-center justify-center flex-col sm:flex-row"
+    >
+      <a
+        class="px-8 py-4 text-lg btn-primary w-full sm:w-auto"
+        href="/contact"
+      >
+        <span>
+          Book Trial
+        </span>
+        <span>
+           | 
+          预约试课
+        </span>
+      </a>
+      <a
+        class="btn-secondary text-[#ededed] ring-[#ededed]/50 hover:bg-[#ededed]/5 px-8 py-4 text-lg  w-full sm:w-auto"
+        href="/classes"
+      >
+        <span>
+          View Classes
+        </span>
+        <span>
+           | 
+          查看课程
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`Hero Component > renders with minimal hero data and matches snapshot 1`] = `
+<section
+  class="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-6.25rem)] flex items-center justify-center"
+>
+  <div
+    class="absolute inset-0 z-0"
+  >
+    <img
+      alt="China Sanda Club training facility"
+      src="/hero-bg.png"
+    />
+    <div
+      class="hero-overlay"
+    />
+  </div>
+  <div
+    class="relative flex flex-col gap-8 z-10 container mx-auto px-4 sm:px-8 text-center"
+  >
+    <div
+      data-testid="animated-headings"
+    />
+    <div
+      class="flex gap-4 items-center justify-center flex-col sm:flex-row"
+    />
+  </div>
+</section>
+`;
