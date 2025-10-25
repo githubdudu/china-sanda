@@ -1,20 +1,14 @@
 import Link from "next/link";
 
-interface FooterLink {
-  href: string;
-  label: string;
-}
+import { Address, ButtonContent } from "@/sanity/sanity.types";
 
-const quickLinks: FooterLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/classes", label: "Classes" },
-  { href: "/coaches", label: "Coaches" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/contact", label: "Contact" },
-];
-
-export const Footer = () => {
+export const Footer = ({
+  navItems = [],
+  address,
+}: {
+  navItems?: ({ _key: string } & ButtonContent)[];
+  address?: Address;
+}) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -39,13 +33,15 @@ export const Footer = () => {
           <div className="space-y-3">
             <h3 className="text-lg font-bold text-foreground">Quick Links</h3>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
+              {navItems.map((link) => (
+                <li key={link.url}>
                   <Link
-                    href={link.href}
+                    href={link.url || "/"}
                     className="text-sm text-foreground/80 hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    {link.name}
+                    &nbsp;
+                    {link.nameCN}
                   </Link>
                 </li>
               ))}
@@ -54,28 +50,45 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-3">
-            <h3 className="text-lg font-bold text-foreground">Contact Us</h3>
+            <h3 className="text-lg font-bold text-foreground">Contact Us 联系我们</h3>
             <ul className="space-y-2 text-sm text-foreground/80">
               <li>
                 <span className="font-medium text-foreground">Address:</span>
                 <br />
-                123 Martial Arts Way
+                {address?.streetNumber}
+                &nbsp;
+                {address?.streetName}
                 <br />
-                City, Province 100000
+                {address?.suburb}
+                ,&nbsp;
+                {address?.city}
+                {" "}
+                {address?.postcode}
+                <br />
+                {address?.country}
               </li>
               <li>
-                <span className="font-medium text-foreground">Phone:</span>
+                <span className="font-medium text-foreground">地址:</span>
                 <br />
-                +86 123 4567 8900
+                {address?.countryCN}
+                ,&nbsp;
+                {address?.cityCN}
+                <br />
+                {address?.addressCN}
               </li>
               <li>
-                <span className="font-medium text-foreground">Email:</span>
+                <span className="font-medium text-foreground">Phone 联系电话:</span>
+                <br />
+                {address?.phone}
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Email 邮箱:</span>
                 <br />
                 <a
-                  href="mailto:info@chinasandaclub.com"
+                  href={`mailto:${address?.email}`}
                   className="hover:text-primary transition-colors"
                 >
-                  info@chinasandaclub.com
+                  {address?.email}
                 </a>
               </li>
             </ul>

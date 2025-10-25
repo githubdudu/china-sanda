@@ -100,6 +100,38 @@ chinasanda/
 - Strict mode enabled
 - Module resolution: bundler
 
+### TypeScript Type Checking Behavior
+
+**Important: Next.js Build vs Full TypeScript Check**
+
+Next.js `npm run build` only type-checks **production code** that gets bundled:
+- Files in `app/` directory (pages, layouts, API routes)
+- Components in `components/` directory that are imported by app
+- Any files directly or indirectly imported by production code
+
+**Excluded from Next.js build type checking:**
+- `**/__tests__/` directories
+- `*.test.ts` and `*.test.tsx` files
+- Test utilities and mock files
+- Any files not imported by production code
+
+**To check ALL TypeScript files (including tests):**
+```bash
+npx tsc --noEmit
+```
+
+**Why this matters:**
+- TypeScript errors in test files won't break `npm run build`
+- Tests can have type errors but build still succeeds
+- Use `npx tsc --noEmit` during development to catch all type errors
+- CI/CD should run both `npm run build` AND `npx tsc --noEmit` for complete validation
+
+**Example:**
+```bash
+npm run build        # ✅ Passes (ignores test files)
+npx tsc --noEmit     # ❌ Fails if test files have type errors
+```
+
 ### Theme System (next-themes)
 
 The project implements a comprehensive dark/light theme system:

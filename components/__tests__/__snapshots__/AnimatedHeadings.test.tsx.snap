@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AnimatedHeadings Component > renders with empty page title and matches snapshot 1`] = `null`;
+
+exports[`AnimatedHeadings Component > renders with page title data and matches snapshot 1`] = `
+<h1
+  class="min-h-[200px] sm:min-h-[180px] text-4xl sm:text-5xl font-extrabold text-[#ededed] text-center sm:text-left leading-tight"
+>
+  <div
+    class="relative mb-2"
+  >
+    <div
+      class="relative inset-0 transition-opacity duration-[2s] ease-out opacity-100"
+    >
+      <span>
+        World-Class 
+      </span>
+      <span
+        class="underline underline-offset-4 decoration-primary"
+      >
+        Sanda
+      </span>
+      <span>
+         Training
+      </span>
+    </div>
+    <div
+      class="absolute top-0 inset-0 transition-opacity duration-[2s] ease-out opacity-0"
+    >
+      <span>
+        世界一流的
+      </span>
+      <span
+        class="underline underline-offset-4 decoration-primary"
+      >
+        散打
+      </span>
+      <span>
+        训练
+      </span>
+    </div>
+  </div>
+  <div
+    class="relative mb-2"
+  >
+    <div
+      class="relative inset-0 transition-opacity duration-[2s] ease-out opacity-100"
+    >
+      <span>
+        Build 
+      </span>
+      <span
+        class="underline underline-offset-4 decoration-primary"
+      >
+        Strength
+      </span>
+      <span>
+         and Confidence
+      </span>
+    </div>
+    <div
+      class="absolute top-0 inset-0 transition-opacity duration-[2s] ease-out opacity-0"
+    >
+      <span>
+        增强
+      </span>
+      <span
+        class="underline underline-offset-4 decoration-primary"
+      >
+        力量
+      </span>
+      <span>
+        与自信
+      </span>
+    </div>
+  </div>
+</h1>
+`;
+
+exports[`AnimatedHeadings Component > renders with undefined page title and matches snapshot 1`] = `null`;
