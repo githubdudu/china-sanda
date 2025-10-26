@@ -53,7 +53,7 @@ export const Footer = ({
             <h3 className="text-lg font-bold text-foreground">Contact Us 联系我们</h3>
             <ul className="space-y-2 text-sm text-foreground/80">
               <li>
-                <span className="font-medium text-foreground">Address:</span>
+                <span className="font-medium text-foreground">Address 地址:</span>
                 <br />
                 {address?.streetNumber}
                 &nbsp;
@@ -68,8 +68,6 @@ export const Footer = ({
                 {address?.country}
               </li>
               <li>
-                <span className="font-medium text-foreground">地址:</span>
-                <br />
                 {address?.countryCN}
                 ,&nbsp;
                 {address?.cityCN}
