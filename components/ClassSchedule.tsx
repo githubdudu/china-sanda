@@ -14,7 +14,7 @@ const locales = {
 const localizer = dateFnsLocalizer({
   format,
   parse,
-  startOfWeek,
+  startOfWeek: (date: Date) => startOfWeek(date, { weekStartsOn: 1 }),
   getDay,
   locales,
 });
@@ -118,9 +118,10 @@ export const ClassSchedule = ({ classes }: ClassScheduleProps) => {
         views={["week"]}
         step={30}
         timeslots={2}
-        min={new Date(2025, 0, 1, 7, 0, 0)} // 7:00 AM
+        min={new Date(2025, 0, 1, 9, 0, 0)} // 9:00 AM
         max={new Date(2025, 0, 1, 22, 0, 0)} // 10:00 PM
         eventPropGetter={eventStyleGetter}
+        culture="en-GB"
         style={{ height: 600 }}
         messages={{
           week: "Week 周",
