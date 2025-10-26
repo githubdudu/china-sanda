@@ -113,6 +113,12 @@ export type TimeValue =
   | '23:40'
   | '23:50'
 
+export type Tag = {
+  _type: 'tag'
+  name?: string
+  nameCN?: string
+}
+
 export type Schedule = {
   _type: 'schedule'
   whichday?: Whichday
@@ -134,18 +140,25 @@ export type Class = {
   sequence?: number
   title?: string
   titleCN?: string
-  description?: string
-  descriptionCN?: string
+  level?: 'beginner' | 'intermediate' | 'advanced'
   instructor?: {
     _ref: string
     _type: 'reference'
     _weak?: boolean
     [internalGroqTypeReferenceTo]?: 'instructor'
   }
+  capacity?: number
+  description?: string
+  descriptionCN?: string
   schedule?: Array<
     {
       _key: string
     } & Schedule
+  >
+  tags?: Array<
+    {
+      _key: string
+    } & Tag
   >
 }
 
@@ -377,6 +390,7 @@ export type SanityAssetSourceData = {
 export type AllSanitySchemaTypes =
   | Whichday
   | TimeValue
+  | Tag
   | Schedule
   | TimeDuration
   | Class
