@@ -122,13 +122,8 @@ export const ClassSchedule = ({ classes }: ClassScheduleProps) => {
         max={new Date(2025, 0, 1, 22, 0, 0)} // 10:00 PM
         eventPropGetter={eventStyleGetter}
         culture="en-GB"
-        style={{ height: 600 }}
-        messages={{
-          week: "Week 周",
-          today: "Today 今天",
-          previous: "Previous 上一周",
-          next: "Next 下一周",
-        }}
+        toolbar={false}
+        style={{ height: 700 }}
       />
 
       {/* Legend */}
