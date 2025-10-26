@@ -109,22 +109,25 @@ export const ClassSchedule = ({ classes }: ClassScheduleProps) => {
 
   return (
     <div className="calendar-container">
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        defaultView="week"
-        views={["week"]}
-        step={30}
-        timeslots={2}
-        min={new Date(2025, 0, 1, 9, 0, 0)} // 9:00 AM
-        max={new Date(2025, 0, 1, 22, 0, 0)} // 10:00 PM
-        eventPropGetter={eventStyleGetter}
-        culture="en-GB"
-        toolbar={false}
-        style={{ height: 700 }}
-      />
+      {/* Scrollable calendar wrapper */}
+      <div className="overflow-y-auto overflow-x-auto max-h-[700px]">
+        <Calendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          defaultView="week"
+          views={["week"]}
+          step={30}
+          timeslots={2}
+          min={new Date(2025, 0, 1, 9, 0, 0)} // 9:00 AM
+          max={new Date(2025, 0, 1, 22, 0, 0)} // 10:00 PM
+          eventPropGetter={eventStyleGetter}
+          culture="en-GB"
+          toolbar={false}
+          style={{ height: 700, minWidth: "550px" }}
+        />
+      </div>
 
       {/* Legend */}
       <div className="mt-6 flex flex-wrap gap-4 justify-center">
