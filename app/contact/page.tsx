@@ -1,12 +1,30 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { Address } from "@/sanity/sanity.types";
+import { client } from "@/sanity/client";
+import { defaultAddressData } from "@/data/address";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact Us | 联系我们 - China Sanda Club",
   description: "Get in touch to start your martial arts journey. Visit our training center in Beijing or send us a message. 联系我们，开始您的武术之旅。",
 };
 
-const ContactPage = () => {
+const ADDRESS_QUERY = `*[_type == "address"][0]`;
+
+async function ContactPage() {
+  let addressData: Address | null = null;
+  try {
+    addressData = await client.fetch<Address>(ADDRESS_QUERY);
+    console.log("Fetched address data successfully");
+    if (!addressData) {
+      throw new Error("No address data found");
+    }
+  }
+  catch (error) {
+    addressData = defaultAddressData;
+    console.error("Error fetching address data from Sanity.io", error);
+  }
   return (
     <div className="min-h-screen py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -41,29 +59,65 @@ const ContactPage = () => {
 
             <div className="space-y-6">
               <div>
-                <h4 className="font-semibold mb-2">Location / 地址</h4>
-                <p className="opacity-70">123 Martial Arts Street</p>
-                <p className="opacity-70">Beijing, China 100000</p>
-                <p className="opacity-70 mt-1">中国北京市武术街123号</p>
+                <h4 className="font-semibold mb-2">Address / 地址</h4>
+                <p className="opacity-70">
+                  {addressData.streetNumber}
+                  {" "}
+                  {addressData.streetName}
+                </p>
+                <p className="opacity-70">
+                  {addressData.suburb}
+                  {" "}
+                  {addressData.postcode }
+                </p>
+                <p className="opacity-70">
+                  {addressData.city}
+                </p>
+                <p className="opacity-70">
+                  {addressData.country}
+                </p>
+                <p className="opacity-70 mb-3">
+                </p>
+                <p className="opacity-70">
+                  {addressData.countryCN}
+                  {" "}
+                  {addressData.cityCN}
+                </p>
+                <p className="opacity-70">
+                  {addressData.addressCN}
+                </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2">Phone / 电话</h4>
-                <p className="opacity-70">+86 10 1234 5678</p>
+                <p className="opacity-70">
+                  {addressData.phone}
+                </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2">Email / 邮箱</h4>
-                <p className="opacity-70">info@chinasandaclub.com</p>
+                <p className="opacity-70">
+                  {addressData.email}
+                </p>
               </div>
 
               <div>
                 <h4 className="font-semibold mb-2">Hours / 营业时间</h4>
                 <div className="opacity-70 space-y-1">
-                  <p>Monday - Friday: 6:00 AM - 10:00 PM</p>
-                  <p>Saturday - Sunday: 8:00 AM - 8:00 PM</p>
-                  <p className="mt-2">周一至周五：早上6点 - 晚上10点</p>
-                  <p>周六至周日：早上8点 - 晚上8点</p>
+                  <p>
+                    Please refer to my class schedule page.
+                  </p>
+                  <p>
+                    请参考课程安排页面。
+                  </p>
+                  <Link
+                    href="/classes#schedule"
+                    className="inline-block underline"
+                  >
+                    <div>Go to Class Schedule</div>
+                    <div>前往课程安排页面</div>
+                  </Link>
                 </div>
               </div>
 
