@@ -1,7 +1,7 @@
 // Note: instructor field is populated (from GROQ query) rather than just a reference
 import { PopulatedClass } from "@/sanity/populated.types";
 
-export const defaultClasses: PopulatedClass[] = [
+export const defaultClassesData: PopulatedClass[] = [
   {
     _createdAt: "2025-10-25T11:28:54Z",
     _id: "84c5c012-d679-4719-b103-a927d43caefb",

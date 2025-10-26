@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { defaultClasses } from "@/data/classes";
+import { defaultClassesData } from "@/data/classes";
+import { PopulatedClass } from "@/sanity/populated.types";
+import { client } from "@/sanity/client";
 
 export const metadata: Metadata = {
   title: "Classes & Schedule | 课程安排 - China Sanda Club",
@@ -9,7 +11,12 @@ export const metadata: Metadata = {
 // Enable static generation with on-demand revalidation
 export const revalidate = false;
 
-const ClassesPage = () => {
+const CLASSES_QUERY = `*[_type == "class"] | order(_createdAt asc) {
+  ...,
+  instructor->
+}`;
+
+async function ClassesPage() {
   const levelColors = {
     beginner: "bg-green-500/10 text-green-600 dark:text-green-400",
     intermediate: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
@@ -17,6 +24,19 @@ const ClassesPage = () => {
   };
 
   const dayNames = ["", "MON 周一", "TUE 周二", "WED 周三", "THU 周四", "FRI 周五", "SAT 周六", "SUN 周日"];
+
+  let classesData: PopulatedClass[] = [];
+  try {
+    classesData = await client.fetch<PopulatedClass[]>(CLASSES_QUERY);
+    console.log("Fetched classes data successfully");
+    if (!classesData) {
+      throw new Error("No classes data found");
+    }
+  }
+  catch (error) {
+    console.error(error);
+    classesData = defaultClassesData;
+  }
 
   return (
     <div className="min-h-screen py-16 px-4">
@@ -39,7 +59,7 @@ const ClassesPage = () => {
 
         {/* ClassSchedule component */}
         <div className="space-y-6">
-          {defaultClasses.map((classItem) => {
+          {classesData.map((classItem) => {
             const instructorName = classItem.instructor.name;
 
             return (

@@ -37,6 +37,7 @@ export default async function RootLayout({
   let navBarData: NavBar | null = null;
   try {
     navBarData = await client.fetch<NavBar>(NAVBAR_QUERY);
+    console.log("Fetched nav bar data successfully");
     if (!navBarData) {
       throw new Error("No nav bar data found");
     }
@@ -49,7 +50,7 @@ export default async function RootLayout({
   let addressData: Address | null = null;
   try {
     addressData = await client.fetch<Address>(ADDRESS_QUERY);
-    console.log("Fetched address data:", addressData);
+    console.log("Fetched address data successfully");
     if (!addressData) {
       throw new Error("No address data found");
     }
