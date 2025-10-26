@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-import { Address, ButtonContent } from "@/sanity/sanity.types";
+import { Address, NavItems } from "@/sanity/sanity.types";
 
 export const Footer = ({
   navItems = [],
   address,
 }: {
-  navItems?: ({ _key: string } & ButtonContent)[];
+  navItems?: NavItems;
   address?: Address;
 }) => {
   const currentYear = new Date().getFullYear();
