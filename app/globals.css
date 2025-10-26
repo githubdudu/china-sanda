@@ -109,6 +109,76 @@
   .hero-overlay {
     @apply absolute inset-0 bg-gradient-to-b from-hero-overlay-from via-hero-overlay-via to-hero-overlay-to;
   }
+
+  /* React Big Calendar Theming */
+  .calendar-container .rbc-calendar {
+    @apply bg-background text-foreground;
+  }
+
+  .calendar-container .rbc-header {
+    @apply border-foreground/20 bg-background-secondary text-foreground font-semibold py-3;
+  }
+
+  .calendar-container .rbc-time-view {
+    @apply border-foreground/20;
+  }
+
+  .calendar-container .rbc-time-header-content {
+    @apply border-foreground/20;
+  }
+
+  .calendar-container .rbc-time-content {
+    @apply border-foreground/20;
+  }
+
+  .calendar-container .rbc-timeslot-group {
+    @apply border-foreground/10;
+  }
+
+  .calendar-container .rbc-time-slot {
+    @apply border-foreground/10;
+  }
+
+  .calendar-container .rbc-day-slot .rbc-time-slot {
+    @apply border-foreground/5;
+  }
+
+  .calendar-container .rbc-current-time-indicator {
+    @apply bg-primary;
+  }
+
+  .calendar-container .rbc-today {
+    @apply bg-primary/5;
+  }
+
+  .calendar-container .rbc-toolbar {
+    @apply mb-4;
+  }
+
+  .calendar-container .rbc-toolbar button {
+    @apply px-4 py-2 rounded text-foreground bg-background border border-foreground/20 hover:bg-foreground/5 transition-colors;
+  }
+
+  .calendar-container .rbc-toolbar button:active,
+  .calendar-container .rbc-toolbar button.rbc-active {
+    @apply bg-primary text-background border-primary;
+  }
+
+  .calendar-container .rbc-label {
+    @apply text-foreground/70;
+  }
+
+  .calendar-container .rbc-event {
+    @apply transition-opacity hover:opacity-90;
+  }
+
+  .calendar-container .rbc-event-label {
+    @apply text-xs;
+  }
+
+  .calendar-container .rbc-event-content {
+    @apply text-xs;
+  }
 }
 
 /* ========================================

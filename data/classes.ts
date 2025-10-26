@@ -1,88 +1,198 @@
-// Class schedule data types and placeholder data
-// Structured to match planned Sanity.io schema
+// Note: instructor field is populated (from GROQ query) rather than just a reference
+import { PopulatedClass } from "@/sanity/populated.types";
 
-export interface ClassSchedule {
-  id: string;
-  name: string;
-  nameChinese: string;
-  description: string;
-  descriptionChinese: string;
-  schedule: {
-    day: string;
-    time: string;
-  }[];
-  level: "beginner" | "intermediate" | "advanced" | "allLevels";
-  capacity: number;
-  instructorId: string; // references Coach.id
-  duration: number; // minutes
-  category: "sanda" | "fitness" | "youth" | "competition";
-}
-
-export const classes: ClassSchedule[] = [
+export const defaultClassesData: PopulatedClass[] = [
   {
-    id: "class-1",
-    name: "Beginner Sanda Fundamentals",
-    nameChinese: "散打基础班",
-    description: "Learn the fundamental techniques of Sanda including basic strikes, kicks, and defensive movements. Perfect for those new to martial arts.",
-    descriptionChinese: "学习散打的基本技术，包括基本拳法、腿法和防守动作。非常适合武术初学者。",
-    schedule: [
-      { day: "Monday", time: "18:00 - 19:30" },
-      { day: "Wednesday", time: "18:00 - 19:30" },
-      { day: "Friday", time: "18:00 - 19:30" },
-    ],
+    _createdAt: "2025-10-25T11:28:54Z",
+    _id: "84c5c012-d679-4719-b103-a927d43caefb",
+    _rev: "bCU8FvWDkzjb4o9VRfYMIY",
+    _type: "class",
+    _updatedAt: "2025-10-26T07:19:54Z",
+    instructor: {
+      _createdAt: "2025-10-26T06:04:56Z",
+      _id: "7516fe1e-ae36-47d4-991a-5237da3c0415",
+      _rev: "dhq5u4ysv6TWFcQ3lpghIg",
+      _type: "instructor",
+      _updatedAt: "2025-10-26T06:05:24Z",
+      name: "陈刚 Chen Gang",
+    },
     level: "beginner",
-    capacity: 20,
-    instructorId: "coach-2",
-    duration: 90,
-    category: "sanda",
+    schedule: [
+      {
+        _key: "78226c6f3be8",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "17:00",
+          startTime: "16:00",
+        },
+        whichday: 1,
+      },
+      {
+        _key: "21b46031de3e",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "18:00",
+          startTime: "17:00",
+        },
+        whichday: 5,
+      },
+      {
+        _key: "2188375686fa",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "11:00",
+          startTime: "10:00",
+        },
+        whichday: 6,
+      },
+      {
+        _key: "bddeb6c94c2b",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "10:40",
+          startTime: "09:20",
+        },
+        whichday: 7,
+      },
+      {
+        _key: "7e739e55b2fd",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "14:30",
+          startTime: "13:30",
+        },
+        whichday: 7,
+      },
+    ],
+    sequence: 1,
+    title: "4-7 years Kickboxing",
+    titleCN: "拳击班 4-7 岁",
   },
   {
-    id: "class-2",
-    name: "Advanced Competition Training",
-    nameChinese: "高级竞赛训练班",
-    description: "Intensive training for competitive fighters. Focus on advanced techniques, strategy, and conditioning for tournament preparation.",
-    descriptionChinese: "针对竞技选手的强化训练。专注于高级技术、策略和体能调节，为比赛做准备。",
+    _createdAt: "2025-10-26T06:19:20Z",
+    _id: "374c685a-bb70-4298-8158-3ced07dd97a6",
+    _rev: "bCU8FvWDkzjb4o9VRfYM2O",
+    _type: "class",
+    _updatedAt: "2025-10-26T07:19:50Z",
+    instructor: {
+      _createdAt: "2025-10-26T06:04:56Z",
+      _id: "7516fe1e-ae36-47d4-991a-5237da3c0415",
+      _rev: "dhq5u4ysv6TWFcQ3lpghIg",
+      _type: "instructor",
+      _updatedAt: "2025-10-26T06:05:24Z",
+      name: "陈刚 Chen Gang",
+    },
+    level: "intermediate",
     schedule: [
-      { day: "Tuesday", time: "19:00 - 21:00" },
-      { day: "Thursday", time: "19:00 - 21:00" },
-      { day: "Saturday", time: "10:00 - 12:00" },
+      {
+        _key: "2b1d43e42979",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "18:40",
+          startTime: "17:20",
+        },
+        whichday: 1,
+      },
+      {
+        _key: "8de6801cf0c4c8a80a9eb2fa5287c205",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "19:30",
+          startTime: "18:00",
+        },
+        whichday: 5,
+      },
+      {
+        _key: "1ea77b2f2d609b2d3423ea31ead9d284",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "12:30",
+          startTime: "11:00",
+        },
+        whichday: 6,
+      },
+      {
+        _key: "e7aae316889ed528402dcaa95b909761",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "12:30",
+          startTime: "11:00",
+        },
+        whichday: 7,
+      },
     ],
+    sequence: 2,
+    title: "8-13 years Kickboxing",
+    titleCN: "拳击班 8-13 岁",
+  },
+  {
+    _createdAt: "2025-10-26T06:29:05Z",
+    _id: "ab742b02-c549-4321-b6e4-b193c663aa25",
+    _rev: "bCU8FvWDkzjb4o9VRfYLjX",
+    _type: "class",
+    _updatedAt: "2025-10-26T07:19:41Z",
+    instructor: {
+      _createdAt: "2025-10-26T06:04:56Z",
+      _id: "7516fe1e-ae36-47d4-991a-5237da3c0415",
+      _rev: "dhq5u4ysv6TWFcQ3lpghIg",
+      _type: "instructor",
+      _updatedAt: "2025-10-26T06:05:24Z",
+      name: "陈刚 Chen Gang",
+    },
     level: "advanced",
-    capacity: 15,
-    instructorId: "coach-1",
-    duration: 120,
-    category: "competition",
-  },
-  {
-    id: "class-3",
-    name: "Youth Martial Arts",
-    nameChinese: "青少年武术班",
-    description: "Age-appropriate martial arts training for children and teenagers. Builds discipline, confidence, and physical fitness.",
-    descriptionChinese: "适合儿童和青少年的武术训练。培养纪律性、自信心和身体素质。",
     schedule: [
-      { day: "Saturday", time: "14:00 - 15:30" },
-      { day: "Sunday", time: "14:00 - 15:30" },
+      {
+        _key: "ab58916d7dd2",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "21:00",
+          startTime: "19:30",
+        },
+        whichday: 1,
+      },
+      {
+        _key: "333d2695da4a116d2d2c2945a083ccb5",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "21:00",
+          startTime: "19:30",
+        },
+        whichday: 3,
+      },
+      {
+        _key: "309daf96bd74bf7ac12577e0d5a29228",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "21:00",
+          startTime: "19:30",
+        },
+        whichday: 5,
+      },
+      {
+        _key: "d6c051411f9f00653a0b954b807ea3df",
+        _type: "schedule",
+        timeDuration: {
+          _type: "timeDuration",
+          endTime: "16:00",
+          startTime: "14:30",
+        },
+        whichday: 7,
+      },
     ],
-    level: "allLevels",
-    capacity: 25,
-    instructorId: "coach-2",
-    duration: 90,
-    category: "youth",
-  },
-  {
-    id: "class-4",
-    name: "Women's Self-Defense & Sanda",
-    nameChinese: "女子防身与散打",
-    description: "Empowering women through martial arts training. Focus on practical self-defense techniques combined with Sanda fundamentals.",
-    descriptionChinese: "通过武术训练赋能女性。专注于实用防身技术与散打基础的结合。",
-    schedule: [
-      { day: "Tuesday", time: "10:00 - 11:30" },
-      { day: "Thursday", time: "10:00 - 11:30" },
-    ],
-    level: "allLevels",
-    capacity: 18,
-    instructorId: "coach-3",
-    duration: 90,
-    category: "sanda",
+    sequence: 3,
+    title: "12+ & Adult",
+    titleCN: "12岁以上及成人摔跤",
   },
 ];
