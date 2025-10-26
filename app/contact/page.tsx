@@ -89,6 +89,22 @@ async function ContactPage() {
               </div>
 
               <div>
+                <h4 className="font-semibold mb-2">Location Map / 位置地图</h4>
+                <div className="relative w-full rounded-lg overflow-hidden shadow-md">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1596.053697706782!2d174.75729580470875!3d-36.863848120016755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4904e497e6d9%3A0xea3341c13700036c!2sChina Sanda Club!5e0!3m2!1sen!2snz!4v1761477743108!5m2!1sen!2snz"
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="China Sanda Club Location / 俱乐部位置"
+                  />
+                </div>
+              </div>
+
+              <div>
                 <h4 className="font-semibold mb-2">Phone / 电话</h4>
                 <p className="opacity-70">
                   {addressData.phone}
