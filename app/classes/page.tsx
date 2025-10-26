@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { defaultClassesData } from "@/data/classes";
 import { PopulatedClass } from "@/sanity/populated.types";
 import { client } from "@/sanity/client";
+import { ClassSchedule } from "@/components/ClassSchedule";
 
 export const metadata: Metadata = {
   title: "Classes & Schedule | 课程安排 - China Sanda Club",
@@ -57,8 +58,8 @@ async function ClassesPage() {
           </p>
         </div>
 
-        {/* ClassSchedule component */}
-        <div className="space-y-6">
+        {/* Class List */}
+        <div className="space-y-6 mb-16">
           {classesData.map((classItem) => {
             const instructorName = classItem.instructor.name;
 
@@ -118,6 +119,25 @@ async function ClassesPage() {
               </div>
             );
           })}
+        </div>
+
+        {/* Weekly Calendar View */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+              Weekly Schedule
+            </h2>
+            <p className="text-2xl font-bold" style={{ color: "var(--primary)" }}>
+              每周课程表
+            </p>
+            <p className="text-base opacity-70 mt-4">
+              View all classes in a weekly calendar format
+            </p>
+            <p className="text-base opacity-70">
+              以每周日历格式查看所有课程
+            </p>
+          </div>
+          <ClassSchedule classes={classesData} />
         </div>
       </div>
     </div>
