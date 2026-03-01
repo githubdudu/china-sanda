@@ -53,26 +53,33 @@ export const Footer = ({
             <h3 className="text-lg font-bold text-foreground">Contact Us 联系我们</h3>
             <ul className="space-y-2 text-sm text-foreground/80">
               <li>
-                <span className="font-medium text-foreground">Address 地址:</span>
-                <br />
-                {address?.streetNumber}
+                <p className="font-medium text-foreground">Address 地址:</p>
+                <p>
+                  {address?.streetNumber}
                 &nbsp;
-                {address?.streetName}
-                <br />
-                {address?.suburb}
-                ,&nbsp;
-                {address?.city}
-                {" "}
-                {address?.postcode}
-                <br />
-                {address?.country}
+                  {address?.streetName}
+                </p>
+                <p>
+                  {address?.suburb}
+                </p>
+                <p>
+                  {address?.city}
+                  {" "}
+                  {address?.postcode}
+                </p>
+                <p>
+                  {address?.country}
+                </p>
               </li>
               <li>
-                {address?.countryCN}
-                ,&nbsp;
-                {address?.cityCN}
-                <br />
-                {address?.addressCN}
+                <p>
+                  {address?.countryCN}
+                  ,&nbsp;
+                  {address?.cityCN}
+                </p>
+                <p>
+                  {address?.addressCN}
+                </p>
               </li>
               <li>
                 <span className="font-medium text-foreground">Phone 联系电话:</span>

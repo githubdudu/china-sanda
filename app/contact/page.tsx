@@ -67,11 +67,11 @@ async function ContactPage() {
                 </p>
                 <p className="opacity-70">
                   {addressData.suburb}
-                  {" "}
-                  {addressData.postcode }
                 </p>
                 <p className="opacity-70">
                   {addressData.city}
+                  {" "}
+                  {addressData.postcode }
                 </p>
                 <p className="opacity-70">
                   {addressData.country}
