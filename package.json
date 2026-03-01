@@ -14,6 +14,7 @@
     "test:update": "vitest run -u"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.3.2",
     "@sanity/image-url": "^1.2.0",
     "date-fns": "^4.1.0",
     "next": "15.5.6",
