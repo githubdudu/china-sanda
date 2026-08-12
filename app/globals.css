@@ -106,11 +106,20 @@
   --color-hero-overlay-to: var(--hero-overlay-to);
 
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-bebas), "Arial Narrow", Impact, sans-serif;
 }
 
 @layer components {
+  /* 展示字体 — 用于标题以外的场合(按钮、数据、标签)。
+     h1–h3 已在 @layer base 自动应用,无需再加这个类。 */
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
   .nav-link {
     @apply font-medium text-foreground hover:text-background hover:bg-primary/80 rounded-sm transition-colors;
   }
@@ -208,6 +217,19 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* 展示标题统一用 Bebas Neue。
+   这里只设字体、字距和行高——字号与字重仍由各处的 Tailwind 工具类决定
+   (utilities 层优先级高于 base 层),不会覆盖现有排版。 */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
 }
