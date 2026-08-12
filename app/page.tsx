@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import WhySection from "@/components/WhySection";
+import ProgramsSection from "@/components/ProgramsSection";
 
 import { client } from "@/sanity/client";
 import { type HomePage } from "@/sanity/sanity.types";
@@ -26,8 +27,8 @@ export default async function Home() {
         <Hero heroData={heroData} />
         <AboutSection />
         <WhySection />
-        {/* <Programs />
-        <Trainers />
+        <ProgramsSection />
+        {/* <Trainers />
         <Schedule />
         <Community />
         <Testimonials />
