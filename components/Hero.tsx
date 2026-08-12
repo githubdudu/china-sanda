@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import { type HomePage, type Sentence } from "@/sanity/sanity.types";
 
@@ -74,18 +73,18 @@ function Hero({ heroData }: { heroData: HomePage }) {
           transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
         >
-          <RippleButton
+          <HeroButton
             onClick={() => scrollToSection("join")}
             variant="primary"
           >
             {heroData?.button1Red?.name}
-          </RippleButton>
-          <RippleButton
+          </HeroButton>
+          <HeroButton
             onClick={() => scrollToSection("contact")}
             variant="secondary"
           >
             {heroData?.button2White?.name}
-          </RippleButton>
+          </HeroButton>
         </motion.div>
 
         <div className="flex gap-6 justify-center items-center">
@@ -169,7 +168,7 @@ function StressedSentence({ sentence }: { sentence: Sentence }) {
   );
 }
 
-function RippleButton({
+function HeroButton({
   children,
   onClick,
   variant = "primary",
@@ -178,24 +177,17 @@ function RippleButton({
   onClick: () => void;
   variant?: "primary" | "secondary";
 }) {
-  const [ripple, setRipple] = useState(false);
-
-  const handleClick = () => {
-    setRipple(true);
-    setTimeout(() => setRipple(false), 250);
-    onClick();
-  };
-
   return (
     <motion.button
-      onClick={handleClick}
-      className={`relative overflow-hidden px-8 py-4 ${
+      onClick={onClick}
+      className={`px-8 py-4 ${
         variant === "primary"
           ? "bg-[#C62828] text-white hover:bg-gradient-to-b hover:from-[#C62828] hover:to-[#a01f1f]"
           : "bg-white text-[#111111] hover:bg-[#FFD600]"
-      } transition-all shadow-lg`}
+      } transition-colors shadow-lg`}
       whileHover={{ y: -2, boxShadow: "0 8px 16px rgba(0,0,0,0.3)" }}
       whileTap={{ scale: 0.98 }}
+      transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
       style={{
         fontFamily: "Bebas Neue, sans-serif",
         fontSize: "1.125rem",
@@ -203,21 +195,6 @@ function RippleButton({
       }}
     >
       {children}
-      {ripple && (
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-        >
-          <motion.div
-            className="w-1 h-1 bg-white rounded-full"
-            initial={{ scale: 1 }}
-            animate={{ scale: 40 }}
-            transition={{ duration: 0.25 }}
-          />
-        </motion.div>
-      )}
     </motion.button>
   );
 }
