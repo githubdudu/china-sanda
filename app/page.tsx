@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import WhySection from "@/components/WhySection";
 import ProgramsSection from "@/components/ProgramsSection";
+import CoachesSection from "@/components/CoachesSection";
 
 import { client } from "@/sanity/client";
 import { type HomePage } from "@/sanity/sanity.types";
@@ -28,7 +29,8 @@ export default async function Home() {
         <AboutSection />
         <WhySection />
         <ProgramsSection />
-        {/* <Trainers />
+        <CoachesSection />
+        {/*
         <Schedule />
         <Community />
         <Testimonials />
