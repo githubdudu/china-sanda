@@ -3,17 +3,23 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-const INPUT_CLASS = "w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary";
+const INPUT_CLASS =
+  "w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary";
 
 export const ContactForm = () => {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
   const params = useSearchParams();
   const interest = params.get("interest");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData  = new FormData(e.currentTarget);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
     formData.append("access_key", "e4d9af6f-6e08-4454-bb28-3ce9e1d0c180");
     setStatus("sending");
     try {
@@ -21,33 +27,55 @@ export const ContactForm = () => {
         method: "POST",
         body: formData,
       });
-      const { success } = await res.json();
+      const response = await res.json();
+      const { success } = response;
       setStatus(success ? "sent" : "error");
-      if (success) e.currentTarget.reset();
-    } catch {
+      if (success) form.reset();
+    } catch (error) {
       setStatus("error");
+      console.error(error);
     }
   };
 
   if (status === "sent") {
     return (
-      <p className="py-8 text-center">
-        Thanks! We&apos;ll get back to you within 48 hours.<br />
-      </p>
+      <div className="flex flex-col space-y-6 min-h-5/12">
+        <p className="py-8 text-center display text-2xl">Message Sent!</p>
+        <p className="py-4 text-center">
+          Thanks! We&apos;ll get back to you within 48 hours.
+          <br />
+        </p>
+      </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <input type="hidden" name="subject" value="New enquiry from China Sanda Club website" />
+      <input
+        type="hidden"
+        name="subject"
+        value="New enquiry from China Sanda Club website"
+      />
       {/* Honeypot: hidden from humans, bots fill it and the submission is dropped */}
-      <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+      />
 
       <div>
         <label htmlFor="interest" className="block text-sm font-medium mb-2">
           {`I'm interested in *`}
         </label>
-        <select id="interest" name="interest" required defaultValue={interest || "general"} className={INPUT_CLASS}>
+        <select
+          id="interest"
+          name="interest"
+          required
+          defaultValue={interest || "general"}
+          className={INPUT_CLASS}
+        >
           <option value="trial">Trial Class</option>
           <option value="youth">Youth Programs</option>
           <option value="private">Private Training</option>
@@ -60,14 +88,27 @@ export const ContactForm = () => {
         <label htmlFor="name" className="block text-sm font-medium mb-2">
           Name
         </label>
-        <input type="text" id="name" name="name" required maxLength={80} className={INPUT_CLASS} />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          maxLength={80}
+          className={INPUT_CLASS}
+        />
       </div>
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
           Email
         </label>
-        <input type="email" id="email" name="email" required className={INPUT_CLASS} />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          className={INPUT_CLASS}
+        />
       </div>
 
       <div>
@@ -76,7 +117,6 @@ export const ContactForm = () => {
         </label>
         <input type="tel" id="phone" name="phone" className={INPUT_CLASS} />
       </div>
-
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
@@ -92,7 +132,11 @@ export const ContactForm = () => {
         />
       </div>
 
-      <button type="submit" disabled={status === "sending"} className="btn-primary w-full disabled:opacity-60 p-3">
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="btn-primary w-full disabled:opacity-60 p-3"
+      >
         {status === "sending" ? "Sending…" : "Send the message"}
       </button>
 
