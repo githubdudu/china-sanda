@@ -112,7 +112,7 @@ function Hero({ heroData }: { heroData: HomePage }) {
   );
 }
 
-const FALLBACK_TITLE = "China Sanda Club";
+const FALLBACK_TITLE = "Auckland Combat Academy";
 
 /** Renders each title line, underlining the sentence's stressWord if present. */
 function HeroTitle({ pageTitle }: { pageTitle?: HomePage["pageTitle"] }) {

@@ -138,7 +138,7 @@ export type Class = {
   _updatedAt: string
   _rev: string
   sequence?: number
-  title?: string
+  title: string
   titleCN?: string
   level?: 'beginner' | 'intermediate' | 'advanced'
   instructor?: {

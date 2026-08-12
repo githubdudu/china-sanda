@@ -33,14 +33,8 @@ async function ContactPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Contact Us
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "var(--primary)" }}>
-            联系我们
-          </h2>
           <p className="text-lg max-w-3xl mx-auto opacity-80">
             Get in touch to start your martial arts journey or learn more about our programs.
-          </p>
-          <p className="text-lg max-w-3xl mx-auto opacity-80 mt-2">
-            联系我们，开始您的武术之旅或了解更多关于我们的课程。
           </p>
         </div>
 
@@ -48,18 +42,16 @@ async function ContactPage() {
           {/* Contact Form */}
           <div>
             <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-            <p className="text-lg mb-6" style={{ color: "var(--primary)" }}>发送消息</p>
             <ContactForm />
           </div>
 
           {/* Contact Information */}
           <div>
             <h3 className="text-2xl font-bold mb-6">Visit us</h3>
-            <p className="text-lg mb-6" style={{ color: "var(--primary)" }}>访问我们</p>
 
             <div className="space-y-6">
               <div>
-                <h4 className="font-semibold mb-2">Address / 地址</h4>
+                <h4 className="font-semibold mb-2">Address</h4>
                 <p className="opacity-70">
                   {addressData.streetNumber}
                   {" "}
@@ -78,18 +70,10 @@ async function ContactPage() {
                 </p>
                 <p className="opacity-70 mb-3">
                 </p>
-                <p className="opacity-70">
-                  {addressData.countryCN}
-                  {" "}
-                  {addressData.cityCN}
-                </p>
-                <p className="opacity-70">
-                  {addressData.addressCN}
-                </p>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Location Map / 位置地图</h4>
+                <h4 className="font-semibold mb-2">Location Map</h4>
                 <div className="relative w-full rounded-lg overflow-hidden shadow-md">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1596.053697706782!2d174.75729580470875!3d-36.863848120016755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d4904e497e6d9%3A0xea3341c13700036c!2sChina Sanda Club!5e0!3m2!1sen!2snz!4v1761477743108!5m2!1sen!2snz"
@@ -99,46 +83,42 @@ async function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="China Sanda Club Location / 俱乐部位置"
+                    title="China Sanda Club Location"
                   />
                 </div>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Phone / 电话</h4>
+                <h4 className="font-semibold mb-2">Phone</h4>
                 <p className="opacity-70">
                   {addressData.phone}
                 </p>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Email / 邮箱</h4>
+                <h4 className="font-semibold mb-2">Email</h4>
                 <p className="opacity-70">
                   {addressData.email}
                 </p>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Hours / 营业时间</h4>
+                <h4 className="font-semibold mb-2">Hours</h4>
                 <div className="opacity-70 space-y-1">
                   <p>
                     Please refer to my class schedule page.
-                  </p>
-                  <p>
-                    请参考课程安排页面。
                   </p>
                   <Link
                     href="/classes#schedule"
                     className="inline-block underline"
                   >
                     <div>Go to Class Schedule</div>
-                    <div>前往课程安排页面</div>
                   </Link>
                 </div>
               </div>
 
               <div className="pt-6 border-t border-foreground/10">
-                <h4 className="font-semibold mb-3">Follow Us / 关注我们</h4>
+                <h4 className="font-semibold mb-3">Follow Us</h4>
                 <div className="flex gap-4">
                   <a href="#" className="px-4 py-2 rounded-lg border border-foreground/20 hover:border-primary transition-colors">
                     WeChat

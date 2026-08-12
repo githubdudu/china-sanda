@@ -18,14 +18,8 @@ const CoachesPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Our Coaches
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "var(--primary)" }}>
-            教练团队
-          </h2>
           <p className="text-lg max-w-3xl mx-auto opacity-80">
             Train with world-class instructors who bring decades of experience and championship credentials.
-          </p>
-          <p className="text-lg max-w-3xl mx-auto opacity-80 mt-2">
-            与拥有数十年经验和冠军资历的世界级教练一起训练。
           </p>
         </div>
 
@@ -38,9 +32,7 @@ const CoachesPage = () => {
                 <span className="text-foreground/30">Photo</span>
               </div>
               <h3 className="text-2xl font-bold mb-2">{coach.name}</h3>
-              <p className="text-xl mb-4" style={{ color: "var(--primary)" }}>{coach.nameChinese}</p>
               <p className="text-sm opacity-70 mb-3">{coach.bio}</p>
-              <p className="text-sm opacity-70 mb-4">{coach.bioChinese}</p>
               <div className="flex flex-wrap gap-2">
                 {coach.specialties.map((specialty, idx) => (
                   <span

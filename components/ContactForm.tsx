@@ -40,6 +40,19 @@ export const ContactForm = () => {
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div>
+        <label htmlFor="interest" className="block text-sm font-medium mb-2">
+          {`I'm interested in *`}
+        </label>
+        <select id="interest" name="interest" required defaultValue="general" className={INPUT_CLASS}>
+          <option value="trial">Trial Class</option>
+          <option value="youth">Youth Programs</option>
+          <option value="private">Private Training</option>
+          <option value="general">General Inquiry</option>
+          <option value="beginner">Beginner Classes</option>
+          <option value="advanced">Advanced Training</option>
+        </select>
+      </div>
+      <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
           Name
         </label>
@@ -60,23 +73,10 @@ export const ContactForm = () => {
         <input type="tel" id="phone" name="phone" className={INPUT_CLASS} />
       </div>
 
-      <div>
-        <label htmlFor="interest" className="block text-sm font-medium mb-2">
-          {`I'm interested in / 我对以下感兴趣 *`}
-        </label>
-        <select id="interest" name="interest" required defaultValue="general" className={INPUT_CLASS}>
-          <option value="general">General Inquiry / 一般咨询</option>
-          <option value="beginner">Beginner Classes / 初级课程</option>
-          <option value="advanced">Advanced Training / 高级训练</option>
-          <option value="youth">Youth Programs / 青少年课程</option>
-          <option value="private">Private Training / 私教</option>
-          <option value="trial">Trial Class / 试听课</option>
-        </select>
-      </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message / 留言 *
+          Message *
         </label>
         <textarea
           id="message"
@@ -88,8 +88,8 @@ export const ContactForm = () => {
         />
       </div>
 
-      <button type="submit" disabled={status === "sending"} className="btn-primary w-full disabled:opacity-60">
-        {status === "sending" ? "Sending… / 发送中…" : "Send Message / 发送消息"}
+      <button type="submit" disabled={status === "sending"} className="btn-primary w-full disabled:opacity-60 p-3">
+        {status === "sending" ? "Sending…" : "Send the message"}
       </button>
 
       {status === "error" && (

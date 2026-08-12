@@ -24,7 +24,7 @@ async function ClassesPage() {
     advanced: "bg-red-500/10 text-red-600 dark:text-red-400",
   };
 
-  const dayNames = ["", "MON 周一", "TUE 周二", "WED 周三", "THU 周四", "FRI 周五", "SAT 周六", "SUN 周日"];
+  const dayNames = ["", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
   let classesData: PopulatedClass[] = [];
   try {
@@ -47,14 +47,8 @@ async function ClassesPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Classes &amp; Schedule
           </h1>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: "var(--primary)" }}>
-            课程安排
-          </h2>
           <p className="text-lg max-w-3xl mx-auto opacity-80">
             From beginner fundamentals to advanced competition training, find the perfect class for your goals.
-          </p>
-          <p className="text-lg max-w-3xl mx-auto opacity-80 mt-2">
-            从基础入门到高级竞赛训练，找到最适合您目标的课程。
           </p>
         </div>
 
@@ -68,9 +62,6 @@ async function ClassesPage() {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-2">{classItem.title}</h3>
-                    <p className="text-xl mb-3" style={{ color: "var(--primary)" }}>
-                      {classItem.titleCN}
-                    </p>
                     <p className="text-sm opacity-70 mb-2">{classItem.description}</p>
                     <p className="text-sm opacity-70">{classItem.descriptionCN}</p>
                   </div>
@@ -89,7 +80,7 @@ async function ClassesPage() {
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-foreground/10">
-                  <h4 className="font-semibold mb-2">Schedule 时间表:</h4>
+                  <h4 className="font-semibold mb-2">Schedule:</h4>
                   <div className="flex flex-wrap gap-3">
                     {classItem.schedule?.map((session) => {
                       const timeRange = `${session.timeDuration?.startTime || ""} - ${session.timeDuration?.endTime || ""}`;
@@ -104,7 +95,7 @@ async function ClassesPage() {
                   <div className="text-sm opacity-50 mt-3 flex flex-col gap-1">
                     {instructorName && (
                       <p>
-                        Instructor 教练:
+                        Instructor:
                         {" "}
                         {instructorName}
                       </p>
@@ -127,14 +118,8 @@ async function ClassesPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
               Weekly Schedule
             </h2>
-            <p className="text-2xl font-bold" style={{ color: "var(--primary)" }}>
-              每周课程表
-            </p>
             <p className="text-base opacity-70 mt-4">
               View all classes in a weekly calendar format
-            </p>
-            <p className="text-base opacity-70">
-              以每周日历格式查看所有课程
             </p>
           </div>
           <ClassSchedule classes={classesData} />
