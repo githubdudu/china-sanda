@@ -1,18 +1,12 @@
 "use client";
 
 import { motion } from "motion/react";
+import Link from "next/link";
 import { type HomePage, type Sentence } from "@/sanity/sanity.types";
 
 import { Instagram, Youtube, TickTock, RedBook } from "./SocialIcons";
 
 function Hero({ heroData }: { heroData: HomePage }) {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="home"
@@ -68,16 +62,10 @@ function Hero({ heroData }: { heroData: HomePage }) {
           transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
-          <HeroButton
-            onClick={() => scrollToSection("join")}
-            variant="primary"
-          >
+          <HeroButton href="/classes" variant="primary">
             {heroData?.button1Red?.name}
           </HeroButton>
-          <HeroButton
-            onClick={() => scrollToSection("contact")}
-            variant="secondary"
-          >
+          <HeroButton href="/contact" variant="secondary">
             {heroData?.button2White?.name}
           </HeroButton>
         </motion.div>
@@ -163,18 +151,20 @@ function StressedSentence({ sentence }: { sentence: Sentence }) {
   );
 }
 
+const MotionLink = motion.create(Link);
+
 function HeroButton({
   children,
-  onClick,
+  href,
   variant = "primary",
 }: {
   children: React.ReactNode;
-  onClick: () => void;
+  href: string;
   variant?: "primary" | "secondary";
 }) {
   return (
-    <motion.button
-      onClick={onClick}
+    <MotionLink
+      href={href}
       className={`display px-8 py-4 ${
         variant === "primary"
           ? "bg-primary text-background hover:bg-gradient-to-b hover:from-primary hover:to-primary-dark"
@@ -186,7 +176,7 @@ function HeroButton({
       style={{ fontSize: "1.125rem", letterSpacing: "2px" }}
     >
       {children}
-    </motion.button>
+    </MotionLink>
   );
 }
 
