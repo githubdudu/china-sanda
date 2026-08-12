@@ -121,19 +121,19 @@
   }
 
   .nav-link {
-    @apply font-medium text-foreground hover:text-background hover:bg-primary/80 rounded-sm transition-colors;
+    @apply font-medium text-background/80 hover:text-background hover:bg-primary/80 transition-colors;
   }
 
   .nav-link-active {
-    @apply border-b-4 border-primary text-primary;
+    @apply border-b-4 border-primary text-background;
   }
 
   .btn-primary {
-    @apply bg-primary text-background font-medium text-center rounded-sm hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
+    @apply bg-primary text-background font-medium text-center hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply rounded-sm text-foreground ring-1 ring-foreground/50 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply text-background ring-1 ring-background/50 hover:bg-background/5 focus:outline-none focus:ring-2 focus:ring-primary;
   }
 
   .hero-overlay {
