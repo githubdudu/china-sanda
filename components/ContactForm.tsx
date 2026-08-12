@@ -1,18 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const INPUT_CLASS =
   "w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary";
 
+function Select() {
+  const params = useSearchParams();
+  const interest = params.get("interest");
+  return (
+    <select
+      id="interest"
+      name="interest"
+      required
+      defaultValue={interest || "general"}
+      className={INPUT_CLASS}
+    >
+      <option value="trial">Trial Class</option>
+      <option value="youth">Youth Programs</option>
+      <option value="private">Private Training</option>
+      <option value="general">General Inquiry</option>
+      <option value="beginner">Beginner Classes</option>
+      <option value="advanced">Advanced Training</option>
+    </select>
+  );
+}
+
 export const ContactForm = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
-
-  const params = useSearchParams();
-  const interest = params.get("interest");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -69,20 +87,9 @@ export const ContactForm = () => {
         <label htmlFor="interest" className="block text-sm font-medium mb-2">
           {`I'm interested in *`}
         </label>
-        <select
-          id="interest"
-          name="interest"
-          required
-          defaultValue={interest || "general"}
-          className={INPUT_CLASS}
-        >
-          <option value="trial">Trial Class</option>
-          <option value="youth">Youth Programs</option>
-          <option value="private">Private Training</option>
-          <option value="general">General Inquiry</option>
-          <option value="beginner">Beginner Classes</option>
-          <option value="advanced">Advanced Training</option>
-        </select>
+        <Suspense>
+          <Select />
+        </Suspense>
       </div>
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
