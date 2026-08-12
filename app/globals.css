@@ -2,24 +2,30 @@
 
 /* ========================================
    Custom Properties
+
+   品牌色取自 South Central Boxing Club(冠军红 / 能量黄 / 沥青黑),
+   结构沿用本项目原有的 light / base / dark 三档色阶。
+   所有档位由 OKLCH 沿固定色相推导,色相漂移 0°:
+     主色 H=26.7°   辅色 H=94.9°   两者分离 68.2°
    ======================================== */
 :root {
   /* Base Colors */
-  --background: #fff;
-  --background-secondary: #eee;
-  --foreground: #1a1a1a;
+  --background: #ffffff;
+  --background-secondary: #f5f5f5;
+  --foreground: #111111;
 
-  /* Brand - Traditional Chinese Red */
-  --primary-light: #fca5a5;
-  --primary: #dc2626;
-  --primary-dark: #991b1b;
+  /* Brand - Champion Red (H 26.7°) */
+  --primary-light: #fea69d;
+  --primary: #c62828;
+  --primary-dark: #a01f1f;
 
-  /* Brand - Gold Accent */
-  --secondary-light: #fcd34d;
-  --secondary: #f59e0b;
-  --secondary-dark: #b45309;
+  /* Brand - Energy Yellow (H 94.9°) */
+  --secondary-light: #ffea80;
+  --secondary: #ffd600;
+  --secondary-dark: #c5a100;
 
-  /* Semantic Colors */
+  /* Semantic Colors
+     作为色块背景使用(配深色文字);当作浅底上的文字色会不达标。 */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
@@ -31,13 +37,22 @@
   --hero-overlay-to: rgb(0 0 0 / 0.4);
 }
 
-/* Dark mode via manual toggle (.dark class) or system preference */
+/* Dark mode via manual toggle (.dark class) or system preference
+
+   暗色下主色整体提亮以保证正文对比度,且 *-dark 档反向变亮——
+   悬停态在深色底上必须比常态更亮,否则 text-background 压上去会不可读。 */
 .dark {
   --background: #0a0a0a;
   --background-secondary: #1a1a1a;
   --foreground: #ededed;
-  --primary: #df3b3b;
-  --secondary: #fbbf24;
+
+  --primary-light: #ffc0b6;
+  --primary: #df544c;
+  --primary-dark: #f46f65;
+
+  --secondary-light: #fff3a8;
+  --secondary: #edc70e;
+  --secondary-dark: #ffe362;
 
   /* Hero Overlay - Dark Mode */
   --hero-overlay-from: rgb(0 0 0 / 0.7);
@@ -51,9 +66,15 @@
   :root:not(.light) {
     --background: #0a0a0a;
     --background-secondary: #1a1a1a;
-    --primary: #df3b3b;
     --foreground: #ededed;
-    --secondary: #fbbf24;
+
+    --primary-light: #ffc0b6;
+    --primary: #df544c;
+    --primary-dark: #f46f65;
+
+    --secondary-light: #fff3a8;
+    --secondary: #edc70e;
+    --secondary-dark: #ffe362;
 
     /* Hero Overlay - Dark Mode (system preference) */
     --hero-overlay-from: rgb(0 0 0 / 0.7);
@@ -85,25 +106,34 @@
   --color-hero-overlay-to: var(--hero-overlay-to);
 
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-bebas), "Arial Narrow", Impact, sans-serif;
 }
 
 @layer components {
+  /* 展示字体 — 用于标题以外的场合(按钮、数据、标签)。
+     h1–h3 已在 @layer base 自动应用,无需再加这个类。 */
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
   .nav-link {
-    @apply font-medium text-foreground hover:text-background hover:bg-primary/80 rounded-sm transition-colors;
+    @apply font-medium text-background/80 hover:text-background hover:bg-primary/80 transition-colors;
   }
 
   .nav-link-active {
-    @apply border-b-4 border-primary text-primary;
+    @apply border-b-4 border-primary text-background;
   }
 
   .btn-primary {
-    @apply bg-primary text-background font-medium text-center rounded-sm hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
+    @apply bg-primary text-background font-medium text-center hover:bg-primary-dark transition-colors shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply rounded-sm text-foreground ring-1 ring-foreground/50 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply text-background ring-1 ring-background/50 hover:bg-background/5 focus:outline-none focus:ring-2 focus:ring-primary;
   }
 
   .hero-overlay {
@@ -187,6 +217,19 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+/* 展示标题统一用 Bebas Neue。
+   这里只设字体、字距和行高——字号与字重仍由各处的 Tailwind 工具类决定
+   (utilities 层优先级高于 base 层),不会覆盖现有排版。 */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
 }

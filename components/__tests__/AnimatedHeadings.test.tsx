@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 
-import AnimatedHeadings from "../AnimatedHeadings";
+import AnimatedHeadings from "../old/AnimatedHeadings";
 import { HomePage } from "@/sanity/sanity.types";
 
 describe("AnimatedHeadings Component", () => {

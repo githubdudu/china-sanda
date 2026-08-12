@@ -25,13 +25,13 @@ export const heroData: HomePage = {
       _type: "titleSentence",
       title: {
         _type: "sentence",
-        sentence: "Welcome to China Sanda Club",
-        stressWord: "China Sanda Club",
+        sentence: "China Sanda Club",
+        stressWord: "Sanda",
       },
       titleCN: {
         _type: "sentence",
-        sentence: "欢迎来到 中国散打",
-        stressWord: "中国散打",
+        sentence: "中国散打",
+        stressWord: "散打",
       },
     },
     {
@@ -39,13 +39,13 @@ export const heroData: HomePage = {
       _type: "titleSentence",
       title: {
         _type: "sentence",
-        sentence: "The World-Class Sanda Club",
-        stressWord: "The World-Class",
+        sentence: "The World-Class Art of Chinese Kickboxing",
+        stressWord: "World-Class",
       },
       titleCN: {
         _type: "sentence",
-        sentence: "世界一流的 散打搏击俱乐部",
-        stressWord: "世界一流的",
+        sentence: "世界一流的中国散打",
+        stressWord: "世界一流",
       },
     },
   ],

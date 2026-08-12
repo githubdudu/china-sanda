@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono, Bebas_Neue } from "next/font/google";
 
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -11,13 +11,19 @@ import { client } from "@/sanity/client";
 import { defaultNavBarData } from "@/data/navItems";
 import { defaultAddressData } from "@/data/address";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -60,10 +66,12 @@ export default async function RootLayout({
     console.error("Error fetching address data from Sanity.io", error);
   }
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${geistMono.variable} ${bebasNeue.variable}`}
+    >
+      <body className="antialiased">
         <ThemeProvider>
           <Header navBarData={navBarData} />
           {children}

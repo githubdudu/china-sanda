@@ -1,4 +1,6 @@
 import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
+import WhySection from "@/components/WhySection";
 
 import { client } from "@/sanity/client";
 import { type HomePage } from "@/sanity/sanity.types";
@@ -13,16 +15,23 @@ export default async function Home() {
   let heroData: HomePage | null = null;
   try {
     heroData = await client.fetch<HomePage>(CONTENT_QUERY);
-  }
-  catch (error) {
+  } catch (error) {
     heroData = defaultHeroData;
     console.error("Error fetching hero data from Sanity.io", error);
   }
 
   return (
-    <div className="font-sans">
+    <div>
       <main className="flex flex-col gap-8">
         <Hero heroData={heroData} />
+        <AboutSection />
+        <WhySection />
+        {/* <Programs />
+        <Trainers />
+        <Schedule />
+        <Community />
+        <Testimonials />
+        <Contact /> */}
       </main>
     </div>
   );

@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { usePathname } from "next/navigation";
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
 
 import { NavBar } from "@/sanity/sanity.types";
-
-import { ThemeToggle } from "./ThemeToggle";
 
 const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,6 +22,10 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   const isActiveLink = (href: string): boolean => {
     if (href === "/") {
       return pathname === "/";
@@ -31,53 +34,52 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
   };
 
   return (
-    <header
-      className="sticky top-0 z-50 w-full bg-background border-b
-      border-foreground/10 shadow-sm"
-    >
-      <nav className="container mx-auto px-2">
-        <div className="flex items-center justify-between sm:h-16 md:h-25">
-          {/* Logo */}
-          <div className="h-10 sm:h-16 md:h-20 w-10 sm:w-16 md:w-20 relative">
-            <Image
-              src="/logo.jpeg"
-              alt="China Sanda Club logo"
-              fill
-              // add sizes to increase performance
-              // The size is image resolution.
-              sizes="90px, (min-width: 640px) 120px, (min-width: 768px) 180px"
-              className="object-fill"
-              priority
-            />
+    <header className="sticky top-0 z-50 w-full bg-foreground shadow-sm">
+      <nav className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo and Title */}
+          <div className="flex items-center gap-4">
+            {/* Logo */}
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 overflow-hidden rounded-full">
+              <Image
+                src="/logo.jpeg"
+                alt="China Sanda Club logo"
+                fill
+                // Matches the rendered box above; the browser picks the DPR
+                // variant from the srcset Next generates.
+                sizes="(min-width: 768px) 56px, (min-width: 640px) 48px, 40px"
+                className="object-cover translate-y-1"
+                priority
+              />
+            </div>
+            {/* Title */}
+            <Link href="/" className="space-x-2 font-bold ">
+              <div className="text-2xl display font-bold text-background">
+                <span>{siteName2}</span>
+              </div>
+            </Link>
           </div>
 
-          {/* Title */}
-          <Link
-            href="/"
-            className="flex md:flex-5 justify-center lg:justify-self-start items-center space-x-2 hover:opacity-60
-            transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
-          >
-            <div className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary">
-              <span>{siteName}</span>
-              <span>{siteName2}</span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation & Action Button */}
           <div className="hidden lg:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((link) => (
               <Link
                 key={link.url}
                 href={link.url || "/"}
-                className={`flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 text-xs md:text-sm lg:text-base nav-link ${
+                className={`flex flex-col px-1 md:px-2 lg:px-3 xl:px-4 py-2 nav-link ${
                   isActiveLink(link.url || "/") ? "nav-link-active" : ""
                 }`}
               >
                 <span>{link.name}</span>
-                <span>{link.nameCN}</span>
               </Link>
             ))}
-            <ThemeToggle />
+            {/* Action Button */}
+            <Link
+              href="/contact"
+              className="px-6 py-3 ml-4 btn-primary display hidden md:inline-block"
+            >
+              Book A Trial
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -120,48 +122,42 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
               </svg>
             )}
           </button>
-
-          <Link
-            href="/contact"
-            className="px-6 py-2 ml-4 btn-primary hidden md:inline-block"
-          >
-            Book Trial
-          </Link>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-foreground/10">
-            <div className="flex flex-col space-y-1">
-              {navItems.map((link) => (
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="lg:hidden fixed right-0 top-16 bottom-0 w-64 bg-[#1a1a1a] border-l border-[#333] shadow-2xl"
+            >
+              <div className="px-4 py-6 space-y-4">
+                {navItems.map((link) => (
+                  <Link
+                    key={link.url}
+                    href={link.url || "/"}
+                    className={`flex justify-center gap-2 px-4 py-2 text-center text-base nav-link ${
+                      isActiveLink(link.url || "/") ? "nav-link-active" : ""
+                    }`}
+                    onClick={toggleMobileMenu}
+                  >
+                    <span>{link.name}</span>
+                  </Link>
+                ))}
                 <Link
-                  key={link.url}
-                  href={link.url || "/"}
-                  className={`flex justify-center gap-2 px-4 py-2 text-center text-base nav-link ${
-                    isActiveLink(link.url || "/") ? "nav-link-active" : ""
-                  }`}
+                  href="/contact"
+                  className="mx-auto px-6 py-3 btn-primary w-full inline-block"
                   onClick={toggleMobileMenu}
                 >
-                  <span>{link.name}</span>
-                  <span>{link.nameCN}</span>
+                  Book A Trial
                 </Link>
-              ))}
-              <div className="flex items-center justify-between px-4 py-2">
-                <span className="text-sm font-medium text-foreground">
-                  Theme
-                </span>
-                <ThemeToggle />
               </div>
-              <Link
-                href="/contact"
-                className="mx-4 px-6 py-2 btn-primary"
-                onClick={toggleMobileMenu}
-              >
-                Book Trial
-              </Link>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );
