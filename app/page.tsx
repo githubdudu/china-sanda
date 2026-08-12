@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
 
 import { client } from "@/sanity/client";
 import { type HomePage } from "@/sanity/sanity.types";
@@ -22,8 +23,8 @@ export default async function Home() {
     <div>
       <main className="flex flex-col gap-8">
         <Hero heroData={heroData} />
-        {/* <About />
-        <Programs />
+        <AboutSection />
+        {/* <Programs />
         <Trainers />
         <Schedule />
         <Community />
