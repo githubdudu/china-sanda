@@ -2,24 +2,30 @@
 
 /* ========================================
    Custom Properties
+
+   品牌色取自 South Central Boxing Club(冠军红 / 能量黄 / 沥青黑),
+   结构沿用本项目原有的 light / base / dark 三档色阶。
+   所有档位由 OKLCH 沿固定色相推导,色相漂移 0°:
+     主色 H=26.7°   辅色 H=94.9°   两者分离 68.2°
    ======================================== */
 :root {
   /* Base Colors */
-  --background: #fff;
-  --background-secondary: #eee;
-  --foreground: #1a1a1a;
+  --background: #ffffff;
+  --background-secondary: #f5f5f5;
+  --foreground: #111111;
 
-  /* Brand - Traditional Chinese Red */
-  --primary-light: #fca5a5;
-  --primary: #dc2626;
-  --primary-dark: #991b1b;
+  /* Brand - Champion Red (H 26.7°) */
+  --primary-light: #fea69d;
+  --primary: #c62828;
+  --primary-dark: #a01f1f;
 
-  /* Brand - Gold Accent */
-  --secondary-light: #fcd34d;
-  --secondary: #f59e0b;
-  --secondary-dark: #b45309;
+  /* Brand - Energy Yellow (H 94.9°) */
+  --secondary-light: #ffea80;
+  --secondary: #ffd600;
+  --secondary-dark: #c5a100;
 
-  /* Semantic Colors */
+  /* Semantic Colors
+     作为色块背景使用(配深色文字);当作浅底上的文字色会不达标。 */
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
@@ -31,13 +37,22 @@
   --hero-overlay-to: rgb(0 0 0 / 0.4);
 }
 
-/* Dark mode via manual toggle (.dark class) or system preference */
+/* Dark mode via manual toggle (.dark class) or system preference
+
+   暗色下主色整体提亮以保证正文对比度,且 *-dark 档反向变亮——
+   悬停态在深色底上必须比常态更亮,否则 text-background 压上去会不可读。 */
 .dark {
   --background: #0a0a0a;
   --background-secondary: #1a1a1a;
   --foreground: #ededed;
-  --primary: #df3b3b;
-  --secondary: #fbbf24;
+
+  --primary-light: #ffc0b6;
+  --primary: #df544c;
+  --primary-dark: #f46f65;
+
+  --secondary-light: #fff3a8;
+  --secondary: #edc70e;
+  --secondary-dark: #ffe362;
 
   /* Hero Overlay - Dark Mode */
   --hero-overlay-from: rgb(0 0 0 / 0.7);
@@ -51,9 +66,15 @@
   :root:not(.light) {
     --background: #0a0a0a;
     --background-secondary: #1a1a1a;
-    --primary: #df3b3b;
     --foreground: #ededed;
-    --secondary: #fbbf24;
+
+    --primary-light: #ffc0b6;
+    --primary: #df544c;
+    --primary-dark: #f46f65;
+
+    --secondary-light: #fff3a8;
+    --secondary: #edc70e;
+    --secondary-dark: #ffe362;
 
     /* Hero Overlay - Dark Mode (system preference) */
     --hero-overlay-from: rgb(0 0 0 / 0.7);
