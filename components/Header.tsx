@@ -9,8 +9,6 @@ import Image from "next/image";
 
 import { NavBar } from "@/sanity/sanity.types";
 
-import { ThemeToggle } from "./ThemeToggle";
-
 const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -32,11 +30,11 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full bg-background border-b
+      className="sticky top-0 z-50 w-full bg-foreground border-b
       border-foreground/10 shadow-sm"
     >
       <nav className="container mx-auto px-2">
-        <div className="flex items-center justify-between sm:h-16 md:h-25">
+        <div className="flex items-center justify-between sm:h-16 md:h-20">
           {/* Logo */}
           <div className="h-10 sm:h-16 md:h-20 w-10 sm:w-16 md:w-20 relative">
             <Image
@@ -58,7 +56,6 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
             transition-opacity text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-primary pl-0.5 sm:pl-1 md:pl-2"
           >
             <div className="text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-primary">
-              <span>{siteName}</span>
               <span>{siteName2}</span>
             </div>
           </Link>
@@ -74,10 +71,8 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
                 }`}
               >
                 <span>{link.name}</span>
-                <span>{link.nameCN}</span>
               </Link>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
@@ -125,7 +120,7 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
             href="/contact"
             className="px-6 py-2 ml-4 btn-primary hidden md:inline-block"
           >
-            Book Trial
+            Book A Trial
           </Link>
         </div>
 
@@ -143,15 +138,8 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
                   onClick={toggleMobileMenu}
                 >
                   <span>{link.name}</span>
-                  <span>{link.nameCN}</span>
                 </Link>
               ))}
-              <div className="flex items-center justify-between px-4 py-2">
-                <span className="text-sm font-medium text-foreground">
-                  Theme
-                </span>
-                <ThemeToggle />
-              </div>
               <Link
                 href="/contact"
                 className="mx-4 px-6 py-2 btn-primary"
