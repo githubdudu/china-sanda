@@ -56,7 +56,7 @@ function Hero({ heroData }: { heroData: HomePage }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
-          className="text-[#FFD600] mb-8"
+          className="text-secondary mb-8"
           style={{
             fontFamily: "Bebas Neue, sans-serif",
             fontSize: "clamp(1.25rem, 3vw, 2rem)",
@@ -90,25 +90,25 @@ function Hero({ heroData }: { heroData: HomePage }) {
         <div className="flex gap-6 justify-center items-center">
           <a
             href="#"
-            className="text-white hover:text-[#FFD600] transition-colors"
+            className="text-white hover:text-secondary transition-colors"
           >
             <Instagram />
           </a>
           <a
             href="#"
-            className="text-white hover:text-[#FFD600] transition-colors"
+            className="text-white hover:text-secondary transition-colors"
           >
             <TickTock />
           </a>
           <a
             href="#"
-            className="text-white hover:text-[#FFD600] transition-colors"
+            className="text-white hover:text-secondary transition-colors"
           >
             <RedBook />
           </a>
           <a
             href="#"
-            className="text-white hover:text-[#FFD600] transition-colors"
+            className="text-white hover:text-secondary transition-colors"
           >
             <Youtube />
           </a>
@@ -162,7 +162,7 @@ function StressedSentence({ sentence }: { sentence: Sentence }) {
   return (
     <>
       {text.slice(0, index)}
-      <span className="text-[#FFD600]">{stress}</span>
+      <span className="text-secondary">{stress}</span>
       {text.slice(index + stress.length)}
     </>
   );
@@ -182,8 +182,8 @@ function HeroButton({
       onClick={onClick}
       className={`px-8 py-4 ${
         variant === "primary"
-          ? "bg-[#C62828] text-white hover:bg-gradient-to-b hover:from-[#C62828] hover:to-[#a01f1f]"
-          : "bg-white text-[#111111] hover:bg-[#FFD600]"
+          ? "bg-primary text-background hover:bg-gradient-to-b hover:from-primary hover:to-primary-dark"
+          : "bg-background text-foreground hover:bg-secondary"
       } transition-colors shadow-lg`}
       whileHover={{ y: -2, boxShadow: "0 8px 16px rgba(0,0,0,0.3)" }}
       whileTap={{ scale: 0.98 }}
