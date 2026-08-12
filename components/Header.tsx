@@ -145,7 +145,7 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
                 className="mx-4 px-6 py-2 btn-primary"
                 onClick={toggleMobileMenu}
               >
-                Book Trial
+                Book A Trial
               </Link>
             </div>
           </div>

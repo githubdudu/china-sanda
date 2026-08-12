@@ -42,12 +42,8 @@ function Hero({ heroData }: { heroData: HomePage }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="text-white mb-4 tracking-wider"
-          style={{
-            fontFamily: "Bebas Neue, sans-serif",
-            fontSize: "clamp(3rem, 8vw, 7rem)",
-            lineHeight: "1.1",
-          }}
+          className="text-white mb-24 tracking-wider"
+          style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
         >
           <HeroTitle pageTitle={heroData?.pageTitle} />
         </motion.h1>
@@ -56,9 +52,8 @@ function Hero({ heroData }: { heroData: HomePage }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
-          className="text-secondary mb-8"
+          className="display text-secondary mb-16"
           style={{
-            fontFamily: "Bebas Neue, sans-serif",
             fontSize: "clamp(1.25rem, 3vw, 2rem)",
             letterSpacing: "2px",
           }}
@@ -71,7 +66,7 @@ function Hero({ heroData }: { heroData: HomePage }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
           <HeroButton
             onClick={() => scrollToSection("join")}
@@ -87,34 +82,34 @@ function Hero({ heroData }: { heroData: HomePage }) {
           </HeroButton>
         </motion.div>
 
-        <div className="flex gap-6 justify-center items-center">
+        <div className="flex gap-4 justify-center items-center">
           <a
             href="#"
             className="text-white hover:text-secondary transition-colors"
           >
-            <Instagram />
+            <Instagram className="size-5" />
           </a>
           <a
             href="#"
             className="text-white hover:text-secondary transition-colors"
           >
-            <TickTock />
+            <TickTock className="size-5" />
           </a>
           <a
             href="#"
             className="text-white hover:text-secondary transition-colors"
           >
-            <RedBook />
+            <RedBook className="size-5" />
           </a>
           <a
             href="#"
             className="text-white hover:text-secondary transition-colors"
           >
-            <Youtube />
+            <Youtube className="size-5" />
           </a>
         </div>
 
-        <p className="text-white/80 mt-8">
+        <p className="text-white/70 text-xs mt-8">
           Located in the heart of Auckland City
         </p>
       </div>
@@ -180,7 +175,7 @@ function HeroButton({
   return (
     <motion.button
       onClick={onClick}
-      className={`px-8 py-4 ${
+      className={`display px-8 py-4 ${
         variant === "primary"
           ? "bg-primary text-background hover:bg-gradient-to-b hover:from-primary hover:to-primary-dark"
           : "bg-background text-foreground hover:bg-secondary"
@@ -188,11 +183,7 @@ function HeroButton({
       whileHover={{ y: -2, boxShadow: "0 8px 16px rgba(0,0,0,0.3)" }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
-      style={{
-        fontFamily: "Bebas Neue, sans-serif",
-        fontSize: "1.125rem",
-        letterSpacing: "2px",
-      }}
+      style={{ fontSize: "1.125rem", letterSpacing: "2px" }}
     >
       {children}
     </motion.button>

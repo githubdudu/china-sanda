@@ -66,10 +66,12 @@ export default async function RootLayout({
     console.error("Error fetching address data from Sanity.io", error);
   }
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${geistMono.variable} ${bebasNeue.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${geistMono.variable} ${bebasNeue.variable}`}
+    >
+      <body className="antialiased">
         <ThemeProvider>
           <Header navBarData={navBarData} />
           {children}
