@@ -68,7 +68,7 @@ function CoachesSection() {
         <ScrollReveal delay={0.3}>
           <div className="text-center mt-12">
             <a
-              href="/contact"
+              href="/contact?interest=private"
               className="display inline-block px-8 py-3 btn-primary"
               style={{ fontSize: "1.125rem", letterSpacing: "2px" }}
             >

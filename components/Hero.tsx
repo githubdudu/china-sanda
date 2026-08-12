@@ -62,10 +62,10 @@ function Hero({ heroData }: { heroData: HomePage }) {
           transition={{ duration: 0.35, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
-          <HeroButton href="/classes" variant="primary">
+          <HeroButton href="/contact?interest=trial" variant="primary">
             {heroData?.button1Red?.name}
           </HeroButton>
-          <HeroButton href="/contact" variant="secondary">
+          <HeroButton href="/classes" variant="secondary">
             {heroData?.button2White?.name}
           </HeroButton>
         </motion.div>

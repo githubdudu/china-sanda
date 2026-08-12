@@ -75,7 +75,7 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
             ))}
             {/* Action Button */}
             <Link
-              href="/contact"
+              href="/contact?interest=trial"
               className="px-6 py-3 ml-4 btn-primary display hidden md:inline-block"
             >
               Book A Trial
@@ -148,7 +148,7 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
                   </Link>
                 ))}
                 <Link
-                  href="/contact"
+                  href="/contact?interest=trial"
                   className="mx-auto px-6 py-3 btn-primary w-full inline-block"
                   onClick={toggleMobileMenu}
                 >

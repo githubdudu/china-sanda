@@ -153,7 +153,7 @@ function Programs() {
 
                 <div className="flex gap-4">
                   <a
-                    href="/contact"
+                    href="/contact?interest=general"
                     className="display flex-1 px-6 py-3 btn-primary"
                     style={{ fontSize: "1.125rem", letterSpacing: "2px" }}
                   >
