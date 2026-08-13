@@ -138,7 +138,7 @@ export type Class = {
   _updatedAt: string
   _rev: string
   sequence?: number
-  title: string
+  title?: string
   titleCN?: string
   level?: 'beginner' | 'intermediate' | 'advanced'
   instructor?: {
@@ -182,6 +182,9 @@ export type Instructor = {
     crop?: SanityImageCrop
     _type: 'image'
   }
+  specialties?: Array<string>
+  experience?: number
+  certifications?: Array<string>
 }
 
 export type Address = {

@@ -1,26 +1,17 @@
 // Coach data types and placeholder data
 // Structured to match planned Sanity.io schema
+import { Instructor } from "@/sanity/sanity.types";
 
-export interface Coach {
-  id: string;
-  name: string;
-  nameChinese: string;
-  bio: string;
-  bioChinese: string;
-  photo: string;
-  specialties: string[];
-  experience: number; // years of experience
-  certifications?: string[];
-}
-
-export const coaches: Coach[] = [
+export const coaches: Instructor[] = [
   {
-    id: "coach-1",
+    _id: "coach-1",
+    _type: "instructor",
+    _createdAt: "2023-03-01T00:00:00.000Z",
+    _updatedAt: "2023-03-01T00:00:00.000Z",
+    _rev: "1-1",
     name: "Master Frank Chen",
-    nameChinese: "陈刚",
     bio: "Master Zhang has over 15 years of experience in Sanda and has trained multiple national champions. He specializes in traditional Chinese martial arts combined with modern combat techniques.",
-    bioChinese: "张师傅拥有超过15年的散打经验，培养了多位全国冠军。他专注于将传统中国武术与现代格斗技术相结合。",
-    photo: "/coaches/zhang-wei.jpg",
+    photo: { asset: { _ref: "asset-1", _type: "reference" }, _type: 'image' },
     specialties: ["Sanda", "Boxing", "Competition Training"],
     experience: 20,
     certifications: ["National Level 1 Coach", "International Wushu Judge"],
