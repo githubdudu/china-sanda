@@ -11,7 +11,7 @@ import { heroData as defaultHeroData } from "@/data/hero";
 const CONTENT_QUERY = `*[_type == "homePage"][0]`;
 
 // Enable static generation with on-demand revalidation
-export const revalidate = false;
+export const revalidate = 60;
 
 export default async function Home() {
   let heroData: HomePage | null = null;
