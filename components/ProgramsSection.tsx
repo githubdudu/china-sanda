@@ -12,13 +12,22 @@ import {
 } from "./ScrollReveal";
 
 const programs = [
+  // {
+  //   title: "Mixed Martial Arts(MMA)",
+  //   description: "The ultimate complete combat system.",
+  //   details:
+  //     "The ultimate complete combat system. Our MMA classes combine striking, wrestling, and ground grappling, teaching you how to seamlessly transition between stand-up combat and ground control.",
+  //   level: "All Levels / Beginner to Advanced",
+  //   image:
+  //     "https://images.unsplash.com/photo-1727990617119-5a6a93e4c909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBib3hlciUyMHRyYWluaW5nfGVufDF8fHx8MTc1OTg2ODU0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+  //   icon: Medal,
+  // },
   {
-    title: "Mixed Martial Arts(MMA)",
-    description:
-      "The ultimate complete combat system.",
+    title: "Kickboxing",
+    description: "Combine punches and kicks for a complete full-body workout.",
     details:
-      "The ultimate complete combat system. Our MMA classes combine striking, wrestling, and ground grappling, teaching you how to seamlessly transition between stand-up combat and ground control.",
-    level: "All Levels / Beginner to Advanced",
+      "Combine punches and kicks for a complete full-body workout. Learn powerful strike combinations, improve flexibility, and build endurance while mastering practical standing combat skills.",
+    level: "All Levels / Beginner to Intermediate",
     image:
       "https://images.unsplash.com/photo-1727990617119-5a6a93e4c909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBib3hlciUyMHRyYWluaW5nfGVufDF8fHx8MTc1OTg2ODU0OHww&ixlib=rb-4.1.0&q=80&w=1080",
     icon: Medal,
