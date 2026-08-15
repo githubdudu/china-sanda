@@ -2,8 +2,7 @@ import Image from "next/image";
 
 import { ScrollReveal } from "./ScrollReveal";
 
-const ABOUT_IMAGE =
-  "https://images.unsplash.com/photo-1758875568932-0eefd3e60090?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+const ABOUT_IMAGE = "/frank_chen.png";
 
 function WhySection() {
   return (
@@ -33,7 +32,8 @@ function WhySection() {
               </div>
 
               <p className="text-lg leading-relaxed text-foreground/80">
-                With over 10 years of coaching experience, our instructors bring proven expertise to every session.
+                With over 10 years of coaching experience, our instructors bring
+                proven expertise to every session.
               </p>
 
               <a
@@ -53,8 +53,16 @@ function WhySection() {
                 alt="Coach wrapping hands"
                 width={1080}
                 height={500}
-                className="w-full h-[500px] object-cover shadow-2xl"
+                className="w-full h-[500px] object-cover object-top shadow-2xl "
               />
+              {/* Dark corners */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)",
+                }}
+              ></div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary opacity-50"></div>
             </div>
           </ScrollReveal>
