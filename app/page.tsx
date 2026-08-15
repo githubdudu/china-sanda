@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import WhySection from "@/components/WhySection";
+import ProgramsSection from "@/components/ProgramsSection";
+import CoachesSection from "@/components/CoachesSection";
 
 import { client } from "@/sanity/client";
 import { type HomePage } from "@/sanity/sanity.types";
@@ -9,7 +11,7 @@ import { heroData as defaultHeroData } from "@/data/hero";
 const CONTENT_QUERY = `*[_type == "homePage"][0]`;
 
 // Enable static generation with on-demand revalidation
-export const revalidate = false;
+export const revalidate = 60;
 
 export default async function Home() {
   let heroData: HomePage | null = null;
@@ -26,8 +28,9 @@ export default async function Home() {
         <Hero heroData={heroData} />
         <AboutSection />
         <WhySection />
-        {/* <Programs />
-        <Trainers />
+        <ProgramsSection />
+        <CoachesSection />
+        {/*
         <Schedule />
         <Community />
         <Testimonials />

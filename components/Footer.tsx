@@ -18,14 +18,14 @@ export const Footer = ({
           {/* About Section */}
           <div className="space-y-3">
             <h3 className="text-lg font-bold text-primary">
-              中国散打 China Sanda Club
+              Auckland Combat Academy
             </h3>
             <p className="text-sm text-foreground/80 leading-relaxed">
               World-class Sanda martial arts training club offering expert
               coaching, flexible schedules, and programs for all skill levels.
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">
-              世界一流的散打搏击俱乐部
+              The World-Class Art of Chinese Kickboxing.
             </p>
           </div>
 
@@ -40,8 +40,6 @@ export const Footer = ({
                     className="text-sm text-foreground/80 hover:text-primary transition-colors"
                   >
                     {link.name}
-                    &nbsp;
-                    {link.nameCN}
                   </Link>
                 </li>
               ))}
@@ -50,10 +48,10 @@ export const Footer = ({
 
           {/* Contact Info */}
           <div className="space-y-3">
-            <h3 className="text-lg font-bold text-foreground">Contact Us 联系我们</h3>
+            <h3 className="text-lg font-bold text-foreground">Contact Us</h3>
             <ul className="space-y-2 text-sm text-foreground/80">
               <li>
-                <p className="font-medium text-foreground">Address 地址:</p>
+                <p className="font-medium text-foreground">Address:</p>
                 <p>
                   {address?.streetNumber}
                 &nbsp;
@@ -72,22 +70,12 @@ export const Footer = ({
                 </p>
               </li>
               <li>
-                <p>
-                  {address?.countryCN}
-                  ,&nbsp;
-                  {address?.cityCN}
-                </p>
-                <p>
-                  {address?.addressCN}
-                </p>
-              </li>
-              <li>
-                <span className="font-medium text-foreground">Phone 联系电话:</span>
+                <span className="font-medium text-foreground">Phone:</span>
                 <br />
                 {address?.phone}
               </li>
               <li>
-                <span className="font-medium text-foreground">Email 邮箱:</span>
+                <span className="font-medium text-foreground">Email:</span>
                 <br />
                 <a
                   href={`mailto:${address?.email}`}

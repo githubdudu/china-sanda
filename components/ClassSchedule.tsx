@@ -58,7 +58,7 @@ export const ClassSchedule = ({ classes }: ClassScheduleProps) => {
         const endTime = setMinutes(setHours(eventDate, endHour), endMinute);
 
         calendarEvents.push({
-          title: `${classItem.titleCN || classItem.title}`,
+          title: classItem.title || "",
           start: startTime,
           end: endTime,
           resource: {
@@ -133,15 +133,15 @@ export const ClassSchedule = ({ classes }: ClassScheduleProps) => {
       <div className="mt-6 flex flex-wrap gap-4 justify-center">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded" style={{ backgroundColor: "rgb(34, 197, 94)" }} />
-          <span className="text-sm">Beginner 初级</span>
+          <span className="text-sm">Beginner</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded" style={{ backgroundColor: "rgb(234, 179, 8)" }} />
-          <span className="text-sm">Intermediate 中级</span>
+          <span className="text-sm">Intermediate</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded" style={{ backgroundColor: "rgb(239, 68, 68)" }} />
-          <span className="text-sm">Advanced 高级</span>
+          <span className="text-sm">Advanced</span>
         </div>
       </div>
     </div>

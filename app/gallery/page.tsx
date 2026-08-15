@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 // Enable static generation with on-demand revalidation
-export const revalidate = false;
+export const revalidate = 60;
 
 const GalleryPage = () => {
   const categories = {

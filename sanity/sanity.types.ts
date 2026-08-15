@@ -182,6 +182,9 @@ export type Instructor = {
     crop?: SanityImageCrop
     _type: 'image'
   }
+  specialties?: Array<string>
+  experience?: number
+  certifications?: Array<string>
 }
 
 export type Address = {
