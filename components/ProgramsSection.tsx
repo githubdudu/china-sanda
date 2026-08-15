@@ -5,32 +5,44 @@ import { motion, AnimatePresence } from "motion/react";
 import { HandFist, HandGrab, Medal, X } from "lucide-react";
 import Image from "next/image";
 
-import { ScrollReveal, ScrollRevealGroup, ScrollRevealItem } from "./ScrollReveal";
+import {
+  ScrollReveal,
+  ScrollRevealGroup,
+  ScrollRevealItem,
+} from "./ScrollReveal";
 
 const programs = [
   {
-    title: "Boxing",
-    description: "Master the fundamentals of striking, footwork, and defense.",
-    details: "Master the fundamentals of striking, footwork, and defense. Designed for all fitness levels, from beginners to advanced fighters. Our Boxing classes focus on sharp technique, body conditioning, and stress relief in a controlled, high-energy environment. Gain confidence, discipline, and self-respect with our boxing program. ",
-    level: "All Levels/ Beginner friendly",
-    image: "https://images.unsplash.com/photo-1711825049074-a0ff4a845ee1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGJveGluZyUyMHRyYWluaW5nfGVufDF8fHx8MTc1OTg2ODU0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    icon: HandFist,
+    title: "Mixed Martial Arts(MMA)",
+    description:
+      "The ultimate complete combat system.",
+    details:
+      "The ultimate complete combat system. Our MMA classes combine striking, wrestling, and ground grappling, teaching you how to seamlessly transition between stand-up combat and ground control.",
+    level: "All Levels / Beginner to Advanced",
+    image:
+      "https://images.unsplash.com/photo-1727990617119-5a6a93e4c909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBib3hlciUyMHRyYWluaW5nfGVufDF8fHx8MTc1OTg2ODU0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+    icon: Medal,
   },
+
   {
     title: "Brazilian Jiu Jitsu(BJJ)",
     description: "Learn the art of ground fighting, leverage, and submissions.",
-    details: "Learn the art of ground fighting, leverage, and submissions techniques. BJJ empowers you to control opponents using skill and body positioning rather than raw strength, building confidence and mental resilience.",
+    details:
+      "Learn the art of ground fighting, leverage, and submissions techniques. BJJ empowers you to control opponents using skill and body positioning rather than raw strength, building confidence and mental resilience.",
     level: "All Levels/ Fundamentals & Advanced",
-    image: "https://images.unsplash.com/photo-1651707999616-be901bcc97fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBmaXRuZXNzJTIwd29ya291dHxlbnwxfHx8fDE3NTk3NjY3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image:
+      "https://images.unsplash.com/photo-1651707999616-be901bcc97fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBmaXRuZXNzJTIwd29ya291dHxlbnwxfHx8fDE3NTk3NjY3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     icon: HandGrab,
   },
   {
-    title: "1-1 Private Coaching",
-    description: "Accelerate your progress with personalized, instruction tailored to your specific goals.",
-    details: "Accelerate your progress with personalized, instruction tailored to your specific goals. Whether you want to master technical details, fast-track your fitness, build self-defense confidence, or work around dynamic schedules - private training provides the ultimate direct guidance. Ideal for beginners, busy professionals, and advanced technique refinement.",
-    level: "All Levels / Beginner friendly",
-    image: "https://images.unsplash.com/photo-1727990617119-5a6a93e4c909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBib3hlciUyMHRyYWluaW5nfGVufDF8fHx8MTc1OTg2ODU0OHww&ixlib=rb-4.1.0&q=80&w=1080",
-    icon: Medal,
+    title: "Boxing",
+    description: "Master the fundamentals of striking, footwork, and defense.",
+    details:
+      "Master the fundamentals of striking, footwork, and defense. Designed for all fitness levels, from beginners to advanced fighters. Our Boxing classes focus on sharp technique, body conditioning, and stress relief in a controlled, high-energy environment. Gain confidence, discipline, and self-respect with our boxing program. ",
+    level: "All Levels/ Beginner friendly",
+    image:
+      "https://images.unsplash.com/photo-1711825049074-a0ff4a845ee1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGJveGluZyUyMHRyYWluaW5nfGVufDF8fHx8MTc1OTg2ODU0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    icon: HandFist,
   },
 ];
 
@@ -58,7 +70,10 @@ function Programs() {
             <ScrollRevealItem key={program.title}>
               <motion.div
                 className="group relative overflow-hidden bg-background shadow-lg cursor-pointer border-2 border-transparent"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+                }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelected(index)}
                 transition={{ duration: 0.3 }}
@@ -79,7 +94,9 @@ function Programs() {
 
                 <div className="p-6">
                   <h3 className="mb-3 text-[1.75rem]">{program.title}</h3>
-                  <p className="text-foreground/70 mb-4">{program.description}</p>
+                  <p className="text-foreground/70 mb-4">
+                    {program.description}
+                  </p>
                   <div className="w-12 h-1 bg-secondary group-hover:w-full transition-all duration-300"></div>
                 </div>
               </motion.div>
@@ -144,7 +161,9 @@ function Programs() {
                   <h3 className="text-[2.5rem]">{active.title}</h3>
                 </div>
 
-                <p className="text-lg text-foreground/80 mb-6 leading-relaxed">{active.details}</p>
+                <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
+                  {active.details}
+                </p>
 
                 <div className="bg-background-secondary p-4 mb-6">
                   <h4 className="display text-xl mb-2">Level</h4>
