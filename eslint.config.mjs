@@ -1,19 +1,12 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import stylistic from "@stylistic/eslint-plugin";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended" https://github.com/eslint/eslintrc#usage
-});
+import next from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
 
 const eslintConfig = [
-  ...compat.extends("eslint:recommended", "next/core-web-vitals", "next/typescript"),
+  js.configs.recommended,
+  ...next,
+  ...nextTs,
   stylistic.configs.customize({
     // the following options are the default values
     indent: 2,

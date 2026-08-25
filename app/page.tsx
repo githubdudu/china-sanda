@@ -5,21 +5,34 @@ import ProgramsSection from "@/components/ProgramsSection";
 import CoachesSection from "@/components/CoachesSection";
 
 import { client } from "@/sanity/client";
-import { type HomePage } from "@/sanity/sanity.types";
+import { type HomePage, type Program } from "@/sanity/sanity.types";
+import { urlFor } from "@/sanity/sanityImageUrl";
+import { type ProgramCard } from "@/components/ProgramsSection";
 import { heroData as defaultHeroData } from "@/data/hero";
 
 const CONTENT_QUERY = `*[_type == "homePage"][0]`;
+const PROGRAM_QUERY = `*[_type == "program"]`;
 
 // Enable static generation with on-demand revalidation
 export const revalidate = 60;
 
 export default async function Home() {
   let heroData: HomePage | null = null;
+  let programs: ProgramCard[] | undefined;
   try {
     heroData = await client.fetch<HomePage>(CONTENT_QUERY);
-  } catch (error) {
+    // Resolve image URLs here: sanity/client needs server-only env vars.
+    programs = (await client.fetch<Program[]>(PROGRAM_QUERY)).map((p) => ({
+      title: p.title ?? "",
+      description: p.description ?? "",
+      details: p.details ?? "",
+      level: p.level ?? "",
+      image: p.image ? urlFor(p.image).url() : "",
+    }));
+  }
+  catch (error) {
     heroData = defaultHeroData;
-    console.error("Error fetching hero data from Sanity.io", error);
+    console.error("Error fetching data from Sanity.io", error);
   }
 
   return (
@@ -28,7 +41,7 @@ export default async function Home() {
         <Hero heroData={heroData} />
         <AboutSection />
         <WhySection />
-        <ProgramsSection />
+        <ProgramsSection programs={programs} />
         <CoachesSection />
         {/*
         <Schedule />

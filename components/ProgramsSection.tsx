@@ -11,7 +11,7 @@ import {
   ScrollRevealItem,
 } from "./ScrollReveal";
 
-const programs = [
+const programs_backup = [
   // {
   //   title: "Mixed Martial Arts(MMA)",
   //   description: "The ultimate complete combat system.",
@@ -56,8 +56,19 @@ const programs = [
 ];
 
 const CARD_SIZES = "(min-width: 768px) 33vw, 100vw";
+const ICONS = [Medal, HandGrab, HandFist];
 
-function Programs() {
+export type ProgramCard = Omit<(typeof programs_backup)[number], "icon">;
+
+function Programs({ programs: programData }: { programs?: ProgramCard[] }) {
+  const programs = programData?.length
+    ? programData.map((p, i) => ({
+        ...p,
+        image: p.image || programs_backup[i % programs_backup.length].image,
+        icon: ICONS[i % ICONS.length],
+      }))
+    : programs_backup;
+
   const [selected, setSelected] = useState<number | null>(null);
   const active = selected === null ? null : programs[selected];
 
