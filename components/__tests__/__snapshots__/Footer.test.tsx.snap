@@ -16,7 +16,7 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
         <h3
           class="text-lg font-bold text-primary"
         >
-          中国散打 China Sanda Club
+          Auckland Combat Academy
         </h3>
         <p
           class="text-sm text-foreground/80 leading-relaxed"
@@ -26,7 +26,7 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
         <p
           class="text-sm text-foreground/80 leading-relaxed"
         >
-          世界一流的散打搏击俱乐部
+          The World-Class Art of Chinese Kickboxing.
         </p>
       </div>
       <div
@@ -47,39 +47,31 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
         <h3
           class="text-lg font-bold text-foreground"
         >
-          Contact Us 联系我们
+          Contact Us
         </h3>
         <ul
           class="space-y-2 text-sm text-foreground/80"
         >
           <li>
-            <span
+            <p
               class="font-medium text-foreground"
             >
               Address:
-            </span>
-            <br />
-             
-            <br />
-            , 
-             
-            <br />
+            </p>
+            <p>
+               
+            </p>
+            <p />
+            <p>
+               
+            </p>
+            <p />
           </li>
           <li>
             <span
               class="font-medium text-foreground"
             >
-              地址:
-            </span>
-            <br />
-            , 
-            <br />
-          </li>
-          <li>
-            <span
-              class="font-medium text-foreground"
-            >
-              Phone 联系电话:
+              Phone:
             </span>
             <br />
           </li>
@@ -87,7 +79,7 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
             <span
               class="font-medium text-foreground"
             >
-              Email 邮箱:
+              Email:
             </span>
             <br />
             <a
@@ -109,7 +101,7 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
         class="text-center text-sm text-foreground/60"
       >
         © 
-        2025
+        2026
          China Sanda Club. All rights reserved.
       </p>
     </div>
@@ -133,7 +125,7 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
         <h3
           class="text-lg font-bold text-primary"
         >
-          中国散打 China Sanda Club
+          Auckland Combat Academy
         </h3>
         <p
           class="text-sm text-foreground/80 leading-relaxed"
@@ -143,7 +135,7 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
         <p
           class="text-sm text-foreground/80 leading-relaxed"
         >
-          世界一流的散打搏击俱乐部
+          The World-Class Art of Chinese Kickboxing.
         </p>
       </div>
       <div
@@ -163,8 +155,6 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/"
             >
               Home
-               
-              首页
             </a>
           </li>
           <li>
@@ -173,8 +163,6 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/classes"
             >
               Classes
-               
-              课程安排
             </a>
           </li>
           <li>
@@ -183,8 +171,6 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/coaches"
             >
               Coaches
-               
-              教练团队
             </a>
           </li>
           <li>
@@ -193,8 +179,6 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/pricing"
             >
               Pricing
-               
-              学费价格
             </a>
           </li>
           <li>
@@ -203,8 +187,6 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/gallery"
             >
               Gallery
-               
-              精彩回顾
             </a>
           </li>
           <li>
@@ -213,8 +195,6 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
               href="/contact"
             >
               Contact
-               
-              联系方式
             </a>
           </li>
         </ul>
@@ -225,48 +205,39 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
         <h3
           class="text-lg font-bold text-foreground"
         >
-          Contact Us 联系我们
+          Contact Us
         </h3>
         <ul
           class="space-y-2 text-sm text-foreground/80"
         >
           <li>
-            <span
+            <p
               class="font-medium text-foreground"
             >
               Address:
-            </span>
-            <br />
-            18
-             
-            Norwich Street
-            <br />
-            Eden Terrace
-            , 
-            Auckland
-             
-            1021
-            <br />
-            New Zealand
+            </p>
+            <p>
+              18
+               
+              Norwich Street
+            </p>
+            <p>
+              Eden Terrace
+            </p>
+            <p>
+              Auckland
+               
+              1021
+            </p>
+            <p>
+              New Zealand
+            </p>
           </li>
           <li>
             <span
               class="font-medium text-foreground"
             >
-              地址:
-            </span>
-            <br />
-            新西兰
-            , 
-            奥克兰
-            <br />
-            诺里奇街18号
-          </li>
-          <li>
-            <span
-              class="font-medium text-foreground"
-            >
-              Phone 联系电话:
+              Phone:
             </span>
             <br />
             0279662222
@@ -275,7 +246,7 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
             <span
               class="font-medium text-foreground"
             >
-              Email 邮箱:
+              Email:
             </span>
             <br />
             <a
@@ -299,7 +270,7 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
         class="text-center text-sm text-foreground/60"
       >
         © 
-        2025
+        2026
          China Sanda Club. All rights reserved.
       </p>
     </div>

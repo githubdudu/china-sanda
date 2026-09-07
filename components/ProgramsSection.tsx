@@ -11,7 +11,7 @@ import {
   ScrollRevealItem,
 } from "./ScrollReveal";
 
-const programs = [
+const programs_backup = [
   // {
   //   title: "Mixed Martial Arts(MMA)",
   //   description: "The ultimate complete combat system.",
@@ -57,7 +57,46 @@ const programs = [
 
 const CARD_SIZES = "(min-width: 768px) 33vw, 100vw";
 
-function Programs() {
+// CMS titles are hand-typed, so match on a normalized form.
+const titleKey = (title: string) => title.trim().toLowerCase();
+const BACKUP_TITLES = new Set(programs_backup.map((p) => titleKey(p.title)));
+
+export type ProgramCard = Omit<(typeof programs_backup)[number], "icon">;
+
+function Programs({
+  programs: programData = [],
+}: {
+  programs?: ProgramCard[];
+}) {
+  const fromSanity = new Map(programData.map((p) => [titleKey(p.title), p]));
+
+  const programs = [
+    // Every backup program always renders. A Sanity doc with the same title
+    // overrides it field by field, so blanks fall back to this program's own
+    // copy rather than to whichever card shares its index.
+    ...programs_backup.map((b) => {
+      const p = fromSanity.get(titleKey(b.title));
+      return !p
+        ? b
+        : {
+            ...b,
+            title: p.title || b.title,
+            description: p.description || b.description,
+            details: p.details || b.details,
+            level: p.level || b.level,
+            image: p.image || b.image,
+          };
+    }),
+    // Programs that exist only in Sanity get appended after the backups.
+    ...programData
+      .filter((p) => !BACKUP_TITLES.has(titleKey(p.title)))
+      .map((p) => ({
+        ...p,
+        image: p.image || programs_backup[0].image,
+        icon: Medal,
+      })),
+  ];
+
   const [selected, setSelected] = useState<number | null>(null);
   const active = selected === null ? null : programs[selected];
 
@@ -76,7 +115,7 @@ function Programs() {
 
         <ScrollRevealGroup className="grid md:grid-cols-3 gap-8">
           {programs.map((program, index) => (
-            <ScrollRevealItem key={program.title}>
+            <ScrollRevealItem key={program.title || index}>
               <motion.div
                 className="group relative overflow-hidden bg-background shadow-lg cursor-pointer border-2 border-transparent"
                 whileHover={{

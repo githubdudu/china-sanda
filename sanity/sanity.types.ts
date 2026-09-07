@@ -13,6 +13,30 @@
  */
 
 // Source: schema.json
+export type Program = {
+  _id: string
+  _type: 'program'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  level?: string
+  description?: string
+  details?: string
+  image?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+}
+
 export type Whichday = 1 | 2 | 3 | 4 | 5 | 6 | 7
 
 export type TimeValue =
@@ -391,6 +415,7 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | Program
   | Whichday
   | TimeValue
   | Tag

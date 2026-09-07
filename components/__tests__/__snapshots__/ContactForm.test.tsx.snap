@@ -4,59 +4,24 @@ exports[`ContactForm Component > renders initial form state and matches snapshot
 <form
   class="space-y-6"
 >
-  <div>
-    <label
-      class="block text-sm font-medium mb-2"
-      for="name"
-    >
-      Name / 姓名 *
-    </label>
-    <input
-      class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-      id="name"
-      name="name"
-      required=""
-      type="text"
-      value=""
-    />
-  </div>
-  <div>
-    <label
-      class="block text-sm font-medium mb-2"
-      for="email"
-    >
-      Email / 邮箱 *
-    </label>
-    <input
-      class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-      id="email"
-      name="email"
-      required=""
-      type="email"
-      value=""
-    />
-  </div>
-  <div>
-    <label
-      class="block text-sm font-medium mb-2"
-      for="phone"
-    >
-      Phone / 电话
-    </label>
-    <input
-      class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-      id="phone"
-      name="phone"
-      type="tel"
-      value=""
-    />
-  </div>
+  <input
+    name="subject"
+    type="hidden"
+    value="New enquiry from China Sanda Club website"
+  />
+  <input
+    autocomplete="off"
+    class="hidden"
+    name="botcheck"
+    tabindex="-1"
+    type="checkbox"
+  />
   <div>
     <label
       class="block text-sm font-medium mb-2"
       for="interest"
     >
-      I'm interested in / 我对以下感兴趣 *
+      I'm interested in *
     </label>
     <select
       class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
@@ -65,57 +30,104 @@ exports[`ContactForm Component > renders initial form state and matches snapshot
       required=""
     >
       <option
-        value="general"
+        value="trial"
       >
-        General Inquiry / 一般咨询
-      </option>
-      <option
-        value="beginner"
-      >
-        Beginner Classes / 初级课程
-      </option>
-      <option
-        value="advanced"
-      >
-        Advanced Training / 高级训练
+        Trial Class
       </option>
       <option
         value="youth"
       >
-        Youth Programs / 青少年课程
+        Youth Programs
       </option>
       <option
         value="private"
       >
-        Private Training / 私教
+        Private Training
       </option>
       <option
-        value="trial"
+        selected=""
+        value="general"
       >
-        Trial Class / 试听课
+        General Inquiry
+      </option>
+      <option
+        value="beginner"
+      >
+        Beginner Classes
+      </option>
+      <option
+        value="advanced"
+      >
+        Advanced Training
       </option>
     </select>
   </div>
   <div>
     <label
       class="block text-sm font-medium mb-2"
+      for="name"
+    >
+      Name
+    </label>
+    <input
+      class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+      id="name"
+      maxlength="80"
+      name="name"
+      required=""
+      type="text"
+    />
+  </div>
+  <div>
+    <label
+      class="block text-sm font-medium mb-2"
+      for="email"
+    >
+      Email
+    </label>
+    <input
+      class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+      id="email"
+      name="email"
+      required=""
+      type="email"
+    />
+  </div>
+  <div>
+    <label
+      class="block text-sm font-medium mb-2"
+      for="phone"
+    >
+      Phone
+    </label>
+    <input
+      class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+      id="phone"
+      name="phone"
+      type="tel"
+    />
+  </div>
+  <div>
+    <label
+      class="block text-sm font-medium mb-2"
       for="message"
     >
-      Message / 留言 *
+      Message *
     </label>
     <textarea
       class="w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
       id="message"
+      maxlength="2000"
       name="message"
       required=""
       rows="5"
     />
   </div>
   <button
-    class="btn-primary w-full"
+    class="btn-primary w-full disabled:opacity-60 p-3"
     type="submit"
   >
-    Send Message / 发送消息
+    Send the message
   </button>
 </form>
 `;
