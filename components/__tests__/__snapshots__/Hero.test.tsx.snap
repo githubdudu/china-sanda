@@ -6,9 +6,12 @@ exports[`Hero Component > renders with full hero data and matches snapshot 1`] =
   id="home"
 >
   <div
-    class="absolute inset-0 bg-cover bg-center"
-    style="background-image: url("https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral");"
+    class="absolute inset-0"
   >
+    <img
+      alt=""
+      src="https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    />
     <div
       class="absolute inset-0 bg-black/70"
     />
@@ -169,9 +172,12 @@ exports[`Hero Component > renders with minimal hero data and matches snapshot 1`
   id="home"
 >
   <div
-    class="absolute inset-0 bg-cover bg-center"
-    style="background-image: url("https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral");"
+    class="absolute inset-0"
   >
+    <img
+      alt=""
+      src="https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+    />
     <div
       class="absolute inset-0 bg-black/70"
     />
