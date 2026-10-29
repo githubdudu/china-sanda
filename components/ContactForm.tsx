@@ -83,7 +83,7 @@ export const ContactForm = () => {
       <input
         type="hidden"
         name="subject"
-        value="New enquiry from China Sanda Club website"
+        value="New enquiry from Auckland Combat Academy website"
       />
       {/* Honeypot: hidden from humans, bots fill it and the submission is dropped */}
       <input

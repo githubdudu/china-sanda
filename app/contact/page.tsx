@@ -83,7 +83,7 @@ async function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="China Sanda Club Location"
+                    title="Auckland Combat Academy Location"
                   />
                 </div>
               </div>

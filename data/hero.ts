@@ -25,12 +25,12 @@ export const heroData: HomePage = {
       _type: "titleSentence",
       title: {
         _type: "sentence",
-        sentence: "China Sanda Club",
+        sentence: "Auckland Combat Academy",
         stressWord: "Sanda",
       },
       titleCN: {
         _type: "sentence",
-        sentence: "中国散打",
+        sentence: "奥克兰格斗学院",
         stressWord: "散打",
       },
     },
@@ -44,7 +44,7 @@ export const heroData: HomePage = {
       },
       titleCN: {
         _type: "sentence",
-        sentence: "世界一流的中国散打",
+        sentence: "世界一流的格斗学院",
         stressWord: "世界一流",
       },
     },

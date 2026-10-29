@@ -5,7 +5,7 @@ import { client } from "@/sanity/client";
 import { ClassSchedule } from "@/components/ClassSchedule";
 
 export const metadata: Metadata = {
-  title: "Classes & Schedule | 课程安排 - China Sanda Club",
+  title: "Classes & Schedule | 课程安排 - Auckland Combat Academy",
   description: "Explore our comprehensive class schedule including beginner Sanda, advanced training, youth programs, and more. 浏览我们全面的课程安排。",
 };
 

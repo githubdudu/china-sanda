@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pricingPlans } from "@/data/pricing";
 
 export const metadata: Metadata = {
-  title: "Pricing Plans | 价格方案 - China Sanda Club",
+  title: "Pricing Plans | 价格方案 - Auckland Combat Academy",
   description: "Choose the perfect membership plan for your training goals. Flexible options for everyone from beginners to competitive fighters. 选择最适合您的会员方案。",
 };
 

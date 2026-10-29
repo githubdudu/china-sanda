@@ -7,7 +7,7 @@ exports[`ContactForm Component > renders initial form state and matches snapshot
   <input
     name="subject"
     type="hidden"
-    value="New enquiry from China Sanda Club website"
+    value="New enquiry from Auckland Combat Academy website"
   />
   <input
     autocomplete="off"

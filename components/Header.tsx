@@ -15,8 +15,8 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
   const pathname = usePathname();
 
   const navItems = navBarData?.navItems || [];
-  const siteName = navBarData?.siteName || "中国散打";
-  const siteName2 = navBarData?.siteName2 || "China Sanda Club";
+  const siteName = navBarData?.siteName || "奥克兰格斗学院";
+  const siteName2 = navBarData?.siteName2 || "Auckland Combat Academy";
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen(!isMobileMenuOpen);

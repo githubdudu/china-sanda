@@ -8,7 +8,7 @@ import type { InvoiceData, InvoiceItem } from "@/lib/invoice";
 
 const today = new Date().toISOString().slice(0, 10);
 
-const SUPPLIER_NAME = "China Sanda Club";
+const SUPPLIER_NAME = "Auckland Combat Academy";
 const SUPPLIER_ADDRESS = [
   `${defaultAddressData.streetNumber} ${defaultAddressData.streetName}`,
   defaultAddressData.suburb,

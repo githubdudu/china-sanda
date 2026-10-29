@@ -276,7 +276,7 @@ export const InvoicePDF = ({ data, logoSrc }: InvoicePDFProps) => (
       <View style={styles.paymentNote}>
         <Text style={styles.paymentNoteTitle}>Payment Instructions</Text>
         <Text style={styles.paymentNoteText}>
-          Please make payment to China Sanda Club within 7 days of invoice date.
+          Please make payment to Auckland Combat Academy within 7 days of invoice date.
           Reference your invoice number when making payment.
         </Text>
       </View>

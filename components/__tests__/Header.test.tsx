@@ -25,8 +25,8 @@ describe("Header Component", () => {
     _createdAt: "2025-01-01",
     _updatedAt: "2025-01-01",
     _rev: "1",
-    siteName: "中国散打",
-    siteName2: "China Sanda Club",
+    siteName: "奥克兰格斗学院",
+    siteName2: "Auckland Combat Academy",
     navItems: [
       { _key: "1", _type: "buttonContent" as const, name: "Home", nameCN: "首页", url: "/" },
       { _key: "2", _type: "buttonContent" as const, name: "Classes", nameCN: "课程", url: "/classes" },
