@@ -3,6 +3,14 @@
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const GOOGLE_ADS_SEND_TO = "AW-18398914470/NuUtCLyikasdEKbPpMVE";
+
 const INPUT_CLASS =
   "w-full px-4 py-2 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary";
 
@@ -48,7 +56,10 @@ export const ContactForm = () => {
       const response = await res.json();
       const { success } = response;
       setStatus(success ? "sent" : "error");
-      if (success) form.reset();
+      if (success) {
+        window.gtag?.("event", "conversion", { send_to: GOOGLE_ADS_SEND_TO });
+        form.reset();
+      }
     } catch (error) {
       setStatus("error");
       console.error(error);

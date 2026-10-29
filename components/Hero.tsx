@@ -1,10 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { type HomePage, type Sentence } from "@/sanity/sanity.types";
 
 import { Instagram, Youtube, TickTock, RedBook } from "./SocialIcons";
+
+const HERO_IMAGE
+  = "https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
 
 function Hero({ heroData }: { heroData: HomePage }) {
   return (
@@ -13,12 +17,16 @@ function Hero({ heroData }: { heroData: HomePage }) {
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral')`,
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/70"></div>
       </div>
 

@@ -42,13 +42,13 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
             {/* Logo */}
             <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 overflow-hidden rounded-full">
               <Image
-                src="/logo.jpeg"
-                alt="China Sanda Club logo"
+                src="/logo.png"
+                alt="Auckland Combat Academy logo"
                 fill
                 // Matches the rendered box above; the browser picks the DPR
                 // variant from the srcset Next generates.
                 sizes="(min-width: 768px) 56px, (min-width: 640px) 48px, 40px"
-                className="object-cover translate-y-1"
+                className="object-cover"
                 priority
               />
             </div>

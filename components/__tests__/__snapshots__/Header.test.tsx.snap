@@ -17,8 +17,8 @@ exports[`Header Component > renders with navigation data and matches snapshot 1`
           class="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 overflow-hidden rounded-full"
         >
           <img
-            alt="China Sanda Club logo"
-            src="/logo.jpeg"
+            alt="Auckland Combat Academy logo"
+            src="/logo.png"
           />
         </div>
         <a
@@ -111,8 +111,8 @@ exports[`Header Component > renders with null navigation data and matches snapsh
           class="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 overflow-hidden rounded-full"
         >
           <img
-            alt="China Sanda Club logo"
-            src="/logo.jpeg"
+            alt="Auckland Combat Academy logo"
+            src="/logo.png"
           />
         </div>
         <a

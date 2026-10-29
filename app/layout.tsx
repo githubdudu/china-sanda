@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono, Bebas_Neue } from "next/font/google";
+import Script from "next/script";
 
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -34,6 +35,8 @@ export const metadata: Metadata = {
 
 const NAVBAR_QUERY = `*[_type == "navBar"][0]`;
 const ADDRESS_QUERY = `*[_type == "address"][0]`;
+
+const GOOGLE_TAG_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID || "AW-18398914470";
 
 export default async function RootLayout({
   children,
@@ -77,6 +80,21 @@ export default async function RootLayout({
           {children}
           <Footer navItems={navBarData?.navItems} address={addressData} />
         </ThemeProvider>
+
+
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_TAG_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
