@@ -16,7 +16,7 @@ const Hero = ({ heroData }: { heroData: HomePage }) => {
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero-bg.png"
-          alt="China Sanda Club training facility"
+          alt="Auckland Combat Academy training facility"
           fill
           className="object-cover"
           priority

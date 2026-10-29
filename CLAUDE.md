@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15.5 website for China Sanda Club (世界一流的散打搏击俱乐部), a martial arts club. The project is currently in early development stages, following a phased approach from static content to dynamic CMS integration with Sanity.io.
+This is a Next.js 15.5 website for Auckland Combat Academy (世界一流的散打搏击俱乐部), a martial arts club. The project is currently in early development stages, following a phased approach from static content to dynamic CMS integration with Sanity.io.
 
 ## Development Commands
 

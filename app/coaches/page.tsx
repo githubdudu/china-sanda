@@ -6,7 +6,7 @@ import { urlFor } from "@/sanity/sanityImageUrl";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Our Coaches | 教练团队 - China Sanda Club",
+  title: "Our Coaches | 教练团队 - Auckland Combat Academy",
   description:
     "Meet our world-class Sanda coaches with decades of experience training champions. 认识我们世界一流的散打教练团队。",
 };

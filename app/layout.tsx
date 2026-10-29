@@ -29,7 +29,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "China Sanda Club - The World-Class Sanda Club 中国散打 - 世界一流的散打搏击俱乐部",
+  title: "Auckland Combat Academy - The World-Class Sanda Club 奥克兰格斗学院 - 世界一流的散打搏击俱乐部",
   description: "World-class Sanda martial arts training club offering expert coaching, flexible schedules, and programs for all skill levels.",
 };
 

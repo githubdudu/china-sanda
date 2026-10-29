@@ -95,7 +95,7 @@ export const Footer = ({
           <p className="text-center text-sm text-foreground/60">
             {"© "}
             {currentYear}
-            &nbsp;China Sanda Club. All rights reserved.
+            &nbsp;Auckland Combat Academy. All rights reserved.
           </p>
         </div>
       </div>

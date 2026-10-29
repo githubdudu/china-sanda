@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { galleryImages } from "@/data/gallery";
 
 export const metadata: Metadata = {
-  title: "Gallery | 图库 - China Sanda Club",
+  title: "Gallery | 图库 - Auckland Combat Academy",
   description: "View our training facilities, competition highlights, and student achievements. 浏览我们的训练设施、比赛精彩瞬间和学员成就。",
 };
 

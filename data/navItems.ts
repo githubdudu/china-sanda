@@ -14,8 +14,8 @@ export const defaultNavBarData: NavBar = {
     },
   },
   name: "Default Navigation Bar",
-  siteName: "中国散打",
-  siteName2: "China Sanda Club",
+  siteName: "奥克兰格斗学院",
+  siteName2: "Auckland Combat Academy",
   navItems: [
     {
       _key: "nav-home",

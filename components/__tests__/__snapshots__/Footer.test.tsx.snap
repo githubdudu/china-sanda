@@ -102,7 +102,7 @@ exports[`Footer Component > renders with default props and matches snapshot 1`] 
       >
         © 
         2026
-         China Sanda Club. All rights reserved.
+         Auckland Combat Academy. All rights reserved.
       </p>
     </div>
   </div>
@@ -271,7 +271,7 @@ exports[`Footer Component > renders with navigation items and matches snapshot 1
       >
         © 
         2026
-         China Sanda Club. All rights reserved.
+         Auckland Combat Academy. All rights reserved.
       </p>
     </div>
   </div>
