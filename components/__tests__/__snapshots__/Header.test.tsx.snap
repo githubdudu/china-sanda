@@ -18,7 +18,7 @@ exports[`Header Component > renders with navigation data and matches snapshot 1`
         >
           <img
             alt="Auckland Combat Academy logo"
-            src="/logo.png"
+            src="/logo.jpg"
           />
         </div>
         <a
@@ -112,7 +112,7 @@ exports[`Header Component > renders with null navigation data and matches snapsh
         >
           <img
             alt="Auckland Combat Academy logo"
-            src="/logo.png"
+            src="/logo.jpg"
           />
         </div>
         <a

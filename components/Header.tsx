@@ -42,7 +42,7 @@ const Header = ({ navBarData }: { navBarData: NavBar | null }) => {
             {/* Logo */}
             <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 overflow-hidden rounded-full">
               <Image
-                src="/logo.png"
+                src="/logo.jpg"
                 alt="Auckland Combat Academy logo"
                 fill
                 // Matches the rendered box above; the browser picks the DPR
