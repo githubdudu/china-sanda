@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { type HomePage, type Sentence } from "@/sanity/sanity.types";
 
-import { Instagram, Youtube, TickTock, RedBook } from "./SocialIcons";
+import { Instagram, Youtube, RedBook } from "./SocialIcons";
 
 const HERO_IMAGE
   = "https://images.unsplash.com/photo-1570456717698-41ac2f7157bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib3hpbmclMjBneW0lMjB0cmFpbmluZ3xlbnwxfHx8fDE3NTk4NDgxNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
+
+const BRAND_HOSTNAME = "acacombat.co.nz";
 
 function Hero({ heroData }: { heroData: HomePage }) {
   return (
@@ -80,25 +82,19 @@ function Hero({ heroData }: { heroData: HomePage }) {
 
         <div className="flex gap-4 justify-center items-center">
           <a
-            href="#"
+            href={`https://instagram.${BRAND_HOSTNAME}`}
             className="text-white hover:text-secondary transition-colors"
           >
             <Instagram className="size-5" />
           </a>
           <a
-            href="#"
-            className="text-white hover:text-secondary transition-colors"
-          >
-            <TickTock className="size-5" />
-          </a>
-          <a
-            href="#"
+            href={`https://www.redbook.${BRAND_HOSTNAME}`}
             className="text-white hover:text-secondary transition-colors"
           >
             <RedBook className="size-5" />
           </a>
           <a
-            href="#"
+            href={`https://www.youtube.${BRAND_HOSTNAME}`}
             className="text-white hover:text-secondary transition-colors"
           >
             <Youtube className="size-5" />
