@@ -3,6 +3,7 @@ import AboutSection from "@/components/AboutSection";
 import WhySection from "@/components/WhySection";
 import ProgramsSection from "@/components/ProgramsSection";
 import CoachesSection from "@/components/CoachesSection";
+import InstagramSection from "@/components/InstagramSection";
 
 import { client } from "@/sanity/client";
 import { type HomePage, type Program } from "@/sanity/sanity.types";
@@ -29,8 +30,7 @@ export default async function Home() {
       level: p.level ?? "",
       image: p.image ? urlFor(p.image).url() : "",
     }));
-  }
-  catch (error) {
+  } catch (error) {
     heroData = defaultHeroData;
     console.error("Error fetching data from Sanity.io", error);
   }
@@ -43,6 +43,7 @@ export default async function Home() {
         <WhySection />
         <ProgramsSection programs={programs} />
         <CoachesSection />
+        <InstagramSection />
         {/*
         <Schedule />
         <Community />
