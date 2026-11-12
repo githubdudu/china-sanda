@@ -1,4 +1,3 @@
-import { createElement, type HTMLAttributes } from "react";
 import { ScrollReveal } from "./ScrollReveal";
 
 function InstagramSection() {
