@@ -29,8 +29,10 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Auckland Combat Academy - The World-Class Sanda Club 奥克兰格斗学院 - 世界一流的散打搏击俱乐部",
-  description: "World-class Sanda martial arts training club offering expert coaching, flexible schedules, and programs for all skill levels.",
+  title:
+    "Auckland Combat Academy - The World-Class Sanda Club 奥克兰格斗学院 - 世界一流的散打搏击俱乐部",
+  description:
+    "World-class Sanda martial arts training club offering expert coaching, flexible schedules, and programs for all skill levels.",
 };
 
 const NAVBAR_QUERY = `*[_type == "navBar"][0]`;
@@ -50,8 +52,7 @@ export default async function RootLayout({
     if (!navBarData) {
       throw new Error("No nav bar data found");
     }
-  }
-  catch (error) {
+  } catch (error) {
     navBarData = defaultNavBarData;
     console.error("Error fetching nav bar data from Sanity.io", error);
   }
@@ -63,8 +64,7 @@ export default async function RootLayout({
     if (!addressData) {
       throw new Error("No address data found");
     }
-  }
-  catch (error) {
+  } catch (error) {
     addressData = defaultAddressData;
     console.error("Error fetching address data from Sanity.io", error);
   }
@@ -81,7 +81,6 @@ export default async function RootLayout({
           <Footer navItems={navBarData?.navItems} address={addressData} />
         </ThemeProvider>
 
-
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
           strategy="afterInteractive"
@@ -93,6 +92,19 @@ export default async function RootLayout({
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GOOGLE_TAG_ID}');
+          `}
+        </Script>
+        <Script id="behold-widget-loader" strategy="afterInteractive">
+          {`
+            (() => {
+              if (window.__bhldScript) return;
+              window.__bhldScript = true;
+
+              const script = document.createElement("script");
+              script.type = "module";
+              script.src = "https://w.behold.so/widget.js";
+              setTimeout(() => document.head.append(script), 0);
+            })();
           `}
         </Script>
       </body>
