@@ -88,13 +88,13 @@ function Hero({ heroData }: { heroData: HomePage }) {
             <Instagram className="size-5" />
           </a>
           <a
-            href={`https://www.redbook.${BRAND_HOSTNAME}`}
+            href={`https://rednote.${BRAND_HOSTNAME}`}
             className="text-white hover:text-secondary transition-colors"
           >
             <RedBook className="size-5" />
           </a>
           <a
-            href={`https://www.youtube.${BRAND_HOSTNAME}`}
+            href={`https://youtube.${BRAND_HOSTNAME}`}
             className="text-white hover:text-secondary transition-colors"
           >
             <Youtube className="size-5" />
