@@ -90,7 +90,7 @@ exports[`Hero Component > renders with full hero data and matches snapshot 1`] =
       </a>
       <a
         class="text-white hover:text-secondary transition-colors"
-        href="https://www.redbook.acacombat.co.nz"
+        href="https://rednote.acacombat.co.nz"
       >
         <svg
           aria-label="Xiaohongshu"
@@ -109,7 +109,7 @@ exports[`Hero Component > renders with full hero data and matches snapshot 1`] =
       </a>
       <a
         class="text-white hover:text-secondary transition-colors"
-        href="https://www.youtube.acacombat.co.nz"
+        href="https://youtube.acacombat.co.nz"
       >
         <svg
           aria-label="YouTube"
@@ -223,7 +223,7 @@ exports[`Hero Component > renders with minimal hero data and matches snapshot 1`
       </a>
       <a
         class="text-white hover:text-secondary transition-colors"
-        href="https://www.redbook.acacombat.co.nz"
+        href="https://rednote.acacombat.co.nz"
       >
         <svg
           aria-label="Xiaohongshu"
@@ -242,7 +242,7 @@ exports[`Hero Component > renders with minimal hero data and matches snapshot 1`
       </a>
       <a
         class="text-white hover:text-secondary transition-colors"
-        href="https://www.youtube.acacombat.co.nz"
+        href="https://youtube.acacombat.co.nz"
       >
         <svg
           aria-label="YouTube"
