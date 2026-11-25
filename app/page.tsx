@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import WhySection from "@/components/WhySection";
+import TrainingGoalsSection from "@/components/TrainingGoalsSection";
 import ProgramsSection from "@/components/ProgramsSection";
 import CoachesSection from "@/components/CoachesSection";
 import InstagramSection from "@/components/InstagramSection";
@@ -40,6 +41,7 @@ export default async function Home() {
       <main className="flex flex-col gap-8">
         <Hero heroData={heroData} />
         <AboutSection />
+        <TrainingGoalsSection />
         <WhySection />
         <ProgramsSection programs={programs} />
         <CoachesSection />
